@@ -1,0 +1,679 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Niko Stathis · Health Insurance Advisor</title>
+<meta name="description" content="Health insurance for individuals, families, medical professionals and the self-employed. Nationally licensed. Book a call or text COVERAGE to (224) 306-4565.">
+<meta name="theme-color" content="#0b0506">
+<meta property="og:title" content="Niko Stathis, Health Insurance Advisor">
+<meta property="og:description" content="Open enrollment ends January 15, 2027. Book a call or text COVERAGE to (224) 306-4565.">
+<meta property="og:image" content="card.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Source+Serif+4:opsz,wght@8..60,400;8..60,600;8..60,700&family=Public+Sans:wght@400;500;600;700&display=swap">
+<style>
+:root{
+  color-scheme: dark;
+  --ink:#0b0506; --panel:#1c0a0e; --line:#3a141c; --line-2:#4a1d26;
+  --crimson:#c8103f; --crimson-dk:#a30d33; --wine:#5a0616; --rose:#ff8aa3;
+  --paper:#f7f1f2; --paper-ink:#1f0a0f; --paper-muted:#6d4b53; --paper-line:#e1d3d6;
+  --text:#fff; --muted:#c9a9b0;
+  --serif:"Source Serif 4", Georgia, "Times New Roman", serif;
+  --sans:"Public Sans", system-ui, -apple-system, "Segoe UI", sans-serif;
+  --bar-h:64px;
+}
+*{box-sizing:border-box}
+[hidden]{display:none!important}
+html,body{margin:0}
+body{background:var(--ink);color:var(--text);font:16px/1.5 var(--sans);-webkit-font-smoothing:antialiased;padding-bottom:calc(var(--bar-h) + env(safe-area-inset-bottom,0px))}
+a{color:inherit}
+h1,h2{font-family:var(--serif);text-wrap:balance}
+button,input,select{font:inherit}
+:focus-visible{outline:2px solid var(--rose);outline-offset:2px}
+.wrap{max-width:520px;margin:0 auto}
+.eyebrow{font-size:12px;letter-spacing:1.6px;text-transform:uppercase;color:var(--rose);font-weight:700}
+.btn{display:flex;align-items:center;justify-content:center;gap:8px;min-height:50px;padding:0 20px;border-radius:12px;border:0;font-weight:700;font-size:16px;text-decoration:none;cursor:pointer}
+.btn-red{background:var(--crimson);color:#fff}
+.btn-red:hover{background:var(--crimson-dk)}
+.btn-white{background:#fff;color:var(--wine)}
+.btn-ghost{background:rgba(0,0,0,.28);color:#fff;border:1.5px solid rgba(255,255,255,.8)}
+.pill{border-radius:999px}
+
+/* ---------- hero ---------- */
+.hero{position:relative;overflow:hidden;min-height:600px;padding:44px 20px 40px;display:flex;flex-direction:column;
+  background:radial-gradient(130% 70% at -10% -8%,#050203 0 30%,rgba(5,2,3,0) 56%),
+    repeating-radial-gradient(circle at 135% 125%,rgba(0,0,0,0) 0 16px,rgba(0,0,0,.24) 25px,rgba(255,90,120,.12) 33px,rgba(0,0,0,0) 42px),
+    linear-gradient(150deg,#0b0304 0%,#5a0616 28%,#b10d36 50%,#d11a47 60%,#7a0a1e 80%,#1a0407 100%)}
+.hero.has-3d{background:linear-gradient(160deg,#050203 0%,#1a0407 40%,#3a0510 100%)}
+#silk3d{position:absolute;inset:0;width:100%;height:100%;display:block}
+.hero::after{content:"";position:absolute;inset:0;pointer-events:none;background:linear-gradient(90deg,rgba(5,2,3,.5) 0%,rgba(5,2,3,.1) 50%,rgba(5,2,3,0) 62%),linear-gradient(0deg,rgba(11,5,6,1) 0%,rgba(11,5,6,.85) 10%,rgba(11,5,6,0) 34%)}
+.photo{position:absolute;right:-6px;bottom:0;width:60%;max-width:300px;aspect-ratio:590/912;z-index:1;
+  background:url(data:image/webp;base64,__CUTOUT__) right bottom/contain no-repeat;filter:drop-shadow(-12px 0 28px rgba(0,0,0,.55));-webkit-mask-image:linear-gradient(180deg,#000 62%,transparent 100%);mask-image:linear-gradient(180deg,#000 62%,transparent 100%)}
+.hero.has-3d .photo{visibility:hidden}
+.hero-copy{position:relative;z-index:2;display:flex;flex-direction:column;gap:6px}
+.hero h1{margin:0;font-size:clamp(40px,12vw,52px);line-height:1.02;font-weight:700;letter-spacing:-.5px;text-shadow:0 2px 18px rgba(0,0,0,.45)}
+.hero .role{font-family:var(--serif);font-size:21px}
+.hero .who{font-family:var(--serif);font-weight:600;font-size:13px;line-height:1.5;margin-top:8px;max-width:200px}
+.hero-ctas{position:relative;z-index:2;margin-top:auto;padding-top:40px;display:flex;flex-direction:column;gap:10px;width:200px;max-width:52%}
+.hero-ctas .btn{white-space:nowrap;padding:0 14px}
+
+.ref{position:relative;z-index:3;margin:-14px 16px 0;padding:12px 16px;background:#fff;color:#3a0a14;border-radius:12px;font-size:14px;line-height:1.4;box-shadow:0 8px 24px rgba(0,0,0,.4)}
+
+section{padding:32px 20px}
+.section-title{margin:0;font-size:28px;line-height:1.15;font-weight:600}
+
+/* ---------- countdown ---------- */
+.clock{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:8px;font-variant-numeric:tabular-nums}
+.clock div{background:var(--panel);border:1px solid var(--line);border-radius:10px;padding:12px 0;text-align:center}
+.clock b{display:block;font-family:var(--serif);font-size:30px;line-height:1.1}
+.clock span{font-size:11px;color:var(--muted)}
+.stack{display:flex;flex-direction:column;gap:16px}
+.note{font-size:13px;line-height:1.5;color:var(--muted);margin:0}
+
+/* ---------- 3D card ---------- */
+.card3d-wrap{position:relative;height:250px;margin:0 -20px;background:radial-gradient(60% 55% at 50% 48%,rgba(200,16,63,.38),rgba(200,16,63,0) 70%)}
+.card3d-wrap::after{content:"";position:absolute;left:22%;right:22%;bottom:10px;height:22px;border-radius:50%;background:radial-gradient(closest-side,rgba(0,0,0,.75),rgba(0,0,0,0));pointer-events:none}
+.card-block{margin:0 16px;padding:24px 20px 20px;border-radius:18px;background:linear-gradient(180deg,#160609 0%,#0b0506 100%);border:1px solid var(--line);display:flex;flex-direction:column;gap:12px;overflow:hidden}
+#card3d{width:100%;height:100%;display:block;touch-action:pan-y;cursor:grab}
+.card-fallback{display:block;width:calc(100% - 40px);margin:0 auto;border-radius:12px;box-shadow:0 18px 40px rgba(0,0,0,.5)}
+
+/* ---------- light panels ---------- */
+.panel{margin:0 16px;padding:24px 20px;background:var(--paper);color:var(--paper-ink);border-radius:16px;display:flex;flex-direction:column;gap:14px}
+.panel .section-title{font-size:24px}
+.panel-head{display:flex;justify-content:space-between;align-items:baseline;gap:12px}
+.step{font-size:13px;color:var(--paper-muted);font-variant-numeric:tabular-nums}
+.bars{display:flex;gap:6px}
+.bars i{flex:1;height:4px;border-radius:2px;background:var(--paper-line)}
+.bars i.on{background:var(--crimson)}
+.q{font-size:17px;font-weight:600;margin:0}
+.opt{min-height:52px;text-align:left;padding:10px 16px;border:1.5px solid var(--paper-line);background:#fff;border-radius:12px;font-weight:500;font-size:15px;color:var(--paper-ink);cursor:pointer}
+.opt:hover{border-color:var(--crimson);background:#fff0f3}
+.opt.picked{border-color:var(--crimson);background:#fff0f3}
+.other-box{display:flex;flex-direction:column;gap:10px;padding:12px;border:1.5px solid var(--crimson);border-radius:12px;background:#fff}
+.other-box label{display:flex;flex-direction:column;gap:6px;font-size:13px;font-weight:600;color:var(--paper-muted)}
+.other-box input{height:46px;border:1px solid var(--paper-line);border-radius:10px;padding:0 12px;font-size:16px;color:var(--paper-ink);background:#fff}
+.result .extra{font-size:14px;padding:10px 12px;border-radius:10px;background:#fff;border:1px solid var(--paper-line);color:#3a1a22}
+.next-step{margin-top:18px;padding:20px;border-radius:14px;background:linear-gradient(150deg,#2a0610 0%,#5a0616 60%,#7a0a1e 100%);display:flex;flex-direction:column;gap:10px}
+.next-step h3{margin:0;font-family:var(--serif);font-size:22px;font-weight:600}
+.next-step p{margin:0 0 4px;font-size:14px;line-height:1.5;color:#f1dde1}
+.next-step .fields{grid-template-columns:repeat(2,minmax(0,1fr))}
+.next-step .fine{font-size:12px;color:#d9b9c0;margin:0}
+.next-step label.f{color:#f1dde1}
+.span2{grid-column:span 2}
+.dates{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:8px}
+.dates div{display:flex;flex-direction:column;gap:2px;padding:10px 12px;border-radius:10px;border:1px solid var(--line)}
+.dates span{font-size:12px;color:var(--muted)}
+.dates b{font-family:var(--serif);font-size:18px;font-weight:600}
+.result h3{margin:0;font-family:var(--serif);font-size:26px;font-weight:600}
+.result p{margin:0;font-size:15px;line-height:1.55;color:#4a2a32}
+.row{display:flex;gap:10px;flex-wrap:wrap}
+.row > *{flex:1 1 140px}
+.row .btn{padding:0 12px;white-space:nowrap;font-size:15px}
+.btn-dark{background:var(--paper-ink);color:#fff}
+.btn-line{background:#fff;color:var(--paper-ink);border:1.5px solid #d9c3c8}
+
+/* ---------- estimator + form ---------- */
+.fields{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:8px}
+label.f{display:flex;flex-direction:column;gap:4px;font-size:12px;color:var(--muted)}
+label.f input,label.f select{height:46px;border-radius:10px;border:1px solid var(--line-2);background:var(--panel);color:#fff;padding:0 12px;font-size:16px;font-weight:600;width:100%;min-width:0}
+.tiers{border-top:1px solid var(--line);font-variant-numeric:tabular-nums}
+.tier{display:grid;grid-template-columns:64px 1fr auto;align-items:center;gap:12px;padding:12px 0;border-bottom:1px solid var(--line)}
+.track{position:relative;height:8px;border-radius:4px;background:var(--panel)}
+.track i{position:absolute;top:0;height:8px;border-radius:4px}
+.tier b{font-weight:700;white-space:nowrap}
+.err{color:var(--rose);font-size:14px;margin:0}
+
+/* ---------- contact ---------- */
+.contacts{display:flex;flex-direction:column;gap:2px;padding-top:24px}
+.contact{display:flex;align-items:center;gap:14px;min-height:54px;text-decoration:none;font-size:16px;overflow-wrap:anywhere}
+.contact .ic{flex:none;width:42px;height:42px;border-radius:50%;background:#2a0d14;display:grid;place-items:center}
+.contact svg{width:20px;height:20px;fill:none;stroke:var(--rose);stroke-width:2;stroke-linecap:round;stroke-linejoin:round}
+footer{padding:8px 20px 32px;font-size:12px;line-height:1.5;color:#9c7f86}
+
+/* ---------- sticky text bar ---------- */
+.textbar{position:fixed;left:0;right:0;bottom:0;z-index:20;min-height:var(--bar-h);padding:0 16px env(safe-area-inset-bottom,0px);
+  background:var(--crimson);color:#fff;display:flex;align-items:center;justify-content:center;gap:10px;text-decoration:none;font-weight:600;font-size:15px;box-shadow:0 -6px 20px rgba(0,0,0,.4)}
+.textbar svg{width:20px;height:20px;fill:none;stroke:currentColor;stroke-width:2;stroke-linecap:round;stroke-linejoin:round;flex:none}
+
+@media (prefers-reduced-motion: reduce){*{scroll-behavior:auto!important;transition:none!important}}
+</style>
+</head>
+<body>
+
+<header class="hero" id="hero">
+  <canvas id="silk3d" aria-hidden="true" hidden></canvas>
+  <div class="photo" role="img" aria-label="Photo of Niko Stathis"></div>
+  <div class="hero-copy">
+    <h1>Niko Stathis</h1>
+    <div class="role">Health Insurance Advisor</div>
+    <div class="who">Individuals · Medical Professionals · Families · Self-Employed</div>
+  </div>
+  <div class="hero-ctas">
+    <button class="btn btn-white pill" type="button" data-save-contact>
+      <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="9" cy="8" r="4"/><path d="M2 21c0-4 3-6 7-6s7 2 7 6M19 8v6M16 11h6"/></svg>
+      Save contact
+    </button>
+    <a class="btn btn-ghost pill" href="https://calendly.com/nikostathis" target="_blank" rel="noopener">Book a call</a>
+  </div>
+</header>
+
+<div class="wrap">
+  <div class="ref" id="ref" hidden></div>
+
+  <section class="stack" id="enroll" aria-labelledby="enroll-title">
+    <div class="eyebrow" id="enroll-eyebrow">Open enrollment starts in</div>
+    <div class="clock" id="clock" aria-live="off">
+      <div><b data-u="d">--</b><span>days</span></div>
+      <div><b data-u="h">--</b><span>hours</span></div>
+      <div><b data-u="m">--</b><span>min</span></div>
+      <div><b data-u="s">--</b><span>sec</span></div>
+    </div>
+    <h2 class="section-title" id="enroll-title">Opens November 1, 2026</h2>
+    <div class="dates">
+      <div><span>Opens</span><b>Nov 1, 2026</b></div>
+      <div><span>Last day to enroll</span><b>Jan 15, 2027</b></div>
+    </div>
+    <p class="note" id="enroll-note">Book a call now and we'll have your plan picked out before enrollment opens. After January 15 you usually need a life change, like a move, marriage, new baby or lost job coverage, to enroll.</p>
+    <a class="btn btn-red" href="https://calendly.com/nikostathis" target="_blank" rel="noopener">Book a call</a>
+  </section>
+
+  <section class="card-block" aria-labelledby="card-title">
+    <div class="eyebrow">Keep my card</div>
+    <h2 class="section-title" id="card-title" style="font-size:24px">Save me in your phone</h2>
+    <div class="card3d-wrap">
+      <canvas id="card3d" tabindex="0" role="button" aria-label="Save Niko's contact to your phone" hidden></canvas>
+      <img class="card-fallback" id="card-fallback" src="card.png" alt="Niko Stathis business card: Health Insurance Advisor, (224) 306-4565, niko@nshealthsolutions.org" width="1050" height="600">
+    </div>
+    <p class="note" style="text-align:center">Tap the card to save my contact, or drag it to spin.</p>
+    <button class="btn btn-white" type="button" data-save-contact>Save contact</button>
+  </section>
+  <div style="height:32px"></div>
+
+  <div class="panel" id="quiz" aria-live="polite"></div>
+
+  <section class="stack" id="estimate" aria-labelledby="est-title">
+    <h2 class="section-title" id="est-title" style="font-size:26px">What would my coverage cost?</h2>
+    <p class="note" style="margin-top:-8px">Get a ballpark in seconds, then send it to Niko for your real quote.</p>
+    <form id="est-form" class="stack" novalidate>
+      <div class="fields">
+        <label class="f">ZIP<input id="est-zip" inputmode="numeric" autocomplete="postal-code" maxlength="5" placeholder="60601"></label>
+        <label class="f">Your age<input id="est-age" inputmode="numeric" maxlength="2" placeholder="40"></label>
+        <label class="f">People
+          <select id="est-hh">
+            <option>1</option><option>2</option><option>3</option><option>4</option><option>5</option><option>6</option>
+          </select>
+        </label>
+      </div>
+      <button class="btn btn-white" type="submit">Show my range</button>
+    </form>
+    <p class="err" id="est-err" hidden></p>
+    <div id="est-out" hidden>
+      <div class="tiers" id="tiers"></div>
+      <p class="note" id="est-basis" style="margin-top:12px"></p>
+      <form class="next-step" id="est-next" novalidate aria-labelledby="quote-title">
+        <div class="eyebrow">Next step</div>
+        <h3 id="quote-title">Get my real quote</h3>
+        <p>Your real price depends on your county, the carriers there and any tax credits you qualify for. Send your ballpark to Niko and get actual plans back.</p>
+        <div class="fields">
+          <label class="f span2">Your name<input id="q-name" autocomplete="name" placeholder="First and last name"></label>
+          <label class="f span2">Best time to reach you
+            <select id="q-time"><option>Anytime</option><option>Mornings</option><option>Afternoons</option><option>Evenings</option></select>
+          </label>
+        </div>
+        <p class="err" id="q-err" hidden></p>
+        <button class="btn btn-red" type="submit">Text Niko for my real quote</button>
+        <a class="btn btn-ghost" href="https://calendly.com/nikostathis" target="_blank" rel="noopener">Or book on my calendar</a>
+        <p class="fine">The text opens on your phone with everything filled in. Nothing is sent until you press send.</p>
+      </form>
+    </div>
+    <p class="note"><b>Pre-subsidy estimates.</b> Rough 2026 marketplace ranges before tax credits, which lower the cost for many households. Prices vary by county and carrier, so this is not a quote.</p>
+  </section>
+
+  <div class="contacts" style="padding-left:20px;padding-right:20px">
+    <a class="contact" href="https://calendly.com/nikostathis" target="_blank" rel="noopener"><span class="ic"><svg viewBox="0 0 24 24"><rect x="3" y="5" width="18" height="16" rx="2"/><path d="M3 10h18M8 3v4M16 3v4"/></svg></span>calendly.com/nikostathis</a>
+    <div class="contact"><span class="ic"><svg viewBox="0 0 24 24"><path d="M12 3l7 3v6c0 4-3 7-7 9-4-2-7-5-7-9V6z"/><path d="M9 12l2 2 4-4"/></svg></span>Nationally Licensed</div>
+    <a class="contact" href="mailto:niko@nshealthsolutions.org"><span class="ic"><svg viewBox="0 0 24 24"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="M3 7l9 6 9-6"/></svg></span>niko@nshealthsolutions.org</a>
+    <a class="contact" href="tel:+12243064565"><span class="ic"><svg viewBox="0 0 24 24"><path d="M5 4h4l2 5-2.5 1.5a11 11 0 005 5L15 13l5 2v4a2 2 0 01-2 2A16 16 0 013 6a2 2 0 012-2"/></svg></span>(224) 306-4565</a>
+  </div>
+
+  <footer>Estimates on this page are general information, not an offer of coverage. Plan availability and prices depend on where you live and when you enroll.</footer>
+</div>
+
+<a class="textbar" id="textbar" href="sms:+12243064565?&body=COVERAGE">
+  <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M21 12a8 8 0 01-11.6 7.1L4 21l1.9-5.4A8 8 0 1121 12z"/></svg>
+  <span>Text <b>COVERAGE</b> to (224) 306-4565</span>
+</a>
+
+<script>
+(function () {
+  "use strict";
+  var PHONE = "+12243064565";
+  var $ = function (id) { return document.getElementById(id); };
+
+  /* ---------- SMS links (iOS uses &body=, Android ?body=) ---------- */
+  var isIOS = /iP(hone|ad|od)/.test(navigator.userAgent) || (navigator.platform === "MacIntel" && navigator.maxTouchPoints > 1);
+  function smsHref(body) { return "sms:" + PHONE + (isIOS ? "&" : "?") + "body=" + encodeURIComponent(body); }
+  function openSms(body) { window.location.href = smsHref(body); }
+
+  /* ---------- referral (?ref=Maria) ---------- */
+  var ref = "";
+  try {
+    ref = (new URLSearchParams(location.search).get("ref") || "").replace(/[^\p{L}\p{M}0-9 .'\-]/gu, "").replace(/\s+/g, " ").trim().slice(0, 40);
+  } catch (e) { ref = ""; }
+  var refLine = ref ? " (Referred by " + ref + ")" : "";
+  if (ref) {
+    var box = $("ref"), b = document.createElement("b");
+    b.textContent = ref + " sent you here.";
+    box.appendChild(b);
+    box.appendChild(document.createTextNode(" Mention them when we talk."));
+    box.hidden = false;
+  }
+  $("textbar").href = smsHref("COVERAGE" + refLine);
+
+  /* ---------- vCard ---------- */
+  var VCARD = [
+    "BEGIN:VCARD", "VERSION:3.0", "N:Stathis;Niko;;;", "FN:Niko Stathis", "TITLE:Health Insurance Advisor",
+    "TEL;TYPE=CELL,VOICE:+1-224-306-4565", "EMAIL;TYPE=INTERNET:niko@nshealthsolutions.org",
+    "URL:https://calendly.com/nikostathis", "NOTE:Nationally licensed health insurance advisor.", "END:VCARD"
+  ].join("\r\n");
+  function saveContact() {
+    var blob = new Blob([VCARD], { type: "text/vcard;charset=utf-8" });
+    var url = URL.createObjectURL(blob), a = document.createElement("a");
+    a.href = url; a.download = "Niko-Stathis.vcf";
+    document.body.appendChild(a); a.click(); a.remove();
+    setTimeout(function () { URL.revokeObjectURL(url); }, 4000);
+  }
+  document.querySelectorAll("[data-save-contact]").forEach(function (el) { el.addEventListener("click", saveContact); });
+
+  /* ---------- open enrollment countdown: to the Nov 1 start, then to the Jan 15 end ---------- */
+  var OE_START = new Date(2026, 10, 1, 0, 0, 0);      // 12:00 AM Nov 1, viewer's local time
+  var OE_END = new Date(2027, 0, 15, 23, 59, 59);     // 11:59 PM Jan 15
+  var cells = {}; document.querySelectorAll("#clock b").forEach(function (el) { cells[el.dataset.u] = el; });
+  var phase = "";
+  function pad(n) { return n < 10 ? "0" + n : "" + n; }
+  function setPhase(p) {
+    if (p === phase) return; phase = p;
+    if (p === "open") {
+      $("enroll-eyebrow").textContent = "Open enrollment ends in";
+      $("enroll-title").textContent = "Open enrollment is open now";
+      $("enroll-note").textContent = "Enroll by January 15, 2027. After that you usually need a life change, like a move, marriage, new baby or lost job coverage, to enroll.";
+    } else if (p === "closed") {
+      $("clock").hidden = true;
+      $("enroll-eyebrow").textContent = "Open enrollment";
+      $("enroll-title").textContent = "Open enrollment has closed";
+      $("enroll-note").textContent = "You may still qualify for a special enrollment period after a move, marriage, new baby or lost job coverage. Book a call and I'll check.";
+    }
+  }
+  function tick() {
+    var now = new Date(), target;
+    if (now < OE_START) { setPhase("before"); target = OE_START; }
+    else if (now <= OE_END) { setPhase("open"); target = OE_END; }
+    else { setPhase("closed"); return clearInterval(timer); }
+    var s = Math.floor((target - now) / 1000);
+    cells.d.textContent = Math.floor(s / 86400);
+    cells.h.textContent = pad(Math.floor(s % 86400 / 3600));
+    cells.m.textContent = pad(Math.floor(s % 3600 / 60));
+    cells.s.textContent = pad(s % 60);
+  }
+  var timer = setInterval(tick, 1000); tick();
+
+  /* ---------- "Which plan fits me?" quiz ----------
+     Every question has an "Other" answer that asks for a few words; those words go into the text to Niko. */
+  var QUESTIONS = [
+    { q: "Who needs coverage?", key: "who", opts: [
+      ["me", "Just me"], ["couple", "Me and my spouse or partner"], ["family", "My family, including kids"], ["team", "My employees"]] },
+    { q: "What's your coverage situation right now?", key: "now", opts: [
+      ["losing", "Losing job coverage, or on COBRA"], ["own", "I buy my own plan and want a better one"], ["none", "I don't have coverage"], ["medicare", "Turning 65 soon, or already on Medicare"]] },
+    { q: "How do you earn your income?", key: "work", opts: [
+      ["w2", "A job that doesn't offer good benefits"], ["self", "Self-employed, freelance or 1099"], ["owner", "I own a business with employees"], ["retired", "Retired or between jobs"]] },
+    { q: "What matters most in a plan?", key: "care", opts: [
+      ["cost", "The lowest monthly payment"], ["doctors", "Keeping my doctors and hospitals"], ["oop", "Low costs when I actually use care"], ["rx", "Covering my prescriptions"], ["event", "A planned surgery, pregnancy or big treatment"]] },
+    { q: "Roughly what will your household earn in 2027?", key: "income", note: "This helps me check whether tax credits can lower your cost.", opts: [
+      ["low", "Under $40,000"], ["mid", "$40,000 to $80,000"], ["high", "$80,000 to $150,000"], ["top", "Over $150,000"], ["skip", "I'd rather not say"]] }
+  ];
+  var RESULTS = {
+    individual: { name: "Individual & Family plans", blurb: "Marketplace and private plans you buy for yourself or your household. I'll compare the networks, deductibles and drug lists side by side so you know exactly what you're paying for." },
+    self: { name: "Self-Employed plans", blurb: "You buy your own coverage, and your premiums may be tax deductible. I'll compare marketplace and private options against how your income moves through the year." },
+    business: { name: "Small Business plans", blurb: "Group coverage, or an ICHRA that gives each employee a set amount toward their own plan. I'll show you what fits your headcount and budget." },
+    medicare: { name: "Medicare options", blurb: "Medicare Advantage, Medigap and Part D drug plans. I'll help you pick the right mix and time your enrollment so you avoid late penalties." },
+    other: { name: "A custom fit", blurb: "Your situation doesn't fit a standard box, and that's fine. Tell me a little more and I'll point you to the right coverage, whether that's health, dental, vision or something else." }
+  };
+  var EXTRA = {
+    losing: "Losing job coverage usually opens a 60-day special enrollment window, so you may not have to wait for open enrollment.",
+    event: "With care already planned, the out-of-pocket maximum matters more than the premium. I'll run the numbers both ways.",
+    rx: "I'll check your prescriptions against each plan's drug list before you choose.",
+    low: "At this income you may qualify for tax credits or lower-cost options, depending on your state.",
+    top: "At this income tax credits may be limited, so the plan design matters more. I'll look at private plans too."
+  };
+  var answers = {}, others = {}, stepIdx = 0, otherOpen = false, quiz = $("quiz");
+
+  function el(tag, cls, text) { var e = document.createElement(tag); if (cls) e.className = cls; if (text != null) e.textContent = text; return e; }
+  function linkBtn(text) { var b = el("button", "opt", text); b.type = "button"; b.style.cssText = "border:0;background:none;min-height:44px;padding:0;color:#6d4b53;text-decoration:underline;align-self:flex-start"; return b; }
+  function route() {
+    var a = answers;
+    if (a.who === "team" || a.work === "owner") return "business";
+    if (a.now === "medicare") return "medicare";
+    if (a.work === "self") return "self";
+    if (a.who === "other" || (a.now === "other" && a.work === "other")) return "other";
+    return "individual";
+  }
+  function label(key) {
+    var Q = QUESTIONS.filter(function (q) { return q.key === key; })[0], v = answers[key];
+    if (v === "other") return others[key] || "Other";
+    var o = Q.opts.filter(function (o) { return o[0] === v; })[0];
+    return o ? o[1] : "";
+  }
+  function next() { stepIdx++; otherOpen = false; renderQuiz(); }
+  function renderQuiz() {
+    quiz.textContent = "";
+    var head = el("div", "panel-head");
+    head.appendChild(el("h2", "section-title", "Which plan fits me?"));
+    if (stepIdx < QUESTIONS.length) {
+      head.appendChild(el("span", "step", (stepIdx + 1) + " of " + QUESTIONS.length));
+      quiz.appendChild(head);
+      var bars = el("div", "bars");
+      QUESTIONS.forEach(function (_, i) { bars.appendChild(el("i", i <= stepIdx ? "on" : "")); });
+      quiz.appendChild(bars);
+      var Q = QUESTIONS[stepIdx];
+      quiz.appendChild(el("p", "q", Q.q));
+      if (Q.note) quiz.appendChild(el("p", "step", Q.note));
+      Q.opts.forEach(function (o) {
+        var b = el("button", "opt" + (answers[Q.key] === o[0] ? " picked" : ""), o[1]); b.type = "button";
+        b.addEventListener("click", function () { answers[Q.key] = o[0]; next(); });
+        quiz.appendChild(b);
+      });
+      if (Q.key !== "income") {
+        if (!otherOpen) {
+          var ob = el("button", "opt" + (answers[Q.key] === "other" ? " picked" : ""), "Other"); ob.type = "button";
+          ob.addEventListener("click", function () { otherOpen = true; renderQuiz(); var i = $("quiz-other"); if (i) i.focus(); });
+          quiz.appendChild(ob);
+        } else {
+          var box = el("div", "other-box");
+          var lab = el("label", null, "Other");
+          var inp = el("input"); inp.id = "quiz-other"; inp.maxLength = 80; inp.placeholder = "Tell me in a few words"; inp.value = others[Q.key] || "";
+          lab.appendChild(inp); box.appendChild(lab);
+          var go = el("button", "btn btn-dark", "Next"); go.type = "button";
+          function save() { var v = inp.value.trim(); if (!v) { inp.focus(); return; } answers[Q.key] = "other"; others[Q.key] = v; next(); }
+          go.addEventListener("click", save);
+          inp.addEventListener("keydown", function (e) { if (e.key === "Enter") { e.preventDefault(); save(); } });
+          box.appendChild(go); quiz.appendChild(box);
+        }
+      }
+      if (stepIdx > 0) {
+        var back = linkBtn("Back");
+        back.addEventListener("click", function () { stepIdx--; otherOpen = false; renderQuiz(); });
+        quiz.appendChild(back);
+      }
+      return;
+    }
+    var r = RESULTS[route()];
+    quiz.appendChild(head);
+    var res = el("div", "result stack");
+    res.style.gap = "10px";
+    res.appendChild(el("div", "eyebrow", "Your match"));
+    res.lastChild.style.color = "#a30d33";
+    res.appendChild(el("h3", null, r.name));
+    res.appendChild(el("p", null, r.blurb));
+    [answers.now, answers.care, answers.income].forEach(function (k) { if (EXTRA[k]) res.appendChild(el("p", "extra", EXTRA[k])); });
+    var row = el("div", "row");
+    var book = el("a", "btn btn-dark", "Book a call"); book.href = "https://calendly.com/nikostathis"; book.target = "_blank"; book.rel = "noopener";
+    var txt = el("a", "btn btn-line", "Text Niko about it");
+    var body = ["Hi Niko, your quiz matched me with " + r.name + ".", "Coverage for: " + label("who"), "Right now: " + label("now"),
+      "Income from: " + label("work"), "Most important: " + label("care")];
+    if (answers.income !== "skip") body.push("2027 household income: " + label("income"));
+    if (ref) body.push("Referred by " + ref);
+    txt.href = smsHref(body.join("\n"));
+    row.appendChild(book); row.appendChild(txt);
+    res.appendChild(row);
+    var again = linkBtn("Retake the quiz");
+    again.addEventListener("click", function () { answers = {}; others = {}; stepIdx = 0; otherOpen = false; renderQuiz(); });
+    res.appendChild(again);
+    quiz.appendChild(res);
+  }
+  renderQuiz();
+
+  /* ---------- ballpark estimator ----------
+     Rough model: 2026 national average benchmark (second-lowest silver) premium for a 40-year-old is about $625/mo,
+     scaled by the federal default ACA age curve. Household = you, a partner the same age, then children
+     (at most 3 children under 21 are charged). Tier bands are wide multiples of the benchmark to cover
+     the spread between carriers and counties. Pre-subsidy. */
+  var BENCH_40 = 625, AGE_40 = 1.278;
+  var CURVE = [[0, .765], [15, .833], [16, .859], [17, .885], [18, .913], [19, .941], [20, .970], [21, 1], [24, 1], [25, 1.004],
+    [26, 1.024], [27, 1.048], [28, 1.087], [29, 1.119], [30, 1.135], [31, 1.159], [32, 1.183], [33, 1.198], [34, 1.214], [35, 1.222],
+    [36, 1.230], [37, 1.238], [38, 1.246], [39, 1.262], [40, 1.278], [41, 1.302], [42, 1.325], [43, 1.357], [44, 1.397], [45, 1.444],
+    [46, 1.500], [47, 1.563], [48, 1.635], [49, 1.706], [50, 1.786], [51, 1.865], [52, 1.952], [53, 2.040], [54, 2.135], [55, 2.230],
+    [56, 2.333], [57, 2.437], [58, 2.548], [59, 2.603], [60, 2.714], [61, 2.810], [62, 2.873], [63, 2.952], [64, 3.000]];
+  function ageFactor(a) { var f = CURVE[0][1]; for (var i = 0; i < CURVE.length; i++) if (a >= CURVE[i][0]) f = CURVE[i][1]; return f; }
+  var TIERS = [["Bronze", .55, .8, "#7a0a1e"], ["Silver", .8, 1.05, "#b10d36"], ["Gold", .95, 1.25, "#e0335e"]];
+  function money(n) { return "$" + (Math.round(n / 10) * 10).toLocaleString("en-US"); }
+
+  function estimate(zip, age, hh) {
+    var perAdult = BENCH_40 / AGE_40 * ageFactor(age);
+    var kids = Math.max(0, hh - 2), charged = Math.min(kids, 3);
+    var total = perAdult * (hh >= 2 ? 2 : 1) + BENCH_40 / AGE_40 * .765 * charged;
+    return TIERS.map(function (t) { return { name: t[0], lo: total * t[1], hi: total * t[2], color: t[3] }; });
+  }
+  function showErr(id, msg) { var e = $(id); e.textContent = msg; e.hidden = !msg; }
+  var lastEstimate = null;
+  $("est-form").addEventListener("submit", function (ev) {
+    ev.preventDefault();
+    var zip = $("est-zip").value.trim(), age = parseInt($("est-age").value, 10), hh = parseInt($("est-hh").value, 10);
+    if (!/^\d{5}$/.test(zip)) return showErr("est-err", "Enter a 5-digit ZIP code.");
+    if (!(age >= 18 && age <= 64)) {
+      return showErr("est-err", age >= 65 ? "At 65 and up you're likely looking at Medicare. Book a call and I'll walk you through it." : "Enter an age between 18 and 64.");
+    }
+    showErr("est-err", "");
+    var rows = estimate(zip, age, hh), max = rows[rows.length - 1].hi, out = $("tiers");
+    out.textContent = "";
+    rows.forEach(function (r) {
+      var row = el("div", "tier"), track = el("div", "track"), bar = document.createElement("i");
+      bar.style.left = (r.lo / max * 100) + "%"; bar.style.width = ((r.hi - r.lo) / max * 100) + "%"; bar.style.background = r.color;
+      track.appendChild(bar);
+      row.appendChild(el("span", null, r.name)); row.appendChild(track); row.appendChild(el("b", null, money(r.lo) + " – " + money(r.hi)));
+      out.appendChild(row);
+    });
+    $("est-basis").textContent = "Per month for " + (hh === 1 ? "you at " + age : hh === 2 ? "two adults aged " + age : "two adults aged " + age + " and " + (hh - 2) + (hh === 3 ? " child" : " children")) + ", ZIP " + zip + ".";
+    $("est-out").hidden = false;
+    lastEstimate = { zip: zip, age: age, hh: hh, lo: rows[0].lo, hi: rows[rows.length - 1].hi };
+    $("est-next").scrollIntoView({ behavior: matchMedia("(prefers-reduced-motion: reduce)").matches ? "auto" : "smooth", block: "center" });
+  });
+
+  /* ---------- real quote: the ballpark details go to Niko by prefilled text ---------- */
+  $("est-next").addEventListener("submit", function (ev) {
+    ev.preventDefault();
+    var name = $("q-name").value.trim(), e = lastEstimate;
+    if (!name) return showErr("q-err", "Add your name so Niko knows who's texting.");
+    showErr("q-err", "");
+    var lines = ["Hi Niko, I'd like my real quote.", "Name: " + name,
+      "ZIP: " + e.zip + ", age " + e.age + ", " + e.hh + (e.hh === 1 ? " person" : " people"),
+      "Ballpark I saw: " + money(e.lo) + " to " + money(e.hi) + " a month",
+      "Best time to reach me: " + $("q-time").value];
+    if (stepIdx >= QUESTIONS.length) lines.push("Quiz match: " + RESULTS[route()].name);
+    if (ref) lines.push("Referred by " + ref);
+    openSms(lines.join("\n"));
+  });
+
+  /* ---------- Blender 3D scenes ---------- */
+  window.__cardSave = saveContact;
+})();
+</script>
+
+<script src="https://cdn.jsdelivr.net/npm/three@0.147.0/build/three.min.js" defer></script>
+<script src="https://cdn.jsdelivr.net/npm/three@0.147.0/examples/js/loaders/GLTFLoader.js" defer></script>
+<script src="https://cdn.jsdelivr.net/npm/three@0.147.0/examples/js/environments/RoomEnvironment.js" defer></script>
+<script defer>
+/* 3D: silk ribbons in the hero and a floating business card, both modeled and animated in Blender
+   (build_scene.py) and embedded below as GLB. Falls back to the CSS silk and a flat card image
+   when WebGL is missing or the viewer prefers reduced motion. */
+window.addEventListener("DOMContentLoaded", function () {
+  "use strict";
+  var SILK_GLB = "__SILK_GLB__";
+  var CARD_GLB = "__CARD_GLB__";
+  var reduce = window.matchMedia && matchMedia("(prefers-reduced-motion: reduce)").matches;
+  if (reduce || !window.THREE || !THREE.GLTFLoader) return;
+  try { var t = document.createElement("canvas"); if (!(t.getContext("webgl2") || t.getContext("webgl"))) return; } catch (e) { return; }
+
+  var CUTOUT_URL = "data:image/webp;base64,__CUTOUT__";
+  // Soft studio reflections; each WebGL context needs its own copy.
+  function envMap(renderer) {
+    if (!THREE.RoomEnvironment) return null;
+    var pm = new THREE.PMREMGenerator(renderer), t = pm.fromScene(new THREE.RoomEnvironment(), 0.04).texture;
+    pm.dispose(); return t;
+  }
+  function glb(b64) { var s = atob(b64), u = new Uint8Array(s.length); for (var i = 0; i < s.length; i++) u[i] = s.charCodeAt(i); return u.buffer; }
+  var loader = new THREE.GLTFLoader();
+  var DPR = Math.min(window.devicePixelRatio || 1, 2);
+
+  function makeRenderer(canvas) {
+    var r = new THREE.WebGLRenderer({ canvas: canvas, antialias: true, alpha: true, powerPreference: "low-power" });
+    r.setPixelRatio(DPR);
+    r.outputEncoding = THREE.sRGBEncoding;
+    r.toneMapping = THREE.ACESFilmicToneMapping;
+    r.toneMappingExposure = 0.9;
+    return r;
+  }
+  // Run a render loop only while its canvas is on screen and the tab is visible.
+  function loop(canvas, frame) {
+    var onScreen = true, raf = 0, clock = new THREE.Clock();
+    function go() { if (!raf && onScreen && !document.hidden) { clock.getDelta(); raf = requestAnimationFrame(step); } }
+    function step() { raf = 0; frame(Math.min(clock.getDelta(), 0.05)); go(); }
+    if ("IntersectionObserver" in window) new IntersectionObserver(function (e) { onScreen = e[0].isIntersecting; go(); }).observe(canvas);
+    document.addEventListener("visibilitychange", go);
+    go();
+  }
+  function fit(renderer, camera, canvas) {
+    var w = canvas.clientWidth, h = canvas.clientHeight;
+    if (canvas.width !== Math.round(w * DPR) || canvas.height !== Math.round(h * DPR)) {
+      renderer.setSize(w, h, false); camera.aspect = w / h; camera.updateProjectionMatrix(); return true;
+    }
+    return false;
+  }
+
+  /* ----- hero silk ----- */
+  var silkCanvas = document.getElementById("silk3d");
+  loader.parse(glb(SILK_GLB), "", function (gltf) {
+    silkCanvas.hidden = false;
+    var renderer = makeRenderer(silkCanvas), scene = new THREE.Scene();
+    var camera = new THREE.PerspectiveCamera(38, 1, 0.1, 50);
+    camera.position.set(0, 0, 6.2);
+    var rig = new THREE.Group(); rig.rotation.z = -0.62; rig.position.set(0.3, 0.2, 0); scene.add(rig);
+    var looks = { SilkBlack: [0x080102, 0x3a0408], SilkDeep: [0x3a0208, 0x8e0a14], SilkCrimson: [0x8a0614, 0xc40a22] };
+    gltf.scene.traverse(function (o) {
+      if (!o.isMesh) return;
+      var l = looks[o.material.name] || looks.SilkDeep;
+      o.material = new THREE.MeshPhysicalMaterial({ color: l[0], roughness: 0.34, metalness: 0.25, sheen: 1, sheenColor: new THREE.Color(l[1]), sheenRoughness: 0.4, clearcoat: 0.35, clearcoatRoughness: 0.3, envMapIntensity: 0.22, side: THREE.DoubleSide });
+    });
+    rig.add(gltf.scene);
+    scene.environment = envMap(renderer);
+    // The portrait lives inside the 3D scene, just in front of the silk, so it moves with the camera parallax.
+    var photoEl = document.querySelector(".photo"), portrait = null, PZ = 1.7;
+    var cutImg = new Image();
+    cutImg.onload = function () {
+      // fade the lower part of the portrait so it dissolves into the page instead of ending in a hard line
+      var c = document.createElement("canvas"); c.width = cutImg.width; c.height = cutImg.height;
+      var g = c.getContext("2d"); g.drawImage(cutImg, 0, 0);
+      g.globalCompositeOperation = "destination-in";
+      var grd = g.createLinearGradient(0, 0, 0, c.height);
+      grd.addColorStop(0.6, "rgba(0,0,0,1)"); grd.addColorStop(1, "rgba(0,0,0,0)");
+      g.fillStyle = grd; g.fillRect(0, 0, c.width, c.height);
+      var tex = new THREE.CanvasTexture(c);
+      tex.encoding = THREE.sRGBEncoding; tex.anisotropy = renderer.capabilities.getMaxAnisotropy();
+      portrait = new THREE.Mesh(new THREE.PlaneGeometry(1, 1), new THREE.MeshBasicMaterial({ map: tex, transparent: true, alphaTest: 0.01, depthWrite: false, toneMapped: false }));
+      scene.add(portrait); placePortrait();
+      document.getElementById("hero").classList.add("has-3d");
+    };
+    cutImg.src = CUTOUT_URL;
+    function placePortrait() {
+      if (!portrait) return;
+      var c = silkCanvas.getBoundingClientRect(), r = photoEl.getBoundingClientRect();
+      var hh = 2 * (camera.position.z - PZ) * Math.tan(THREE.MathUtils.degToRad(camera.fov / 2)), ww = hh * camera.aspect;
+      portrait.scale.set(r.width / c.width * ww, r.height / c.height * hh, 1);
+      portrait.position.set(((r.left - c.left + r.width / 2) / c.width - 0.5) * ww, (0.5 - (r.top - c.top + r.height / 2) / c.height) * hh, PZ);
+    }
+    scene.add(new THREE.HemisphereLight(0xffd6de, 0x120205, 0.35));
+    var key = new THREE.DirectionalLight(0xffffff, 1.5); key.position.set(3, 4, 5); scene.add(key);
+    var rim = new THREE.PointLight(0xff2a55, 3, 14); rim.position.set(-3, -2, 2.5); scene.add(rim);
+    var mixer = new THREE.AnimationMixer(gltf.scene);
+    gltf.animations.forEach(function (clip, i) { var a = mixer.clipAction(clip); a.time = i * 2.6; a.timeScale = 0.55; a.play(); });
+
+    // Scroll, pointer and (Android) tilt nudge the camera so the silk feels alive under the finger.
+    var tx = 0, ty = 0, cx = 0, cy = 0;
+    window.addEventListener("pointermove", function (e) { tx = (e.clientX / innerWidth - 0.5) * 0.6; ty = (e.clientY / innerHeight - 0.5) * -0.4; }, { passive: true });
+    window.addEventListener("deviceorientation", function (e) { if (e.gamma == null) return; tx = Math.max(-1, Math.min(1, e.gamma / 30)) * 0.5; ty = Math.max(-1, Math.min(1, (e.beta - 45) / 30)) * -0.3; }, { passive: true });
+    loop(silkCanvas, function (dt) {
+      if (fit(renderer, camera, silkCanvas)) placePortrait();
+      mixer.update(dt);
+      var sc = Math.min(window.scrollY / 600, 1);
+      cx += (tx - cx) * 0.04; cy += (ty - cy) * 0.04;
+      camera.position.x = cx; camera.position.y = cy - sc * 0.8;
+      rig.rotation.z = -0.62 + sc * 0.25;
+      camera.lookAt(0, -sc * 0.4, 0);
+      renderer.render(scene, camera);
+    });
+  }, function () { /* keep CSS silk */ });
+
+  /* ----- floating 3D business card ----- */
+  var cardCanvas = document.getElementById("card3d"), fallback = document.getElementById("card-fallback");
+  function backTexture() {
+    var c = document.createElement("canvas"); c.width = 1050; c.height = 600;
+    var g = c.getContext("2d"), grd = g.createLinearGradient(0, 0, 1050, 600);
+    grd.addColorStop(0, "#0b0304"); grd.addColorStop(.45, "#8e0a26"); grd.addColorStop(.6, "#c8103f"); grd.addColorStop(1, "#1a0407");
+    g.fillStyle = grd; g.fillRect(0, 0, 1050, 600);
+    for (var r = 900; r > 100; r -= 38) { g.strokeStyle = "rgba(0,0,0,.18)"; g.lineWidth = 14; g.beginPath(); g.arc(1250, 780, r, 0, Math.PI * 2); g.stroke(); }
+    g.fillStyle = "#fff"; g.textAlign = "center";
+    g.font = "700 70px 'Source Serif 4', Georgia, serif"; g.fillText("Tap to save", 525, 270);
+    g.font = "700 70px 'Source Serif 4', Georgia, serif"; g.fillText("my contact", 525, 350);
+    g.font = "500 36px 'Public Sans', sans-serif"; g.fillText("(224) 306-4565", 525, 440);
+    var tx = new THREE.CanvasTexture(c); tx.flipY = false; tx.encoding = THREE.sRGBEncoding; tx.anisotropy = 4; return tx;
+  }
+  new THREE.TextureLoader().load("card.png", function (front) {
+    front.flipY = false; front.encoding = THREE.sRGBEncoding; front.anisotropy = 8;
+    loader.parse(glb(CARD_GLB), "", function (gltf) {
+      cardCanvas.hidden = false; fallback.hidden = true;
+      var renderer = makeRenderer(cardCanvas), scene = new THREE.Scene();
+      scene.environment = envMap(renderer);
+      var camera = new THREE.PerspectiveCamera(32, 1, 0.1, 50);
+      var back = backTexture();
+      document.fonts && document.fonts.ready.then(function () { back.dispose(); back = backTexture(); gltf.scene.getObjectByName("CardBack").material.map = back; });
+      gltf.scene.traverse(function (o) {
+        if (!o.isMesh) return;
+        if (o.name === "CardFront") o.material = new THREE.MeshStandardMaterial({ map: front, roughness: 0.45, metalness: 0.05 });
+        else if (o.name === "CardBack") o.material = new THREE.MeshStandardMaterial({ map: back, roughness: 0.45, metalness: 0.05 });
+        else o.material = new THREE.MeshStandardMaterial({ color: 0x14030a, roughness: 0.3, metalness: 0.6 });
+      });
+      var spin = new THREE.Group(); spin.add(gltf.scene); scene.add(spin);
+      scene.add(new THREE.HemisphereLight(0xffffff, 0x2a0610, 0.9));
+      var key = new THREE.DirectionalLight(0xffffff, 1.6); key.position.set(2, 3, 5); scene.add(key);
+      var rim = new THREE.PointLight(0xff2a55, 2.2, 12); rim.position.set(-3, -1, 2); scene.add(rim);
+      var mixer = new THREE.AnimationMixer(gltf.scene);
+      gltf.animations.forEach(function (clip) { var a = mixer.clipAction(clip); a.timeScale = 0.9; a.play(); });
+
+      // Drag to spin with inertia; a short tap saves the contact.
+      var drag = null, vel = 0, extra = 0;
+      cardCanvas.addEventListener("pointerdown", function (e) { drag = { x: e.clientX, y: e.clientY, last: e.clientX, moved: false }; cardCanvas.setPointerCapture(e.pointerId); });
+      cardCanvas.addEventListener("pointermove", function (e) {
+        if (!drag) return;
+        if (Math.abs(e.clientX - drag.x) > 6) { drag.moved = true; cardCanvas.style.cursor = "grabbing"; }
+        var dx = e.clientX - drag.last; drag.last = e.clientX; vel = dx * 0.012; extra += vel;
+      });
+      cardCanvas.addEventListener("pointerup", function () { if (drag && !drag.moved) window.__cardSave(); drag = null; cardCanvas.style.cursor = ""; });
+      cardCanvas.addEventListener("pointercancel", function () { drag = null; });
+      cardCanvas.addEventListener("keydown", function (e) { if (e.key === "Enter" || e.key === " ") { e.preventDefault(); window.__cardSave(); } });
+
+      loop(cardCanvas, function (dt) {
+        if (fit(renderer, camera, cardCanvas)) {
+          var th = Math.tan(THREE.MathUtils.degToRad(camera.fov / 2));
+          camera.position.set(0, 0, Math.max(4.5 / (2 * th * camera.aspect), 2.9 / (2 * th)));
+        }
+        mixer.update(dt);
+        if (!drag) { vel *= 0.94; extra += vel; extra *= 0.985; }
+        spin.rotation.y = extra;
+        renderer.render(scene, camera);
+      });
+    });
+  });
+});
+</script>
+</body>
+</html>
