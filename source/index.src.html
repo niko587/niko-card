@@ -5,138 +5,185 @@
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
 <title>Niko Stathis · Health Insurance Advisor</title>
 <meta name="description" content="Health insurance for individuals, families, medical professionals and the self-employed. Nationally licensed. Book a call or text COVERAGE to (224) 306-4565.">
-<meta name="theme-color" content="#0b0506">
+<meta name="theme-color" content="#0a0507">
 <meta property="og:title" content="Niko Stathis, Health Insurance Advisor">
-<meta property="og:description" content="Open enrollment ends January 15, 2027. Book a call or text COVERAGE to (224) 306-4565.">
+<meta property="og:description" content="Open enrollment opens November 1. Book a call or text COVERAGE to (224) 306-4565.">
 <meta property="og:image" content="card.png">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Source+Serif+4:opsz,wght@8..60,400;8..60,600;8..60,700&family=Public+Sans:wght@400;500;600;700&display=swap">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Source+Serif+4:ital,opsz,wght@0,8..60,400;0,8..60,500;0,8..60,600;1,8..60,400&family=Public+Sans:wght@400;500;600&display=swap">
 <style>
 :root{
   color-scheme: dark;
-  --ink:#0b0506; --panel:#1c0a0e; --line:#3a141c; --line-2:#4a1d26;
-  --crimson:#c8103f; --crimson-dk:#a30d33; --wine:#5a0616; --rose:#ff8aa3;
-  --paper:#f7f1f2; --paper-ink:#1f0a0f; --paper-muted:#6d4b53; --paper-line:#e1d3d6;
-  --text:#fff; --muted:#c9a9b0;
+  --ink:#0a0507; --ink-2:#130709; --ink-3:#1b0a0e;
+  --line:rgba(255,255,255,.09); --line-strong:rgba(255,255,255,.18);
+  --text:#f6eef0; --text-2:#d9c3c8; --muted:#a88a92;
+  --crimson:#c8103f; --crimson-2:#e0335e; --wine:#7a0a1e; --rose:#ff8aa3;
   --serif:"Source Serif 4", Georgia, "Times New Roman", serif;
   --sans:"Public Sans", system-ui, -apple-system, "Segoe UI", sans-serif;
-  --bar-h:64px;
+  --gutter:24px; --bar:76px;
 }
 *{box-sizing:border-box}
 [hidden]{display:none!important}
+html{scroll-behavior:smooth}
 html,body{margin:0}
-body{background:var(--ink);color:var(--text);font:16px/1.5 var(--sans);-webkit-font-smoothing:antialiased;padding-bottom:calc(var(--bar-h) + env(safe-area-inset-bottom,0px))}
+body{background:var(--ink);color:var(--text);font:17px/1.6 var(--sans);-webkit-font-smoothing:antialiased;text-rendering:optimizeLegibility;
+  padding-bottom:calc(var(--bar) + 24px + env(safe-area-inset-bottom,0px))}
 a{color:inherit}
-h1,h2{font-family:var(--serif);text-wrap:balance}
-button,input,select{font:inherit}
-:focus-visible{outline:2px solid var(--rose);outline-offset:2px}
-.wrap{max-width:520px;margin:0 auto}
-.eyebrow{font-size:12px;letter-spacing:1.6px;text-transform:uppercase;color:var(--rose);font-weight:700}
-.btn{display:flex;align-items:center;justify-content:center;gap:8px;min-height:50px;padding:0 20px;border-radius:12px;border:0;font-weight:700;font-size:16px;text-decoration:none;cursor:pointer}
-.btn-red{background:var(--crimson);color:#fff}
-.btn-red:hover{background:var(--crimson-dk)}
+h1,h2,h3{font-family:var(--serif);font-weight:500;text-wrap:balance;margin:0;letter-spacing:-.01em}
+p{margin:0}
+button,input,select{font:inherit;color:inherit}
+:focus-visible{outline:2px solid var(--rose);outline-offset:3px;border-radius:6px}
+::selection{background:var(--crimson);color:#fff}
+
+.wrap{max-width:560px;margin:0 auto;padding:0 var(--gutter)}
+.eyebrow{font-size:12px;letter-spacing:.18em;text-transform:uppercase;color:var(--rose);font-weight:600}
+.lead{color:var(--text-2);font-size:17px;max-width:44ch}
+.small{font-size:14px;line-height:1.55;color:var(--muted)}
+.sec{padding:64px 0 0}
+.sec-head{display:flex;flex-direction:column;gap:12px;margin-bottom:28px}
+.sec-head h2{font-size:34px;line-height:1.12}
+hr.rule{border:0;height:1px;background:var(--line);margin:64px 0 0}
+
+/* ---------- buttons ---------- */
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:10px;min-height:54px;padding:0 24px;border-radius:999px;border:1px solid transparent;
+  font:600 16px/1 var(--sans);letter-spacing:.01em;text-decoration:none;cursor:pointer;white-space:nowrap;
+  transition:transform .12s ease,background-color .15s ease,border-color .15s ease,color .15s ease;-webkit-tap-highlight-color:transparent}
+.btn:active{transform:scale(.98)}
+.btn-primary{background:var(--crimson);color:#fff;box-shadow:0 10px 30px -12px rgba(200,16,63,.8)}
+.btn-primary:hover{background:var(--crimson-2)}
 .btn-white{background:#fff;color:var(--wine)}
-.btn-ghost{background:rgba(0,0,0,.28);color:#fff;border:1.5px solid rgba(255,255,255,.8)}
-.pill{border-radius:999px}
+.btn-white:hover{background:#ffe9ee}
+.btn-outline{background:rgba(10,5,7,.35);color:#fff;border-color:rgba(255,255,255,.55);backdrop-filter:blur(6px)}
+.btn-outline:hover{border-color:#fff}
+.btn-ghost{background:transparent;color:var(--text);border-color:var(--line-strong)}
+.btn-ghost:hover{border-color:#fff}
+.btn-block{width:100%}
+.btn svg{width:18px;height:18px;flex:none}
+.link{background:none;border:0;padding:0;min-height:44px;color:var(--muted);font:500 15px var(--sans);text-decoration:underline;text-underline-offset:4px;cursor:pointer;align-self:flex-start}
+.link:hover{color:var(--text)}
 
 /* ---------- hero ---------- */
-.hero{position:relative;overflow:hidden;min-height:600px;padding:44px 20px 40px;display:flex;flex-direction:column;
-  background:radial-gradient(130% 70% at -10% -8%,#050203 0 30%,rgba(5,2,3,0) 56%),
+.hero{position:relative;overflow:hidden;min-height:660px;display:flex;flex-direction:column;
+  background:
+    radial-gradient(120% 60% at -10% -10%,#050203 0 30%,rgba(5,2,3,0) 58%),
     repeating-radial-gradient(circle at 135% 125%,rgba(0,0,0,0) 0 16px,rgba(0,0,0,.24) 25px,rgba(255,90,120,.12) 33px,rgba(0,0,0,0) 42px),
     linear-gradient(150deg,#0b0304 0%,#5a0616 28%,#b10d36 50%,#d11a47 60%,#7a0a1e 80%,#1a0407 100%)}
-.hero.has-3d{background:linear-gradient(160deg,#050203 0%,#1a0407 40%,#3a0510 100%)}
+.hero.has-3d{background:linear-gradient(160deg,#050203 0%,#1a0407 45%,#3a0510 100%)}
 #silk3d{position:absolute;inset:0;width:100%;height:100%;display:block}
-.hero::after{content:"";position:absolute;inset:0;pointer-events:none;background:linear-gradient(90deg,rgba(5,2,3,.5) 0%,rgba(5,2,3,.1) 50%,rgba(5,2,3,0) 62%),linear-gradient(0deg,rgba(11,5,6,1) 0%,rgba(11,5,6,.85) 10%,rgba(11,5,6,0) 34%)}
-.photo{position:absolute;right:-6px;bottom:0;width:60%;max-width:300px;aspect-ratio:590/912;z-index:1;
-  background:url(data:image/webp;base64,__CUTOUT__) right bottom/contain no-repeat;filter:drop-shadow(-12px 0 28px rgba(0,0,0,.55));-webkit-mask-image:linear-gradient(180deg,#000 62%,transparent 100%);mask-image:linear-gradient(180deg,#000 62%,transparent 100%)}
+.hero::after{content:"";position:absolute;inset:0;pointer-events:none;
+  background:linear-gradient(90deg,rgba(5,2,3,.55) 0%,rgba(5,2,3,.12) 48%,rgba(5,2,3,0) 62%),
+             linear-gradient(0deg,var(--ink) 0%,rgba(10,5,7,.92) 9%,rgba(10,5,7,0) 40%)}
+.photo{position:absolute;right:-4px;bottom:0;width:60%;max-width:300px;aspect-ratio:590/912;z-index:1;
+  background:url(data:image/webp;base64,__CUTOUT__) right bottom/contain no-repeat;
+  -webkit-mask-image:linear-gradient(180deg,#000 58%,transparent 100%);mask-image:linear-gradient(180deg,#000 58%,transparent 100%)}
 .hero.has-3d .photo{visibility:hidden}
-.hero-copy{position:relative;z-index:2;display:flex;flex-direction:column;gap:6px}
-.hero h1{margin:0;font-size:clamp(40px,12vw,52px);line-height:1.02;font-weight:700;letter-spacing:-.5px;text-shadow:0 2px 18px rgba(0,0,0,.45)}
-.hero .role{font-family:var(--serif);font-size:21px}
-.hero .who{font-family:var(--serif);font-weight:600;font-size:13px;line-height:1.5;margin-top:8px;max-width:200px}
-.hero-ctas{position:relative;z-index:2;margin-top:auto;padding-top:40px;display:flex;flex-direction:column;gap:10px;width:200px;max-width:52%}
-.hero-ctas .btn{white-space:nowrap;padding:0 14px}
+.hero-inner{position:relative;z-index:2;display:flex;flex-direction:column;flex:1;padding:max(48px,env(safe-area-inset-top,0px) + 40px) var(--gutter) 28px;max-width:560px;margin:0 auto;width:100%}
+.hero h1{font-size:clamp(46px,13.5vw,60px);line-height:.98;font-weight:600;letter-spacing:-.02em;text-shadow:0 2px 24px rgba(0,0,0,.5)}
+.hero .role{font-family:var(--serif);font-style:italic;font-size:21px;color:#ffd9e0;margin-top:10px;text-shadow:0 1px 12px rgba(0,0,0,.5)}
+.hero .who{margin-top:22px;font-size:12px;letter-spacing:.16em;text-transform:uppercase;font-weight:600;color:rgba(255,255,255,.85);line-height:1.9;text-shadow:0 1px 8px rgba(0,0,0,.6)}
+.hero .who span{display:block;white-space:nowrap}
+.hero-ctas{margin-top:auto;padding-top:210px;display:grid;grid-template-columns:1fr 1fr;gap:10px}
+.hero-ctas .btn{padding:0 14px;font-size:15px}
 
-.ref{position:relative;z-index:3;margin:-14px 16px 0;padding:12px 16px;background:#fff;color:#3a0a14;border-radius:12px;font-size:14px;line-height:1.4;box-shadow:0 8px 24px rgba(0,0,0,.4)}
-
-section{padding:32px 20px}
-.section-title{margin:0;font-size:28px;line-height:1.15;font-weight:600}
+.ref{display:flex;align-items:center;gap:12px;padding:18px 0 0;font-size:15px;color:var(--text-2)}
+.ref i{flex:none;width:8px;height:8px;border-radius:50%;background:var(--rose);box-shadow:0 0 0 4px rgba(255,138,163,.18)}
+.ref b{color:var(--text);font-weight:600}
 
 /* ---------- countdown ---------- */
-.clock{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:8px;font-variant-numeric:tabular-nums}
-.clock div{background:var(--panel);border:1px solid var(--line);border-radius:10px;padding:12px 0;text-align:center}
-.clock b{display:block;font-family:var(--serif);font-size:30px;line-height:1.1}
-.clock span{font-size:11px;color:var(--muted)}
-.stack{display:flex;flex-direction:column;gap:16px}
-.note{font-size:13px;line-height:1.5;color:var(--muted);margin:0}
+.count{display:flex;align-items:baseline;gap:14px;flex-wrap:wrap;font-variant-numeric:tabular-nums}
+.count .days{font-family:var(--serif);font-size:96px;line-height:.9;font-weight:500;letter-spacing:-.03em}
+.count .until{font-family:var(--serif);font-size:22px;line-height:1.25;color:var(--text-2);max-width:16ch;text-wrap:balance}
+.hms{margin-top:14px;font-size:14px;color:var(--muted);letter-spacing:.06em;font-variant-numeric:tabular-nums}
+.hms b{color:var(--text-2);font-weight:500}
+.rail{margin-top:32px;position:relative;height:56px}
+.rail .track{position:absolute;left:0;right:0;top:8px;height:2px;background:var(--line-strong)}
+.rail .fill{position:absolute;left:0;top:8px;height:2px;background:var(--crimson)}
+.rail .mk{position:absolute;top:0;display:flex;flex-direction:column;gap:8px;font-size:13px;line-height:1.2;white-space:nowrap}
+.rail .mk i{display:block;width:10px;height:10px;border-radius:50%;background:var(--ink);border:2px solid var(--line-strong);margin-top:3px}
+.rail .mk.on i{border-color:var(--crimson);background:var(--crimson)}
+.rail .mk.now i{border-color:#fff;background:#fff}
+.rail .mk span{color:var(--muted)}.rail .mk b{color:var(--text);font-weight:500;font-family:var(--serif);font-size:15px}
+.rail .mk.end{align-items:flex-end}
+.rail .mk.mid{transform:translateX(-50%);align-items:center}
+.enroll-cta{margin-top:28px;display:flex;flex-direction:column;gap:14px}
 
 /* ---------- 3D card ---------- */
-.card3d-wrap{position:relative;height:250px;margin:0 -20px;background:radial-gradient(60% 55% at 50% 48%,rgba(200,16,63,.38),rgba(200,16,63,0) 70%)}
-.card3d-wrap::after{content:"";position:absolute;left:22%;right:22%;bottom:10px;height:22px;border-radius:50%;background:radial-gradient(closest-side,rgba(0,0,0,.75),rgba(0,0,0,0));pointer-events:none}
-.card-block{margin:0 16px;padding:24px 20px 20px;border-radius:18px;background:linear-gradient(180deg,#160609 0%,#0b0506 100%);border:1px solid var(--line);display:flex;flex-direction:column;gap:12px;overflow:hidden}
+.card-stage{position:relative;height:250px;margin:8px calc(-1 * var(--gutter)) 0;
+  background:radial-gradient(55% 50% at 50% 50%,rgba(200,16,63,.38),rgba(200,16,63,0) 72%)}
+.card-stage::after{content:"";position:absolute;left:24%;right:24%;bottom:14px;height:20px;border-radius:50%;background:radial-gradient(closest-side,rgba(0,0,0,.8),rgba(0,0,0,0));pointer-events:none}
 #card3d{width:100%;height:100%;display:block;touch-action:pan-y;cursor:grab}
-.card-fallback{display:block;width:calc(100% - 40px);margin:0 auto;border-radius:12px;box-shadow:0 18px 40px rgba(0,0,0,.5)}
+.card-fallback{display:block;width:calc(100% - 2 * var(--gutter));margin:0 auto;position:relative;top:36px;border-radius:12px;box-shadow:0 24px 50px -10px rgba(0,0,0,.7)}
+.card-cap{margin-top:8px;text-align:center}
 
-/* ---------- light panels ---------- */
-.panel{margin:0 16px;padding:24px 20px;background:var(--paper);color:var(--paper-ink);border-radius:16px;display:flex;flex-direction:column;gap:14px}
-.panel .section-title{font-size:24px}
-.panel-head{display:flex;justify-content:space-between;align-items:baseline;gap:12px}
-.step{font-size:13px;color:var(--paper-muted);font-variant-numeric:tabular-nums}
-.bars{display:flex;gap:6px}
-.bars i{flex:1;height:4px;border-radius:2px;background:var(--paper-line)}
-.bars i.on{background:var(--crimson)}
-.q{font-size:17px;font-weight:600;margin:0}
-.opt{min-height:52px;text-align:left;padding:10px 16px;border:1.5px solid var(--paper-line);background:#fff;border-radius:12px;font-weight:500;font-size:15px;color:var(--paper-ink);cursor:pointer}
-.opt:hover{border-color:var(--crimson);background:#fff0f3}
-.opt.picked{border-color:var(--crimson);background:#fff0f3}
-.other-box{display:flex;flex-direction:column;gap:10px;padding:12px;border:1.5px solid var(--crimson);border-radius:12px;background:#fff}
-.other-box label{display:flex;flex-direction:column;gap:6px;font-size:13px;font-weight:600;color:var(--paper-muted)}
-.other-box input{height:46px;border:1px solid var(--paper-line);border-radius:10px;padding:0 12px;font-size:16px;color:var(--paper-ink);background:#fff}
-.result .extra{font-size:14px;padding:10px 12px;border-radius:10px;background:#fff;border:1px solid var(--paper-line);color:#3a1a22}
-.next-step{margin-top:18px;padding:20px;border-radius:14px;background:linear-gradient(150deg,#2a0610 0%,#5a0616 60%,#7a0a1e 100%);display:flex;flex-direction:column;gap:10px}
-.next-step h3{margin:0;font-family:var(--serif);font-size:22px;font-weight:600}
-.next-step p{margin:0 0 4px;font-size:14px;line-height:1.5;color:#f1dde1}
-.next-step .fields{grid-template-columns:repeat(2,minmax(0,1fr))}
-.next-step .fine{font-size:12px;color:#d9b9c0;margin:0}
-.next-step label.f{color:#f1dde1}
-.span2{grid-column:span 2}
-.dates{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:8px}
-.dates div{display:flex;flex-direction:column;gap:2px;padding:10px 12px;border-radius:10px;border:1px solid var(--line)}
-.dates span{font-size:12px;color:var(--muted)}
-.dates b{font-family:var(--serif);font-size:18px;font-weight:600}
-.result h3{margin:0;font-family:var(--serif);font-size:26px;font-weight:600}
-.result p{margin:0;font-size:15px;line-height:1.55;color:#4a2a32}
-.row{display:flex;gap:10px;flex-wrap:wrap}
-.row > *{flex:1 1 140px}
-.row .btn{padding:0 12px;white-space:nowrap;font-size:15px}
-.btn-dark{background:var(--paper-ink);color:#fff}
-.btn-line{background:#fff;color:var(--paper-ink);border:1.5px solid #d9c3c8}
+/* ---------- quiz ---------- */
+.q-head{display:flex;justify-content:space-between;align-items:baseline;gap:16px}
+.q-step{font-size:14px;color:var(--muted);font-variant-numeric:tabular-nums}
+.q-bar{height:2px;background:var(--line);margin:16px 0 28px;position:relative;overflow:hidden}
+.q-bar i{position:absolute;left:0;top:0;bottom:0;background:var(--crimson);transition:width .3s ease}
+.q{font-family:var(--serif);font-size:27px;line-height:1.2;font-weight:500;margin-bottom:6px}
+.q-note{color:var(--muted);font-size:14px;margin-bottom:6px}
+.opts{display:flex;flex-direction:column;margin-top:18px;border-top:1px solid var(--line)}
+.opt{display:flex;align-items:center;justify-content:space-between;gap:16px;width:100%;text-align:left;min-height:60px;padding:14px 0;
+  background:none;border:0;border-bottom:1px solid var(--line);font:500 17px/1.35 var(--sans);color:var(--text);cursor:pointer;transition:color .15s ease}
+.opt::after{content:"";flex:none;width:22px;height:22px;border-radius:50%;border:1.5px solid var(--line-strong);transition:all .15s ease}
+.opt:hover{color:#fff}.opt:hover::after{border-color:var(--rose)}
+.opt.picked::after{border-color:var(--crimson);background:var(--crimson);box-shadow:inset 0 0 0 4px var(--ink)}
+.other-box{display:flex;flex-direction:column;gap:14px;padding:18px 0 22px;border-bottom:1px solid var(--line)}
+.other-box label{display:flex;flex-direction:column;gap:8px;font-size:13px;letter-spacing:.06em;text-transform:uppercase;color:var(--muted);font-weight:600}
+.field{width:100%;height:50px;border:0;border-bottom:1.5px solid var(--line-strong);border-radius:0;background:transparent;padding:0;font:500 20px var(--sans);color:var(--text);transition:border-color .15s ease}
+.field:focus{outline:0;border-bottom-color:var(--rose)}
+.field::placeholder{color:#6b555b;font-weight:400}
+select.field{appearance:none;-webkit-appearance:none;background:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='16' height='16' fill='none' stroke='%23a88a92' stroke-width='2' stroke-linecap='round'%3E%3Cpath d='M4 6l4 4 4-4'/%3E%3C/svg%3E") right center/16px no-repeat;padding-right:24px;cursor:pointer}
+select.field option{background:var(--ink-3);color:var(--text)}
+.q-foot{display:flex;justify-content:space-between;align-items:center;margin-top:8px}
+.result{display:flex;flex-direction:column;gap:16px}
+.result h3{font-size:34px;line-height:1.1}
+.result .blurb{color:var(--text-2);font-size:17px}
+.tips{display:flex;flex-direction:column;gap:12px;padding:6px 0 4px}
+.tips p{display:flex;gap:12px;color:var(--text-2);font-size:15px;line-height:1.55}
+.tips p::before{content:"";flex:none;width:14px;height:1.5px;background:var(--rose);margin-top:11px}
+.row{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin-top:8px}
+.row .btn{padding:0 14px;font-size:15px}
 
-/* ---------- estimator + form ---------- */
-.fields{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:8px}
-label.f{display:flex;flex-direction:column;gap:4px;font-size:12px;color:var(--muted)}
-label.f input,label.f select{height:46px;border-radius:10px;border:1px solid var(--line-2);background:var(--panel);color:#fff;padding:0 12px;font-size:16px;font-weight:600;width:100%;min-width:0}
-.tiers{border-top:1px solid var(--line);font-variant-numeric:tabular-nums}
-.tier{display:grid;grid-template-columns:64px 1fr auto;align-items:center;gap:12px;padding:12px 0;border-bottom:1px solid var(--line)}
-.track{position:relative;height:8px;border-radius:4px;background:var(--panel)}
-.track i{position:absolute;top:0;height:8px;border-radius:4px}
-.tier b{font-weight:700;white-space:nowrap}
-.err{color:var(--rose);font-size:14px;margin:0}
+/* ---------- estimator ---------- */
+.fields{display:grid;grid-template-columns:1.3fr 1fr 1fr;gap:20px}
+.f{display:flex;flex-direction:column;gap:8px;font-size:12px;letter-spacing:.14em;text-transform:uppercase;color:var(--muted);font-weight:600;min-width:0}
+.err{color:var(--rose);font-size:15px;margin-top:12px}
+.tiers{scroll-margin-top:28px;margin-top:8px;border-top:1px solid var(--line);font-variant-numeric:tabular-nums}
+.tier{display:grid;grid-template-columns:64px 1fr auto;align-items:center;gap:16px;padding:16px 0;border-bottom:1px solid var(--line)}
+.tier .name{font-family:var(--serif);font-size:19px}
+.track{position:relative;height:6px;border-radius:3px;background:rgba(255,255,255,.07)}
+.track i{position:absolute;top:0;height:6px;border-radius:3px}
+.tier b{font-weight:500;font-size:17px;white-space:nowrap}
+.basis{margin-top:14px}
+.next{margin-top:36px;padding:28px 24px 24px;border:1px solid var(--line-strong);border-radius:20px;position:relative;overflow:hidden;
+  background:radial-gradient(120% 90% at 100% 0%,rgba(200,16,63,.22),rgba(200,16,63,0) 60%),var(--ink-2);display:flex;flex-direction:column;gap:18px}
+.next h3{font-size:28px;line-height:1.12}
+.next .fields{grid-template-columns:1fr}
+.next .btns{display:flex;flex-direction:column;gap:10px;margin-top:4px}
 
 /* ---------- contact ---------- */
-.contacts{display:flex;flex-direction:column;gap:2px;padding-top:24px}
-.contact{display:flex;align-items:center;gap:14px;min-height:54px;text-decoration:none;font-size:16px;overflow-wrap:anywhere}
-.contact .ic{flex:none;width:42px;height:42px;border-radius:50%;background:#2a0d14;display:grid;place-items:center}
-.contact svg{width:20px;height:20px;fill:none;stroke:var(--rose);stroke-width:2;stroke-linecap:round;stroke-linejoin:round}
-footer{padding:8px 20px 32px;font-size:12px;line-height:1.5;color:#9c7f86}
+.contacts{display:flex;flex-direction:column;border-top:1px solid var(--line)}
+.contact{display:flex;align-items:center;gap:16px;min-height:66px;padding:12px 0;border-bottom:1px solid var(--line);text-decoration:none;font-size:17px;overflow-wrap:anywhere;transition:color .15s ease}
+a.contact:hover{color:#fff}
+.contact .ic{flex:none;width:40px;height:40px;border-radius:50%;border:1px solid var(--line-strong);display:grid;place-items:center}
+.contact svg{width:18px;height:18px;fill:none;stroke:var(--rose);stroke-width:1.75;stroke-linecap:round;stroke-linejoin:round}
+.contact small{display:block;font-size:12px;letter-spacing:.12em;text-transform:uppercase;color:var(--muted);font-weight:600;margin-bottom:2px}
+footer{padding:40px 0 0;font-size:13px;line-height:1.6;color:#7f666d}
 
-/* ---------- sticky text bar ---------- */
-.textbar{position:fixed;left:0;right:0;bottom:0;z-index:20;min-height:var(--bar-h);padding:0 16px env(safe-area-inset-bottom,0px);
-  background:var(--crimson);color:#fff;display:flex;align-items:center;justify-content:center;gap:10px;text-decoration:none;font-weight:600;font-size:15px;box-shadow:0 -6px 20px rgba(0,0,0,.4)}
+/* ---------- sticky text pill ---------- */
+.textbar{position:fixed;left:50%;transform:translateX(-50%);bottom:calc(14px + env(safe-area-inset-bottom,0px));z-index:20;width:min(calc(100% - 2 * var(--gutter)),512px);height:var(--bar);
+  border-radius:999px;background:var(--crimson);color:#fff;display:flex;align-items:center;justify-content:center;gap:10px;padding:0 18px;text-decoration:none;font:600 17px/1.15 var(--sans);white-space:nowrap;
+  box-shadow:0 18px 40px -12px rgba(200,16,63,.9),0 2px 0 rgba(255,255,255,.08) inset;transition:transform .12s ease}
+.textbar:active{transform:translateX(-50%) scale(.985)}
 .textbar svg{width:20px;height:20px;fill:none;stroke:currentColor;stroke-width:2;stroke-linecap:round;stroke-linejoin:round;flex:none}
+.textbar span{min-width:0}
+.textbar small{display:block;font-size:12.5px;font-weight:500;opacity:.85;margin-top:3px;white-space:normal}
 
-@media (prefers-reduced-motion: reduce){*{scroll-behavior:auto!important;transition:none!important}}
+@media (min-width:640px){body{padding-top:28px}.hero{max-width:600px;margin:0 auto;border-radius:30px;min-height:700px}}
+@media (max-width:360px){.hero-ctas{grid-template-columns:1fr}.hero-ctas .btn{width:100%}.row{grid-template-columns:1fr}.fields{grid-template-columns:1fr 1fr}}
+@media (prefers-reduced-motion: reduce){html{scroll-behavior:auto}*{transition:none!important}}
 </style>
 </head>
 <body>
@@ -144,105 +191,135 @@ footer{padding:8px 20px 32px;font-size:12px;line-height:1.5;color:#9c7f86}
 <header class="hero" id="hero">
   <canvas id="silk3d" aria-hidden="true" hidden></canvas>
   <div class="photo" role="img" aria-label="Photo of Niko Stathis"></div>
-  <div class="hero-copy">
-    <h1>Niko Stathis</h1>
+  <div class="hero-inner">
+    <h1>Niko<br>Stathis</h1>
     <div class="role">Health Insurance Advisor</div>
-    <div class="who">Individuals · Medical Professionals · Families · Self-Employed</div>
-  </div>
-  <div class="hero-ctas">
-    <button class="btn btn-white pill" type="button" data-save-contact>
-      <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="9" cy="8" r="4"/><path d="M2 21c0-4 3-6 7-6s7 2 7 6M19 8v6M16 11h6"/></svg>
-      Save contact
-    </button>
-    <a class="btn btn-ghost pill" href="https://calendly.com/nikostathis" target="_blank" rel="noopener">Book a call</a>
+    <div class="who"><span>Individuals</span><span>Medical Professionals</span><span>Families</span><span>Self-Employed</span></div>
+    <div class="hero-ctas">
+      <button class="btn btn-white" type="button" data-save-contact>
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="9" cy="8" r="4"/><path d="M2 21c0-4 3-6 7-6s7 2 7 6M19 8v6M16 11h6"/></svg>
+        Save contact
+      </button>
+      <a class="btn btn-outline" href="https://calendly.com/nikostathis" target="_blank" rel="noopener">Book a call</a>
+    </div>
   </div>
 </header>
 
-<div class="wrap">
-  <div class="ref" id="ref" hidden></div>
+<main class="wrap">
+  <div class="ref" id="ref" hidden><i></i><span id="ref-text"></span></div>
 
-  <section class="stack" id="enroll" aria-labelledby="enroll-title">
-    <div class="eyebrow" id="enroll-eyebrow">Open enrollment starts in</div>
-    <div class="clock" id="clock" aria-live="off">
-      <div><b data-u="d">--</b><span>days</span></div>
-      <div><b data-u="h">--</b><span>hours</span></div>
-      <div><b data-u="m">--</b><span>min</span></div>
-      <div><b data-u="s">--</b><span>sec</span></div>
+  <section class="sec" id="enroll" aria-labelledby="enroll-title">
+    <div class="sec-head">
+      <div class="eyebrow" id="enroll-eyebrow">Open enrollment</div>
+      <h2 id="enroll-title">Enrollment opens November 1</h2>
     </div>
-    <h2 class="section-title" id="enroll-title">Opens November 1, 2026</h2>
-    <div class="dates">
-      <div><span>Opens</span><b>Nov 1, 2026</b></div>
-      <div><span>Last day to enroll</span><b>Jan 15, 2027</b></div>
+    <div class="count" id="clock">
+      <div class="days" data-u="d">--</div>
+      <div class="until" id="count-until">days until enrollment opens</div>
     </div>
-    <p class="note" id="enroll-note">Book a call now and we'll have your plan picked out before enrollment opens. After January 15 you usually need a life change, like a move, marriage, new baby or lost job coverage, to enroll.</p>
-    <a class="btn btn-red" href="https://calendly.com/nikostathis" target="_blank" rel="noopener">Book a call</a>
+    <div class="hms" id="hms"><b data-u="h">--</b> hrs &nbsp;·&nbsp; <b data-u="m">--</b> min &nbsp;·&nbsp; <b data-u="s">--</b> sec</div>
+    <div class="rail" aria-hidden="true">
+      <div class="track"></div><div class="fill" id="rail-fill"></div>
+      <div class="mk now" id="mk-now"><i></i><span>Today</span></div>
+      <div class="mk mid" id="mk-open"><i></i><b>Nov 1</b><span>Opens</span></div>
+      <div class="mk end on" id="mk-close" style="right:0"><i></i><b>Jan 15, 2027</b><span>Last day to enroll</span></div>
+    </div>
+    <p class="lead" id="enroll-note" style="margin-top:24px">Book a call now and your plan will be picked out before enrollment opens. After January 15 you usually need a life change, like a move, marriage, new baby or lost job coverage, to enroll.</p>
+    <div class="enroll-cta">
+      <a class="btn btn-primary btn-block" href="https://calendly.com/nikostathis" target="_blank" rel="noopener">Book a call</a>
+    </div>
   </section>
 
-  <section class="card-block" aria-labelledby="card-title">
-    <div class="eyebrow">Keep my card</div>
-    <h2 class="section-title" id="card-title" style="font-size:24px">Save me in your phone</h2>
-    <div class="card3d-wrap">
+  <hr class="rule">
+
+  <section class="sec" aria-labelledby="card-title">
+    <div class="sec-head">
+      <div class="eyebrow">Keep my card</div>
+      <h2 id="card-title">Save me to your phone</h2>
+    </div>
+    <div class="card-stage">
       <canvas id="card3d" tabindex="0" role="button" aria-label="Save Niko's contact to your phone" hidden></canvas>
       <img class="card-fallback" id="card-fallback" src="card.png" alt="Niko Stathis business card: Health Insurance Advisor, (224) 306-4565, niko@nshealthsolutions.org" width="1050" height="600">
     </div>
-    <p class="note" style="text-align:center">Tap the card to save my contact, or drag it to spin.</p>
-    <button class="btn btn-white" type="button" data-save-contact>Save contact</button>
+    <p class="small card-cap">Tap the card to save my contact. Drag to turn it over.</p>
+    <div class="enroll-cta" style="margin-top:20px">
+      <button class="btn btn-ghost btn-block" type="button" data-save-contact>Save contact</button>
+    </div>
   </section>
-  <div style="height:32px"></div>
 
-  <div class="panel" id="quiz" aria-live="polite"></div>
+  <hr class="rule">
 
-  <section class="stack" id="estimate" aria-labelledby="est-title">
-    <h2 class="section-title" id="est-title" style="font-size:26px">What would my coverage cost?</h2>
-    <p class="note" style="margin-top:-8px">Get a ballpark in seconds, then send it to Niko for your real quote.</p>
-    <form id="est-form" class="stack" novalidate>
+  <section class="sec" id="quiz-sec" aria-labelledby="quiz-title">
+    <div class="sec-head" style="margin-bottom:0">
+      <div class="eyebrow">Three minutes</div>
+      <h2 id="quiz-title">Which plan fits me?</h2>
+    </div>
+    <div id="quiz" aria-live="polite" style="margin-top:24px"></div>
+  </section>
+
+  <hr class="rule">
+
+  <section class="sec" id="estimate" aria-labelledby="est-title">
+    <div class="sec-head">
+      <div class="eyebrow">Ballpark</div>
+      <h2 id="est-title">What would my coverage cost?</h2>
+      <p class="lead">A rough monthly range in seconds. Then send it to Niko for your real quote.</p>
+    </div>
+    <form id="est-form" novalidate>
       <div class="fields">
-        <label class="f">ZIP<input id="est-zip" inputmode="numeric" autocomplete="postal-code" maxlength="5" placeholder="60601"></label>
-        <label class="f">Your age<input id="est-age" inputmode="numeric" maxlength="2" placeholder="40"></label>
+        <label class="f">ZIP<input class="field" id="est-zip" inputmode="numeric" autocomplete="postal-code" maxlength="5" placeholder="60601"></label>
+        <label class="f">Your age<input class="field" id="est-age" inputmode="numeric" maxlength="2" placeholder="40"></label>
         <label class="f">People
-          <select id="est-hh">
-            <option>1</option><option>2</option><option>3</option><option>4</option><option>5</option><option>6</option>
-          </select>
+          <select class="field" id="est-hh"><option>1</option><option>2</option><option>3</option><option>4</option><option>5</option><option>6</option></select>
         </label>
       </div>
-      <button class="btn btn-white" type="submit">Show my range</button>
+      <p class="err" id="est-err" hidden></p>
+      <div class="enroll-cta" style="margin-top:28px"><button class="btn btn-primary btn-block" type="submit">Show my range</button></div>
     </form>
-    <p class="err" id="est-err" hidden></p>
     <div id="est-out" hidden>
-      <div class="tiers" id="tiers"></div>
-      <p class="note" id="est-basis" style="margin-top:12px"></p>
-      <form class="next-step" id="est-next" novalidate aria-labelledby="quote-title">
+      <div class="tiers" id="tiers" style="margin-top:32px"></div>
+      <p class="small basis" id="est-basis"></p>
+      <form class="next" id="est-next" novalidate aria-labelledby="quote-title">
         <div class="eyebrow">Next step</div>
         <h3 id="quote-title">Get my real quote</h3>
-        <p>Your real price depends on your county, the carriers there and any tax credits you qualify for. Send your ballpark to Niko and get actual plans back.</p>
+        <p class="small" style="color:var(--text-2)">Your real price depends on your county, the carriers there and any tax credits you qualify for. Send Niko your ballpark and you'll get actual plans back.</p>
         <div class="fields">
-          <label class="f span2">Your name<input id="q-name" autocomplete="name" placeholder="First and last name"></label>
-          <label class="f span2">Best time to reach you
-            <select id="q-time"><option>Anytime</option><option>Mornings</option><option>Afternoons</option><option>Evenings</option></select>
+          <label class="f">Your name<input class="field" id="q-name" autocomplete="name" placeholder="First and last name"></label>
+          <label class="f">Best time to reach you
+            <select class="field" id="q-time"><option>Anytime</option><option>Mornings</option><option>Afternoons</option><option>Evenings</option></select>
           </label>
         </div>
-        <p class="err" id="q-err" hidden></p>
-        <button class="btn btn-red" type="submit">Text Niko for my real quote</button>
-        <a class="btn btn-ghost" href="https://calendly.com/nikostathis" target="_blank" rel="noopener">Or book on my calendar</a>
-        <p class="fine">The text opens on your phone with everything filled in. Nothing is sent until you press send.</p>
+        <p class="err" id="q-err" hidden style="margin-top:0"></p>
+        <div class="btns">
+          <button class="btn btn-primary btn-block" type="submit">Text Niko for my real quote</button>
+          <a class="btn btn-ghost btn-block" href="https://calendly.com/nikostathis" target="_blank" rel="noopener">Or book on my calendar</a>
+        </div>
+        <p class="small">The text opens on your phone with everything filled in. Nothing is sent until you press send.</p>
       </form>
     </div>
-    <p class="note"><b>Pre-subsidy estimates.</b> Rough 2026 marketplace ranges before tax credits, which lower the cost for many households. Prices vary by county and carrier, so this is not a quote.</p>
+    <p class="small" style="margin-top:24px"><b style="color:var(--text-2)">Pre-subsidy estimates.</b> Rough 2026 marketplace ranges before tax credits, which lower the cost for many households. Prices vary by county and carrier, so this is not a quote.</p>
   </section>
 
-  <div class="contacts" style="padding-left:20px;padding-right:20px">
-    <a class="contact" href="https://calendly.com/nikostathis" target="_blank" rel="noopener"><span class="ic"><svg viewBox="0 0 24 24"><rect x="3" y="5" width="18" height="16" rx="2"/><path d="M3 10h18M8 3v4M16 3v4"/></svg></span>calendly.com/nikostathis</a>
-    <div class="contact"><span class="ic"><svg viewBox="0 0 24 24"><path d="M12 3l7 3v6c0 4-3 7-7 9-4-2-7-5-7-9V6z"/><path d="M9 12l2 2 4-4"/></svg></span>Nationally Licensed</div>
-    <a class="contact" href="mailto:niko@nshealthsolutions.org"><span class="ic"><svg viewBox="0 0 24 24"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="M3 7l9 6 9-6"/></svg></span>niko@nshealthsolutions.org</a>
-    <a class="contact" href="tel:+12243064565"><span class="ic"><svg viewBox="0 0 24 24"><path d="M5 4h4l2 5-2.5 1.5a11 11 0 005 5L15 13l5 2v4a2 2 0 01-2 2A16 16 0 013 6a2 2 0 012-2"/></svg></span>(224) 306-4565</a>
-  </div>
+  <hr class="rule">
 
-  <footer>Estimates on this page are general information, not an offer of coverage. Plan availability and prices depend on where you live and when you enroll.</footer>
-</div>
+  <section class="sec" aria-labelledby="contact-title">
+    <div class="sec-head">
+      <div class="eyebrow">Reach me</div>
+      <h2 id="contact-title">Let's talk</h2>
+    </div>
+    <div class="contacts">
+      <a class="contact" href="https://calendly.com/nikostathis" target="_blank" rel="noopener"><span class="ic"><svg viewBox="0 0 24 24"><rect x="3" y="5" width="18" height="16" rx="2"/><path d="M3 10h18M8 3v4M16 3v4"/></svg></span><span><small>Schedule</small>calendly.com/nikostathis</span></a>
+      <div class="contact"><span class="ic"><svg viewBox="0 0 24 24"><path d="M12 3l7 3v6c0 4-3 7-7 9-4-2-7-5-7-9V6z"/><path d="M9 12l2 2 4-4"/></svg></span><span><small>License</small>Nationally Licensed</span></div>
+      <a class="contact" href="mailto:niko@nshealthsolutions.org"><span class="ic"><svg viewBox="0 0 24 24"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="M3 7l9 6 9-6"/></svg></span><span><small>Email</small>niko@nshealthsolutions.org</span></a>
+      <a class="contact" href="tel:+12243064565"><span class="ic"><svg viewBox="0 0 24 24"><path d="M5 4h4l2 5-2.5 1.5a11 11 0 005 5L15 13l5 2v4a2 2 0 01-2 2A16 16 0 013 6a2 2 0 012-2"/></svg></span><span><small>Call or text</small>(224) 306-4565</span></a>
+    </div>
+    <footer>Estimates on this page are general information, not an offer of coverage. Plan availability and prices depend on where you live and when you enroll.</footer>
+  </section>
+</main>
 
 <a class="textbar" id="textbar" href="sms:+12243064565?&body=COVERAGE">
   <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M21 12a8 8 0 01-11.6 7.1L4 21l1.9-5.4A8 8 0 1121 12z"/></svg>
-  <span>Text <b>COVERAGE</b> to (224) 306-4565</span>
+  <span><b>Text COVERAGE</b><small>to (224) 306-4565 · ready to send</small></span>
 </a>
 
 <script>
@@ -263,11 +340,11 @@ footer{padding:8px 20px 32px;font-size:12px;line-height:1.5;color:#9c7f86}
   } catch (e) { ref = ""; }
   var refLine = ref ? " (Referred by " + ref + ")" : "";
   if (ref) {
-    var box = $("ref"), b = document.createElement("b");
+    var t = $("ref-text"), b = document.createElement("b");
     b.textContent = ref + " sent you here.";
-    box.appendChild(b);
-    box.appendChild(document.createTextNode(" Mention them when we talk."));
-    box.hidden = false;
+    t.appendChild(b);
+    t.appendChild(document.createTextNode(" Mention them when we talk."));
+    $("ref").hidden = false;
   }
   $("textbar").href = smsHref("COVERAGE" + refLine);
 
@@ -286,24 +363,36 @@ footer{padding:8px 20px 32px;font-size:12px;line-height:1.5;color:#9c7f86}
   }
   document.querySelectorAll("[data-save-contact]").forEach(function (el) { el.addEventListener("click", saveContact); });
 
-  /* ---------- open enrollment countdown: to the Nov 1 start, then to the Jan 15 end ---------- */
+  /* ---------- open enrollment: count down to the Nov 1 start, then to the Jan 15 end ---------- */
   var OE_START = new Date(2026, 10, 1, 0, 0, 0);      // 12:00 AM Nov 1, viewer's local time
   var OE_END = new Date(2027, 0, 15, 23, 59, 59);     // 11:59 PM Jan 15
-  var cells = {}; document.querySelectorAll("#clock b").forEach(function (el) { cells[el.dataset.u] = el; });
+  var cells = {}; document.querySelectorAll("#enroll [data-u]").forEach(function (el) { cells[el.dataset.u] = el; });
   var phase = "";
   function pad(n) { return n < 10 ? "0" + n : "" + n; }
   function setPhase(p) {
     if (p === phase) return; phase = p;
     if (p === "open") {
-      $("enroll-eyebrow").textContent = "Open enrollment ends in";
-      $("enroll-title").textContent = "Open enrollment is open now";
+      $("enroll-eyebrow").textContent = "Open enrollment";
+      $("enroll-title").textContent = "Enrollment is open now";
+      $("count-until").textContent = "days left to enroll";
       $("enroll-note").textContent = "Enroll by January 15, 2027. After that you usually need a life change, like a move, marriage, new baby or lost job coverage, to enroll.";
     } else if (p === "closed") {
-      $("clock").hidden = true;
-      $("enroll-eyebrow").textContent = "Open enrollment";
+      $("clock").hidden = true; $("hms").hidden = true;
       $("enroll-title").textContent = "Open enrollment has closed";
       $("enroll-note").textContent = "You may still qualify for a special enrollment period after a move, marriage, new baby or lost job coverage. Book a call and I'll check.";
     }
+  }
+  function placeRail(now) {
+    // The rail runs from today to the last day to enroll; Nov 1 sits proportionally between them.
+    var span = OE_END - Math.min(now, OE_START), open = (OE_START - Math.min(now, OE_START)) / span * 100;
+    var pos = Math.max(0, Math.min(100, (now - Math.min(now, OE_START)) / span * 100));
+    $("mk-open").style.left = open + "%";
+    $("mk-open").classList.toggle("on", now >= OE_START);
+    $("mk-now").style.left = pos + "%";
+    $("mk-now").style.transform = pos > 50 ? "translateX(-100%)" : "";
+    $("mk-now").style.alignItems = pos > 50 ? "flex-end" : "";
+    $("rail-fill").style.width = pos + "%";
+    if (now < OE_START && open < 22) $("mk-now").querySelector("span").hidden = true;
   }
   function tick() {
     var now = new Date(), target;
@@ -315,11 +404,12 @@ footer{padding:8px 20px 32px;font-size:12px;line-height:1.5;color:#9c7f86}
     cells.h.textContent = pad(Math.floor(s % 86400 / 3600));
     cells.m.textContent = pad(Math.floor(s % 3600 / 60));
     cells.s.textContent = pad(s % 60);
+    if (s % 60 === 0 || !tick.placed) { placeRail(now); tick.placed = true; }
   }
   var timer = setInterval(tick, 1000); tick();
 
   /* ---------- "Which plan fits me?" quiz ----------
-     Every question has an "Other" answer that asks for a few words; those words go into the text to Niko. */
+     Every question but income has an "Other" answer that asks for a few words; those words go into the text to Niko. */
   var QUESTIONS = [
     { q: "Who needs coverage?", key: "who", opts: [
       ["me", "Just me"], ["couple", "Me and my spouse or partner"], ["family", "My family, including kids"], ["team", "My employees"]] },
@@ -329,7 +419,7 @@ footer{padding:8px 20px 32px;font-size:12px;line-height:1.5;color:#9c7f86}
       ["w2", "A job that doesn't offer good benefits"], ["self", "Self-employed, freelance or 1099"], ["owner", "I own a business with employees"], ["retired", "Retired or between jobs"]] },
     { q: "What matters most in a plan?", key: "care", opts: [
       ["cost", "The lowest monthly payment"], ["doctors", "Keeping my doctors and hospitals"], ["oop", "Low costs when I actually use care"], ["rx", "Covering my prescriptions"], ["event", "A planned surgery, pregnancy or big treatment"]] },
-    { q: "Roughly what will your household earn in 2027?", key: "income", note: "This helps me check whether tax credits can lower your cost.", opts: [
+    { q: "Roughly what will your household earn in 2027?", key: "income", note: "This is how I check whether tax credits can lower your cost.", opts: [
       ["low", "Under $40,000"], ["mid", "$40,000 to $80,000"], ["high", "$80,000 to $150,000"], ["top", "Over $150,000"], ["skip", "I'd rather not say"]] }
   ];
   var RESULTS = {
@@ -349,7 +439,7 @@ footer{padding:8px 20px 32px;font-size:12px;line-height:1.5;color:#9c7f86}
   var answers = {}, others = {}, stepIdx = 0, otherOpen = false, quiz = $("quiz");
 
   function el(tag, cls, text) { var e = document.createElement(tag); if (cls) e.className = cls; if (text != null) e.textContent = text; return e; }
-  function linkBtn(text) { var b = el("button", "opt", text); b.type = "button"; b.style.cssText = "border:0;background:none;min-height:44px;padding:0;color:#6d4b53;text-decoration:underline;align-self:flex-start"; return b; }
+  function linkBtn(text) { var b = el("button", "link", text); b.type = "button"; return b; }
   function route() {
     var a = answers;
     if (a.who === "team" || a.work === "owner") return "business";
@@ -367,58 +457,57 @@ footer{padding:8px 20px 32px;font-size:12px;line-height:1.5;color:#9c7f86}
   function next() { stepIdx++; otherOpen = false; renderQuiz(); }
   function renderQuiz() {
     quiz.textContent = "";
-    var head = el("div", "panel-head");
-    head.appendChild(el("h2", "section-title", "Which plan fits me?"));
     if (stepIdx < QUESTIONS.length) {
-      head.appendChild(el("span", "step", (stepIdx + 1) + " of " + QUESTIONS.length));
-      quiz.appendChild(head);
-      var bars = el("div", "bars");
-      QUESTIONS.forEach(function (_, i) { bars.appendChild(el("i", i <= stepIdx ? "on" : "")); });
-      quiz.appendChild(bars);
       var Q = QUESTIONS[stepIdx];
+      var head = el("div", "q-head");
+      head.appendChild(el("span", "q-step", "Question " + (stepIdx + 1) + " of " + QUESTIONS.length));
+      quiz.appendChild(head);
+      var bar = el("div", "q-bar"), fill = el("i"); fill.style.width = (stepIdx / QUESTIONS.length * 100) + "%"; bar.appendChild(fill); quiz.appendChild(bar);
+      requestAnimationFrame(function () { fill.style.width = ((stepIdx + 1) / QUESTIONS.length * 100) + "%"; });
       quiz.appendChild(el("p", "q", Q.q));
-      if (Q.note) quiz.appendChild(el("p", "step", Q.note));
+      if (Q.note) quiz.appendChild(el("p", "q-note", Q.note));
+      var opts = el("div", "opts");
       Q.opts.forEach(function (o) {
         var b = el("button", "opt" + (answers[Q.key] === o[0] ? " picked" : ""), o[1]); b.type = "button";
         b.addEventListener("click", function () { answers[Q.key] = o[0]; next(); });
-        quiz.appendChild(b);
+        opts.appendChild(b);
       });
       if (Q.key !== "income") {
         if (!otherOpen) {
-          var ob = el("button", "opt" + (answers[Q.key] === "other" ? " picked" : ""), "Other"); ob.type = "button";
+          var ob = el("button", "opt" + (answers[Q.key] === "other" ? " picked" : ""), "Something else"); ob.type = "button";
           ob.addEventListener("click", function () { otherOpen = true; renderQuiz(); var i = $("quiz-other"); if (i) i.focus(); });
-          quiz.appendChild(ob);
+          opts.appendChild(ob);
         } else {
           var box = el("div", "other-box");
-          var lab = el("label", null, "Other");
-          var inp = el("input"); inp.id = "quiz-other"; inp.maxLength = 80; inp.placeholder = "Tell me in a few words"; inp.value = others[Q.key] || "";
+          var lab = el("label", null, "Something else");
+          var inp = el("input", "field"); inp.id = "quiz-other"; inp.maxLength = 80; inp.placeholder = "Tell me in a few words"; inp.value = others[Q.key] || "";
           lab.appendChild(inp); box.appendChild(lab);
-          var go = el("button", "btn btn-dark", "Next"); go.type = "button";
+          var go = el("button", "btn btn-primary btn-block", "Continue"); go.type = "button";
           function save() { var v = inp.value.trim(); if (!v) { inp.focus(); return; } answers[Q.key] = "other"; others[Q.key] = v; next(); }
           go.addEventListener("click", save);
           inp.addEventListener("keydown", function (e) { if (e.key === "Enter") { e.preventDefault(); save(); } });
-          box.appendChild(go); quiz.appendChild(box);
+          box.appendChild(go); opts.appendChild(box);
         }
       }
+      quiz.appendChild(opts);
       if (stepIdx > 0) {
-        var back = linkBtn("Back");
+        var foot = el("div", "q-foot"), back = linkBtn("Back");
         back.addEventListener("click", function () { stepIdx--; otherOpen = false; renderQuiz(); });
-        quiz.appendChild(back);
+        foot.appendChild(back); quiz.appendChild(foot);
       }
       return;
     }
     var r = RESULTS[route()];
-    quiz.appendChild(head);
-    var res = el("div", "result stack");
-    res.style.gap = "10px";
+    var res = el("div", "result");
     res.appendChild(el("div", "eyebrow", "Your match"));
-    res.lastChild.style.color = "#a30d33";
     res.appendChild(el("h3", null, r.name));
-    res.appendChild(el("p", null, r.blurb));
-    [answers.now, answers.care, answers.income].forEach(function (k) { if (EXTRA[k]) res.appendChild(el("p", "extra", EXTRA[k])); });
+    res.appendChild(el("p", "blurb", r.blurb));
+    var tips = el("div", "tips");
+    [answers.now, answers.care, answers.income].forEach(function (k) { if (EXTRA[k]) tips.appendChild(el("p", null, EXTRA[k])); });
+    if (tips.childNodes.length) res.appendChild(tips);
     var row = el("div", "row");
-    var book = el("a", "btn btn-dark", "Book a call"); book.href = "https://calendly.com/nikostathis"; book.target = "_blank"; book.rel = "noopener";
-    var txt = el("a", "btn btn-line", "Text Niko about it");
+    var book = el("a", "btn btn-primary", "Book a call"); book.href = "https://calendly.com/nikostathis"; book.target = "_blank"; book.rel = "noopener";
+    var txt = el("a", "btn btn-ghost", "Text Niko about it");
     var body = ["Hi Niko, your quiz matched me with " + r.name + ".", "Coverage for: " + label("who"), "Right now: " + label("now"),
       "Income from: " + label("work"), "Most important: " + label("care")];
     if (answers.income !== "skip") body.push("2027 household income: " + label("income"));
@@ -426,7 +515,7 @@ footer{padding:8px 20px 32px;font-size:12px;line-height:1.5;color:#9c7f86}
     txt.href = smsHref(body.join("\n"));
     row.appendChild(book); row.appendChild(txt);
     res.appendChild(row);
-    var again = linkBtn("Retake the quiz");
+    var again = linkBtn("Start over");
     again.addEventListener("click", function () { answers = {}; others = {}; stepIdx = 0; otherOpen = false; renderQuiz(); });
     res.appendChild(again);
     quiz.appendChild(res);
@@ -470,13 +559,13 @@ footer{padding:8px 20px 32px;font-size:12px;line-height:1.5;color:#9c7f86}
       var row = el("div", "tier"), track = el("div", "track"), bar = document.createElement("i");
       bar.style.left = (r.lo / max * 100) + "%"; bar.style.width = ((r.hi - r.lo) / max * 100) + "%"; bar.style.background = r.color;
       track.appendChild(bar);
-      row.appendChild(el("span", null, r.name)); row.appendChild(track); row.appendChild(el("b", null, money(r.lo) + " – " + money(r.hi)));
+      row.appendChild(el("span", "name", r.name)); row.appendChild(track); row.appendChild(el("b", null, money(r.lo) + " – " + money(r.hi)));
       out.appendChild(row);
     });
     $("est-basis").textContent = "Per month for " + (hh === 1 ? "you at " + age : hh === 2 ? "two adults aged " + age : "two adults aged " + age + " and " + (hh - 2) + (hh === 3 ? " child" : " children")) + ", ZIP " + zip + ".";
     $("est-out").hidden = false;
     lastEstimate = { zip: zip, age: age, hh: hh, lo: rows[0].lo, hi: rows[rows.length - 1].hi };
-    $("est-next").scrollIntoView({ behavior: matchMedia("(prefers-reduced-motion: reduce)").matches ? "auto" : "smooth", block: "center" });
+    $("tiers").scrollIntoView({ behavior: matchMedia("(prefers-reduced-motion: reduce)").matches ? "auto" : "smooth", block: "start" });
   });
 
   /* ---------- real quote: the ballpark details go to Niko by prefilled text ---------- */
@@ -494,7 +583,6 @@ footer{padding:8px 20px 32px;font-size:12px;line-height:1.5;color:#9c7f86}
     openSms(lines.join("\n"));
   });
 
-  /* ---------- Blender 3D scenes ---------- */
   window.__cardSave = saveContact;
 })();
 </script>
