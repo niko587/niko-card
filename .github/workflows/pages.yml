@@ -21,8 +21,10 @@ jobs:
       - uses: actions/configure-pages@v5
         with:
           enablement: true
+      - name: Stage the site files only (not source/ or the README)
+        run: mkdir _site && cp index.html Niko-Stathis.vcf card.png card.webp og.jpg apple-touch-icon.png icon-192.png .nojekyll _site/
       - uses: actions/upload-pages-artifact@v3
         with:
-          path: .
+          path: _site
       - id: deployment
         uses: actions/deploy-pages@v4

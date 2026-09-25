@@ -28,13 +28,13 @@ vcard = "\r\n".join(fold(l) for l in [
     "PHOTO;ENCODING=b;TYPE=JPEG:" + photo, "END:VCARD"]) + "\r\n"
 (out / "Niko-Stathis.vcf").write_bytes(vcard.encode())
 
-src = (here / "index.src.html").read_text()
+src = (here / "index.src.html").read_text(encoding="utf-8")
 for key, f in (("__SILK_GLB__", "silk.glb"), ("__CARD_GLB__", "card.glb"), ("__DECK_GLB__", "deck.glb")):
     src = src.replace(key, base64.b64encode((here / f).read_bytes()).decode())
 src = src.replace("__CUTOUT__", base64.b64encode((here / "cutout.webp").read_bytes()).decode())
 src = src.replace("__VCARD_JSON__", json.dumps(vcard))
-(out / "index.html").write_text(src)
+(out / "index.html").write_text(src, encoding="utf-8")
 if out.resolve() != root.resolve():
-    for f in ("card.png", "og.jpg", "apple-touch-icon.png", "icon-192.png"):
+    for f in ("card.png", "card.webp", "og.jpg", "apple-touch-icon.png", "icon-192.png"):
         shutil.copy(root / f, out / f)
 print((out / "index.html").stat().st_size, (out / "Niko-Stathis.vcf").stat().st_size)

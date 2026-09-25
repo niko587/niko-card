@@ -7,7 +7,7 @@
 <meta name="description" content="Health insurance for individuals, families, medical professionals and the self-employed. Nationally licensed. Book a call or text COVERAGE to (224) 306-4565.">
 <meta name="theme-color" content="#0a0507">
 <meta property="og:title" content="Niko Stathis, Health Insurance Advisor">
-<meta property="og:description" content="Open enrollment opens November 1. Book a call or text COVERAGE to (224) 306-4565.">
+<meta property="og:description" content="Open enrollment starts November 1. Book a call or text COVERAGE to (224) 306-4565.">
 <meta property="og:type" content="website">
 <meta property="og:url" content="https://niko587.github.io/niko-card/">
 <meta property="og:image" content="https://niko587.github.io/niko-card/og.jpg">
@@ -16,14 +16,15 @@
 <meta property="og:image:alt" content="Niko Stathis business card">
 <meta name="twitter:card" content="summary_large_image">
 <meta name="twitter:title" content="Niko Stathis, Health Insurance Advisor">
-<meta name="twitter:description" content="Open enrollment opens November 1. Book a call or text COVERAGE to (224) 306-4565.">
+<meta name="twitter:description" content="Open enrollment starts November 1. Book a call or text COVERAGE to (224) 306-4565.">
 <meta name="twitter:image" content="https://niko587.github.io/niko-card/og.jpg">
 <link rel="canonical" href="https://niko587.github.io/niko-card/">
 <link rel="icon" type="image/png" sizes="192x192" href="icon-192.png">
 <link rel="apple-touch-icon" sizes="180x180" href="apple-touch-icon.png">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Source+Serif+4:ital,opsz,wght@0,8..60,400;0,8..60,500;0,8..60,600;1,8..60,400&family=Public+Sans:wght@400;500;600&display=swap">
+<link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Source+Serif+4:ital,opsz,wght@0,8..60,400;0,8..60,500;0,8..60,600;1,8..60,400&family=Public+Sans:wght@400;500;600&display=swap" onload="this.onload=null;this.rel='stylesheet'">
+<noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Source+Serif+4:ital,opsz,wght@0,8..60,400;0,8..60,500;0,8..60,600;1,8..60,400&family=Public+Sans:wght@400;500;600&display=swap"></noscript>
 <style>
 :root{
   color-scheme: dark;
@@ -87,7 +88,7 @@ hr.rule{border:0;height:1px;background:var(--line);margin:64px 0 0}
   background:linear-gradient(90deg,rgba(5,2,3,.55) 0%,rgba(5,2,3,.12) 48%,rgba(5,2,3,0) 62%),
              linear-gradient(0deg,var(--ink) 0%,rgba(10,5,7,.92) 9%,rgba(10,5,7,0) 40%)}
 .photo{position:absolute;right:-4px;bottom:0;width:60%;max-width:300px;aspect-ratio:590/912;z-index:1;
-  background:url(data:image/webp;base64,__CUTOUT__) right bottom/contain no-repeat;
+  background:right bottom/contain no-repeat;
   -webkit-mask-image:linear-gradient(180deg,#000 58%,transparent 100%);mask-image:linear-gradient(180deg,#000 58%,transparent 100%)}
 .hero.has-3d .photo{visibility:hidden}
 .hero-inner{position:relative;z-index:2;display:flex;flex-direction:column;flex:1;padding:max(48px,env(safe-area-inset-top,0px) + 40px) var(--gutter) 28px;max-width:560px;margin:0 auto;width:100%}
@@ -132,7 +133,7 @@ hr.rule{border:0;height:1px;background:var(--line);margin:64px 0 0}
 .q-step{font-size:14px;color:var(--muted);font-variant-numeric:tabular-nums}
 .field{width:100%;height:50px;border:0;border-bottom:1.5px solid var(--line-strong);border-radius:0;background:transparent;padding:0;font:500 20px var(--sans);color:var(--text);transition:border-color .15s ease}
 .field:focus{outline:0;border-bottom-color:var(--rose)}
-.field::placeholder{color:#6b555b;font-weight:400}
+.field::placeholder{color:#937b82;font-weight:400}
 .err{color:var(--rose);font-size:15px;margin-top:12px}
 .row{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin-top:8px}
 .row .btn{padding:0 14px;font-size:15px}
@@ -140,6 +141,7 @@ hr.rule{border:0;height:1px;background:var(--line);margin:64px 0 0}
 .talk .sec-head .btn{min-height:46px;align-self:flex-start;padding:0 20px;font-size:15px}
 .stage{position:relative;height:220px;margin:8px calc(-1 * var(--gutter)) 0;overflow:hidden;transition:height .3s ease;
   background:radial-gradient(55% 50% at 50% 50%,rgba(200,16,63,.38),rgba(200,16,63,0) 72%)}
+
 .talk.revealed .stage{height:300px}
 #deck3d{width:100%;height:100%;display:block;touch-action:pan-y}
 .thread-head{display:flex;justify-content:space-between;align-items:center;min-height:44px;margin-top:8px}
@@ -160,7 +162,7 @@ hr.rule{border:0;height:1px;background:var(--line);margin:64px 0 0}
 .chip.picked{border-color:var(--crimson);background:rgba(200,16,63,.16)}
 .compose{display:flex;gap:10px;align-items:center;padding-left:38px}
 .compose input{flex:1;min-width:0;height:48px;border-radius:999px;border:1px solid var(--line-strong);background:var(--ink-3);padding:0 18px;font:500 20px var(--sans);color:var(--text)}
-.compose input::placeholder{color:#6b555b;font-weight:400}
+.compose input::placeholder{color:#937b82;font-weight:400}
 .compose input:focus{outline:0;border-color:var(--rose)}
 .compose button{flex:none;width:48px;height:48px;border-radius:50%;border:0;background:var(--crimson);color:#fff;display:grid;place-items:center;cursor:pointer}
 .compose button svg{width:20px;height:20px;fill:none;stroke:currentColor;stroke-width:2.2;stroke-linecap:round;stroke-linejoin:round}
@@ -188,11 +190,13 @@ hr.rule{border:0;height:1px;background:var(--line);margin:64px 0 0}
 .book-card .cal{width:22px;height:22px;fill:none;stroke:var(--rose);stroke-width:1.75;stroke-linecap:round;stroke-linejoin:round}
 .preview{padding-left:38px;display:flex;flex-direction:column;gap:12px}
 .preview .bub{background:var(--ink-2);border:1px solid var(--crimson);border-radius:20px 20px 20px 6px;padding:14px 16px;font:400 15px/1.6 var(--sans);white-space:pre-wrap;color:var(--text-2);overflow-wrap:anywhere}
-.preview .bub input{display:inline-block;width:12ch;max-width:60%;height:30px;border:0;border-bottom:1.5px solid var(--rose);background:transparent;font:inherit;color:var(--text);padding:0 2px}
+.preview .bub input{display:inline-block;width:12ch;max-width:60%;height:40px;border:0;border-bottom:1.5px solid var(--rose);background:transparent;font:inherit;font-size:16px;color:var(--text);padding:0 2px}
 .preview .bub input:focus{outline:0}
-.preview .times{display:inline-flex;flex-wrap:wrap;gap:6px;vertical-align:middle}
-.preview .times .chip{min-height:30px;padding:4px 12px;font-size:13px}
-.toast{position:fixed;left:50%;transform:translateX(-50%);bottom:calc(var(--bar) + 30px + env(safe-area-inset-bottom,0px));z-index:21;background:#fff;color:var(--wine);padding:12px 18px;border-radius:999px;font:500 15px var(--sans);box-shadow:0 12px 30px -10px rgba(0,0,0,.7);max-width:calc(100% - 48px);text-align:center}
+.preview .times{display:inline-flex;flex-wrap:wrap;gap:8px;vertical-align:middle;margin:4px 0}
+.preview .times .chip{min-height:44px;padding:10px 14px;font-size:14px}
+.sr-only{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0);white-space:nowrap}
+.bub:focus{outline:0}
+.toast{position:fixed;left:50%;width:max-content;transform:translateX(-50%);bottom:calc(var(--bar) + 30px + env(safe-area-inset-bottom,0px));z-index:21;background:#fff;color:var(--wine);padding:12px 18px;border-radius:999px;font:500 15px var(--sans);box-shadow:0 12px 30px -10px rgba(0,0,0,.7);max-width:calc(100% - 48px);text-align:center}
 .textbar.split{padding:0;overflow:hidden;gap:0}
 .textbar.split a{display:flex;align-items:center;justify-content:center;gap:10px;height:100%;color:#fff;text-decoration:none}
 .textbar.split .book{flex:1;font:600 17px var(--sans)}
@@ -205,7 +209,8 @@ hr.rule{border:0;height:1px;background:var(--line);margin:64px 0 0}
 .fcard.up{opacity:1}
 .fcard.up.dim{opacity:.45}
 .fband{position:absolute;left:50%;top:50%;width:14px;height:40%;margin-left:26px;margin-top:-20%;background:linear-gradient(90deg,#7a0a1e,#e0335e,#7a0a1e);border-radius:3px;transition:opacity .4s ease}
-@media (max-width:360px){.chips.grid{grid-template-columns:1fr}.tier{grid-template-columns:56px 1fr auto;gap:10px}}
+@media (max-width:400px){.chips.grid{grid-template-columns:1fr}}
+@media (max-width:360px){.tier{grid-template-columns:56px 1fr auto;gap:10px}}
 
 /* ---------- contact ---------- */
 .contacts{display:flex;flex-direction:column;border-top:1px solid var(--line)}
@@ -214,7 +219,7 @@ a.contact:hover{color:#fff}
 .contact .ic{flex:none;width:40px;height:40px;border-radius:50%;border:1px solid var(--line-strong);display:grid;place-items:center}
 .contact svg{width:18px;height:18px;fill:none;stroke:var(--rose);stroke-width:1.75;stroke-linecap:round;stroke-linejoin:round}
 .contact small{display:block;font-size:12px;letter-spacing:.12em;text-transform:uppercase;color:var(--muted);font-weight:600;margin-bottom:2px}
-footer{padding:40px 0 0;font-size:13px;line-height:1.6;color:#7f666d}
+footer{padding:40px 0 0;font-size:13px;line-height:1.6;color:var(--muted)}
 
 /* ---------- sticky text pill ---------- */
 .textbar{position:fixed;left:50%;transform:translateX(-50%);bottom:calc(14px + env(safe-area-inset-bottom,0px));z-index:20;width:min(calc(100% - 2 * var(--gutter)),512px);height:var(--bar);
@@ -227,7 +232,8 @@ footer{padding:40px 0 0;font-size:13px;line-height:1.6;color:#7f666d}
 
 @media (min-width:640px){body{padding-top:28px}.hero{max-width:600px;margin:0 auto;border-radius:30px;min-height:700px}}
 @media (max-width:360px){.hero-ctas{grid-template-columns:1fr}.hero-ctas .btn{width:100%}.row{grid-template-columns:1fr}.fields{grid-template-columns:1fr 1fr}}
-@media (prefers-reduced-motion: reduce){html{scroll-behavior:auto}*{transition:none!important}}
+@media (prefers-reduced-motion: reduce){html{scroll-behavior:auto}*{transition:none!important;animation:none!important}}
+@media (max-height:720px){.hero{min-height:0}.hero-ctas{padding-top:100px}}
 </style>
 </head>
 <body>
@@ -248,6 +254,7 @@ footer{padding:40px 0 0;font-size:13px;line-height:1.6;color:#7f666d}
     </div>
   </div>
 </header>
+<style>.photo{background-image:url(data:image/webp;base64,__CUTOUT__)}</style>
 
 <main class="wrap">
   <div class="ref" id="ref" hidden><i></i><span id="ref-text"></span></div>
@@ -268,7 +275,7 @@ footer{padding:40px 0 0;font-size:13px;line-height:1.6;color:#7f666d}
       <div class="mk mid" id="mk-open"><i></i><b>Nov 1</b><span>Opens</span></div>
       <div class="mk end on" id="mk-close" style="right:0"><i></i><b>Jan 15, 2027</b><span>Last day to enroll</span></div>
     </div>
-    <p class="lead" id="enroll-note" style="margin-top:24px">Book a call now and your plan will be picked out before enrollment opens. After January 15 you usually need a life change, like a move, marriage, new baby or lost job coverage, to enroll.</p>
+    <p class="lead" id="enroll-note" style="margin-top:24px">Book a call now and we can have a plan picked out before enrollment opens. Enroll by December 15 for coverage on January 1. After January 15 you usually need a life change, like a move, marriage, new baby or lost job coverage, to enroll.</p>
     <div class="enroll-cta">
       <a class="btn btn-primary btn-block" href="https://calendly.com/nikostathis" target="_blank" rel="noopener">Book a call</a>
     </div>
@@ -283,9 +290,9 @@ footer{padding:40px 0 0;font-size:13px;line-height:1.6;color:#7f666d}
     </div>
     <div class="card-stage">
       <canvas id="card3d" tabindex="0" role="button" aria-label="Save Niko's contact to your phone" hidden></canvas>
-      <img class="card-fallback" id="card-fallback" src="card.png" alt="Niko Stathis business card: Health Insurance Advisor, (224) 306-4565, niko@nshealthsolutions.org" width="1050" height="600">
+      <img class="card-fallback" id="card-fallback" src="card.webp" loading="lazy" fetchpriority="low" alt="Niko Stathis business card: Health Insurance Advisor, (224) 306-4565, niko@nshealthsolutions.org" width="1050" height="600">
     </div>
-    <p class="small card-cap">Tap the card to save my contact. Drag to turn it over.</p>
+    <p class="small card-cap" id="card-cap">Tap Save contact to add me to your phone.</p>
     <div class="enroll-cta" style="margin-top:20px">
       <button class="btn btn-ghost btn-block" type="button" data-save-contact>Save contact</button>
     </div>
@@ -295,10 +302,10 @@ footer{padding:40px 0 0;font-size:13px;line-height:1.6;color:#7f666d}
 
   <section class="sec talk no3d" id="talk" aria-labelledby="talk-title">
     <div class="sec-head">
-      <div class="eyebrow">Six questions</div>
+      <div class="eyebrow">A few questions</div>
       <h2 id="talk-title">Let's put your cards on the table</h2>
       <p class="lead">Answer like you're texting me. You'll get a monthly range, then pick a time to talk.</p>
-      <p class="small">It's my card asking, not me live. Nothing you type leaves your phone until you send it.</p>
+      <p class="small">It's my card asking, not me live. Nothing you type leaves your phone until you book or send it.</p>
       <a class="btn btn-ghost" id="talk-book-top" href="https://calendly.com/nikostathis?utm_source=card&amp;utm_medium=web&amp;utm_content=header" target="_blank" rel="noopener">Book a call instead</a>
     </div>
     <div class="stage" id="deck-stage">
@@ -311,7 +318,8 @@ footer{padding:40px 0 0;font-size:13px;line-height:1.6;color:#7f666d}
       </div>
     </div>
     <div class="thread-head"><span class="q-step" id="talk-step">1 of 6</span><button class="link" id="talk-back" type="button" hidden>Back</button></div>
-    <div class="thread" id="thread" aria-live="polite"></div>
+    <div class="thread" id="thread"></div>
+    <div id="talk-live" class="sr-only" role="status" aria-live="polite"></div>
   </section>
 
   <hr class="rule">
@@ -322,10 +330,10 @@ footer{padding:40px 0 0;font-size:13px;line-height:1.6;color:#7f666d}
       <h2 id="contact-title">Let's talk</h2>
     </div>
     <div class="contacts">
-      <a class="contact" href="https://calendly.com/nikostathis" target="_blank" rel="noopener"><span class="ic"><svg viewBox="0 0 24 24"><rect x="3" y="5" width="18" height="16" rx="2"/><path d="M3 10h18M8 3v4M16 3v4"/></svg></span><span><small>Schedule</small>calendly.com/nikostathis</span></a>
-      <div class="contact"><span class="ic"><svg viewBox="0 0 24 24"><path d="M12 3l7 3v6c0 4-3 7-7 9-4-2-7-5-7-9V6z"/><path d="M9 12l2 2 4-4"/></svg></span><span><small>License</small>Nationally Licensed</span></div>
-      <a class="contact" href="mailto:niko@nshealthsolutions.org"><span class="ic"><svg viewBox="0 0 24 24"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="M3 7l9 6 9-6"/></svg></span><span><small>Email</small>niko@nshealthsolutions.org</span></a>
-      <a class="contact" href="tel:+12243064565"><span class="ic"><svg viewBox="0 0 24 24"><path d="M5 4h4l2 5-2.5 1.5a11 11 0 005 5L15 13l5 2v4a2 2 0 01-2 2A16 16 0 013 6a2 2 0 012-2"/></svg></span><span><small>Call or text</small>(224) 306-4565</span></a>
+      <a class="contact" href="https://calendly.com/nikostathis" target="_blank" rel="noopener"><span class="ic"><svg viewBox="0 0 24 24" aria-hidden="true"><rect x="3" y="5" width="18" height="16" rx="2"/><path d="M3 10h18M8 3v4M16 3v4"/></svg></span><span><small>Schedule</small>calendly.com/nikostathis</span></a>
+      <div class="contact"><span class="ic"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 3l7 3v6c0 4-3 7-7 9-4-2-7-5-7-9V6z"/><path d="M9 12l2 2 4-4"/></svg></span><span><small>License</small>Nationally Licensed</span></div>
+      <a class="contact" href="mailto:niko@nshealthsolutions.org"><span class="ic"><svg viewBox="0 0 24 24" aria-hidden="true"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="M3 7l9 6 9-6"/></svg></span><span><small>Email</small>niko@nshealthsolutions.org</span></a>
+      <a class="contact" href="tel:+12243064565"><span class="ic"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 4h4l2 5-2.5 1.5a11 11 0 005 5L15 13l5 2v4a2 2 0 01-2 2A16 16 0 013 6a2 2 0 012-2"/></svg></span><span><small>Call or text</small>(224) 306-4565</span></a>
     </div>
     <footer>Estimates on this page are general information, not an offer of coverage. Plan availability and prices depend on where you live and when you enroll.</footer>
   </section>
@@ -350,7 +358,8 @@ footer{padding:40px 0 0;font-size:13px;line-height:1.6;color:#7f666d}
   /* ---------- referral (?ref=Maria) ---------- */
   var ref = "";
   try {
-    ref = (new URLSearchParams(location.search).get("ref") || "").replace(/[^\p{L}\p{M}0-9 .'\-]/gu, "").replace(/\s+/g, " ").trim().slice(0, 40);
+    var REF_RE = new RegExp("[^\\p{L}\\p{M}0-9 .'\\-]", "gu");
+    ref = (new URLSearchParams(location.search).get("ref") || "").replace(REF_RE, "").replace(/\s+/g, " ").trim().slice(0, 40);
   } catch (e) { ref = ""; }
   var refLine = ref ? " (Referred by " + ref + ")" : "";
   if (ref) {
@@ -361,6 +370,7 @@ footer{padding:40px 0 0;font-size:13px;line-height:1.6;color:#7f666d}
     $("ref").hidden = false;
   }
   $("textbar").href = smsHref("COVERAGE" + refLine);
+  if (ref) [].forEach.call(document.querySelectorAll('a[href^="https://calendly.com/"]'), function (a) { a.href += (a.href.indexOf("?") > -1 ? "&" : "?") + "utm_term=" + encodeURIComponent(ref); });
 
   /* ---------- vCard (with Niko's portrait as the contact photo) ----------
      The same card is shipped as Niko-Stathis.vcf next to this page. iPhones open that file straight
@@ -389,7 +399,7 @@ footer{padding:40px 0 0;font-size:13px;line-height:1.6;color:#7f666d}
       $("enroll-eyebrow").textContent = "Open enrollment";
       $("enroll-title").textContent = "Enrollment is open now";
       $("count-until").textContent = "days left to enroll";
-      $("enroll-note").textContent = "Enroll by January 15, 2027. After that you usually need a life change, like a move, marriage, new baby or lost job coverage, to enroll.";
+      $("enroll-note").textContent = "Enroll by December 15 for coverage on January 1, or by January 15, 2027 for February 1. After that you usually need a life change, like a move, marriage, new baby or lost job coverage, to enroll.";
     } else if (p === "closed") {
       $("clock").hidden = true; $("hms").hidden = true;
       $("enroll-title").textContent = "Open enrollment has closed";
@@ -406,13 +416,13 @@ footer{padding:40px 0 0;font-size:13px;line-height:1.6;color:#7f666d}
     $("mk-now").style.transform = pos > 50 ? "translateX(-100%)" : "";
     $("mk-now").style.alignItems = pos > 50 ? "flex-end" : "";
     $("rail-fill").style.width = pos + "%";
-    if (now < OE_START && open < 22) $("mk-now").querySelector("span").hidden = true;
+    $("mk-now").querySelector("span").hidden = (now < OE_START && open < 22) || pos > 70;
   }
   function tick() {
     var now = new Date(), target;
     if (now < OE_START) { setPhase("before"); target = OE_START; }
     else if (now <= OE_END) { setPhase("open"); target = OE_END; }
-    else { setPhase("closed"); return clearInterval(timer); }
+    else { setPhase("closed"); placeRail(now); return clearInterval(timer); }
     var s = Math.floor((target - now) / 1000);
     cells.d.textContent = Math.floor(s / 86400);
     cells.h.textContent = pad(Math.floor(s % 86400 / 3600));
@@ -425,13 +435,17 @@ footer{padding:40px 0 0;font-size:13px;line-height:1.6;color:#7f666d}
   /* ---------- calibration: every number Niko may want to change lives in this one object ----------
      BASE40 = lowest-cost plan per metal, monthly, unsubsidized, 40-year-old, plan year 2026 (KFF; Cook County from
      the IDOI age-21 filings x 1.278). CQ_LOWEST holds readings from Niko's Closequote form ({age: lowest monthly
-     value shown for a single non-smoker}); while it is empty the Gold ceiling is the lowest-cost Gold plan sold
-     in the visitor's area. */
+     value shown for a single non-smoker}), keyed by rating area exactly as areaOf() names it: cook = ZIPs 600xx to
+     608xx, il = the rest of 60000 to 62999, us = everything else. Inside an area the keys are plain ages (18 to 64)
+     and the values are dollars per month, e.g. CQ_LOWEST: { cook: { 40: 444 }, il: { 40: 539 }, us: { 40: 615 } }.
+     One age per area is enough (the ACA age curve scales it). CQ_YEAR is the plan year those readings were taken
+     for; the cap is scaled when the page shows a different year. While an area is empty the Gold ceiling is the
+     lowest-cost Gold plan sold there. */
   var CALIBRATION = {
     RATE_YEAR: 2026, USE_2027: false, PRELIM_2027: 1.14, AGE40: 1.278, KID: 0.765,
     BASE40: { cook: { bronze: 373, silver: 497, gold: 444 }, il: { bronze: 436, silver: 635, gold: 539 }, us: { bronze: 456, silver: 611, gold: 615 } },
     SPREAD: { bronze: 1.20, silver: 1.15, gold: 1.12 },
-    CQ_LOWEST: { cook: {}, il: {}, us: {} },
+    CQ_LOWEST: { cook: {}, il: {}, us: {} }, CQ_YEAR: 2026,
     ANCHOR: false, FPL_BASE: 15650, FPL_STEP: 5500,
     CALENDLY: "https://calendly.com/nikostathis", CALENDLY_EVENT: "", SHOW_CQ_LINK: false
   };
@@ -462,24 +476,24 @@ footer{padding:40px 0 0;font-size:13px;line-height:1.6;color:#7f666d}
   var ACK1 = {
     losing: "Losing coverage usually opens a 60-day window, so we may not need to wait for November.",
     own: "Good. Knowing what you don't like about your plan is half the work.",
-    self: "Self-employed premiums are often tax deductible. I'll keep that in mind.",
+    self: "Self-employed, got it. That opens a few doors, including a tax angle on premiums.",
     none: "Let's fix that. Depending on timing, we may be able to start sooner than November.",
-    other: "Got it. I'll read that before we talk.",
-    medicare: "Medicare is its own world, and the timing matters more than the price. There are late-enrollment penalties that never go away, so let's get it right on a call."
+    other: "Got it. Text me that at the end so I can read it before we talk.",
+    medicare: "Medicare is its own world, and timing matters more than price: enroll late without other coverage and some penalties stick for life. Let's get it right on a call."
   };
   var CARRIER_LINE = {
     bcbs: "Blue Cross is in every Illinois county and the only PPO on the exchange around Chicago.",
-    uhc: "UnitedHealthcare is the second biggest option here and strong off-exchange.",
-    oscar: "Oscar is in the Chicago area and priced sharp for 2026.",
+    uhc: "UnitedHealthcare sells individual plans around Chicago. I'll check its network against your doctors.",
+    oscar: "Oscar sells in the Chicago area and has been priced sharp lately. I'll check it against the others.",
     ambetter: "Ambetter is HMO-only in Illinois, fine if your doctors are in it.",
-    big3: "Those aren't sold as individual plans in Illinois for 2027, so I'll find the closest network to what you're used to.",
-    ppo: "Private PPOs can be cheaper if you're healthy. They're underwritten, so I'll be straight with you about the trade-offs.",
-    doctors: "Bring their names to the call. I check every network before we pick.",
+    big3: "Aetna and Humana don't sell individual plans in Illinois, and Cigna leaves the Illinois marketplace for 2027, so I'll find the closest network to what you're used to.",
+    ppo: "Private, underwritten plans can cost less if you're healthy, but they aren't ACA coverage: no tax credit, and they can decline or exclude conditions. I'll be straight with you about the trade-offs.",
+    doctors: "Bring their names to the call. I'll check every network before we pick.",
     none: "Then I'll go by value."
   };
   var CARE_REPLY = {
     cost: "Then I'll start from the cheapest premium and show you what it costs when you use it.",
-    doctors: "Send me their names and I check every network before we pick.",
+    doctors: "Good. Their names are the first thing I'll ask for on the call.",
     oop: "Then Gold or a strong Silver is where I'll start.",
     rx: "I'll run your prescriptions against each plan's drug list before you choose.",
     event: "With care already planned, the out-of-pocket maximum matters more than the premium. I'll run it both ways.",
@@ -494,7 +508,7 @@ footer{padding:40px 0 0;font-size:13px;line-height:1.6;color:#7f666d}
   var S, STORE = "niko.talk.v1";
   function fresh() { return { step: 0, path: "main", via: "", answers: {}, revealed: false, split: false, booked: false, textOpen: false }; }
   function persist() { try { sessionStorage.setItem(STORE, JSON.stringify(S)); } catch (e) { } }
-  function restore() { try { var s = JSON.parse(sessionStorage.getItem(STORE)); if (s && s.answers) return s; } catch (e) { } return null; }
+  function restore() { try { var s = JSON.parse(sessionStorage.getItem(STORE)); if (s && s.answers && typeof s.answers === "object" && typeof s.step === "number" && s.step >= 0 && s.step % 1 === 0 && ["main", "medicare", "business"].indexOf(s.path) >= 0) return s; } catch (e) { } return null; }
   function steps() {
     if (S.path === "business") return ["situation", "headcount", "zip"];
     if (S.path === "medicare") return S.via === "age" ? ["situation", "zip", "age"] : ["situation", "zip"];
@@ -528,14 +542,14 @@ footer{padding:40px 0 0;font-size:13px;line-height:1.6;color:#7f666d}
 
   /* ---------- the ballpark ---------- */
   function cqLowest(area, ages, kids) {
-    var T = Object.keys(CALIBRATION.CQ_LOWEST[area] || {}).map(function (k) { return [parseInt(k, 10), CALIBRATION.CQ_LOWEST[area][k]]; }).sort(function (p, q) { return p[0] - q[0]; });
+    var T = Object.keys(CALIBRATION.CQ_LOWEST[area] || {}).map(function (k) { return [parseInt(k, 10), parseFloat(String(CALIBRATION.CQ_LOWEST[area][k]).replace(/[^0-9.]/g, ""))]; }).filter(function (p) { return isFinite(p[0]) && p[1] > 0; }).sort(function (p, q) { return p[0] - q[0]; });
     if (!T.length) return null;
     function single(a) {
       if (T.length === 1 || a <= T[0][0]) return T[0][1] * ageFactor(a) / ageFactor(T[0][0]);
       var last = T[T.length - 1];
       if (a >= last[0]) return last[1] * ageFactor(a) / ageFactor(last[0]);
       for (var i = 0; i < T.length - 1; i++) if (a >= T[i][0] && a <= T[i + 1][0]) {
-        var t = (a - T[i][0]) / (T[i + 1][0] - T[i][0]); return T[i][1] + (T[i + 1][1] - T[i][1]) * t;
+        return Math.min(T[i][1] * ageFactor(a) / ageFactor(T[i][0]), T[i + 1][1] * ageFactor(a) / ageFactor(T[i + 1][0]));
       }
       return last[1];
     }
@@ -549,15 +563,15 @@ footer{padding:40px 0 0;font-size:13px;line-height:1.6;color:#7f666d}
     var y = C.USE_2027 ? C.PRELIM_2027 : 1, base = C.BASE40[area], t = {};
     ["bronze", "silver", "gold"].forEach(function (k) { t[k] = { key: k, lo: base[k] * y * m, hi: base[k] * y * m * C.SPREAD[k] }; });
     var cap = cqLowest(area, ages, kids), fromCq = cap != null;
-    if (cap == null) cap = base.gold * y * m;
+    if (cap == null) cap = base.gold * y * m; else if (C.USE_2027 && C.CQ_YEAR < 2027) cap *= C.PRELIM_2027;
     if (C.ANCHOR && cap < t.bronze.lo) { var k = cap / (base.gold * y * m * C.SPREAD.gold); ["bronze", "silver", "gold"].forEach(function (n) { t[n].lo *= k; t[n].hi *= k; }); }
-    t.gold.hi = Math.min(t.gold.hi, cap); t.gold.lo = Math.min(t.gold.lo, 0.9 * t.gold.hi);
-    var hh = ages.length + kids, fpl = C.FPL_BASE + C.FPL_STEP * (hh - 1), band = INCOME_BOUNDS[a.income];
+    t.gold.hi = Math.floor(Math.min(t.gold.hi, cap) / 10) * 10; t.gold.lo = Math.min(t.gold.lo, 0.9 * t.gold.hi);
+    var hh = 1 + (hasPartner() ? 1 : 0) + kids, fpl = C.FPL_BASE + C.FPL_STEP * (hh - 1), band = INCOME_BOUNDS[a.income];
     var showSilver = !(band && band[0] >= 2.5 * fpl);
     var rows = [t.bronze, t.gold]; if (showSilver) rows.push(t.silver);
     rows.sort(function (p, q) { return p.lo - q.lo; });
-    var income = !band ? "" : band[1] <= 4 * fpl ? "A tax credit would likely take a real bite out of these numbers." : band[0] >= 4 * fpl ? "Credits are unlikely at that income, so plan design matters more. I'll price private plans too." : "You may sit right at the tax-credit line, which is worth a careful look.";
-    var goldUnder = showSilver && t.gold.hi < t.silver.lo ? (area === "us" ? "Yes, Gold under Silver happens in a lot of states this year. It's why the fine print matters." : "Yes, Gold under Silver is real in Illinois this year. It's why the fine print matters.") : "";
+    var income = !band ? "" : band[0] < 1.38 * fpl ? "A tax credit would likely take a real bite out of these numbers, and at the low end you may qualify for Medicaid instead. I'll check both." : band[1] <= 4 * fpl ? "A tax credit would likely take a real bite out of these numbers." : band[0] >= 4 * fpl ? "Credits are unlikely at that income, so plan design matters more. I'll price private plans too." : "You may sit right at the tax-credit line, which is worth a careful look.";
+    var goldUnder = showSilver && t.gold.hi < t.silver.lo ? (area === "us" ? "Gold under Silver happens in a lot of states this year. It's why the fine print matters." : "Gold under Silver is real in Illinois this year. It's why the fine print matters.") : "";
     var basis = (ages.length === 2 ? "two adults, " + ages[0] + " and " + ages[1] : "you at " + ages[0]) + (kids ? (ages.length === 2 ? ", and " : " and ") + kids + (kids === 1 ? " kid" : " kids") : "");
     var rates = C.USE_2027 ? "Preliminary 2027 rates, about 14% over 2026" : C.RATE_YEAR + " marketplace rates";
     return { rows: rows, cap: cap, fromCq: fromCq, showSilver: showSilver, income: income, goldUnder: goldUnder, basis: basis, rates: rates,
@@ -585,11 +599,11 @@ footer{padding:40px 0 0;font-size:13px;line-height:1.6;color:#7f666d}
     if (S.path === "business") {
       lines.push("Situation: I'm covering my employees", "Team size: " + optLabel("headcount", a.headcount), "ZIP " + a.zip);
     } else if (S.path === "medicare") {
-      lines.push("Situation: " + (S.via === "age" ? "age " + a.age : "Turning 65, or already on Medicare"), "ZIP " + a.zip);
+      lines.push("Situation: " + (S.via === "age" ? receiptValue("situation") + ", age " + a.age : "Turning 65, or already on Medicare"), "ZIP " + a.zip);
     } else if (closed()) {
       var b = ballpark();
       lines.push("Situation: " + receiptValue("situation"));
-      lines.push("ZIP " + a.zip + ", age " + a.age + (hasPartner() ? " and partner " + a.age2 : "") + ", " + householdText(false).replace(/^Me/, "me").replace(/^Just me/, "just me") + (a.partner65 ? " (partner on Medicare)" : ""));
+      lines.push("ZIP " + a.zip + ", " + (hasPartner() ? "me (" + a.age + ") and my partner (" + a.age2 + (a.partner65 ? ", on Medicare" : "") + ")" : "me (" + a.age + ")") + (hasKids() ? " and " + (a.kids === "4" ? "4+ kids" : a.kids + (a.kids === "1" ? " kid" : " kids")) : ""));
       if (a.income && a.income !== "skip") lines.push("2027 income: " + optLabel("income", a.income));
       lines.push("Carrier: " + optLabel("carrier", a.carrier));
       lines.push("Ballpark I saw (" + ratesShort() + " rates, before tax credits): " + b.rows.map(function (r) { return TIER_META[r.key].name + " " + range(r.lo, r.hi).replace(" – ", "-"); }).join(", ") + " a month");
@@ -603,7 +617,7 @@ footer{padding:40px 0 0;font-size:13px;line-height:1.6;color:#7f666d}
   }
   function currentBody() { return closed() ? smsBody() : "COVERAGE" + refLine; }
   function bookHref() {
-    var C = CALIBRATION, a = S.answers, key = closed() || S.path !== "main" ? bookKey() : "card", enc = encodeURIComponent;
+    var C = CALIBRATION, a = S.answers, key = closed() ? bookKey() : "card", enc = encodeURIComponent;
     var url = C.CALENDLY + (C.CALENDLY_EVENT ? "/" + C.CALENDLY_EVENT : "") + "?utm_source=card&utm_medium=web&utm_content=" + enc(key);
     if (ref) url += "&utm_term=" + enc(ref);
     if (a.name) url += "&name=" + enc(a.name);
@@ -612,11 +626,11 @@ footer{padding:40px 0 0;font-size:13px;line-height:1.6;color:#7f666d}
   }
 
   /* ---------- rendering ---------- */
-  var thread = $("thread"), talk = $("talk"), textbar = $("textbar"), pendingScroll = false;
+  var thread = $("thread"), talk = $("talk"), textbar = $("textbar"), pendingScroll = false, fromInput = false;
   function deck(fn) { var d = window.__deck; if (d && d[fn]) try { d[fn].apply(null, [].slice.call(arguments, 1)); } catch (e) { } }
   function bubble(text, ack, isNew) {
     var m = el("div", "msg" + (isNew ? " new" : "")), b = el("div", "bub");
-    m.appendChild(el("div", "av", "N"));
+    var av = el("div", "av", "N"); av.setAttribute("aria-hidden", "true"); m.appendChild(av);
     if (ack) b.appendChild(el("span", "ack", ack));
     b.appendChild(document.createTextNode(text));
     m.appendChild(b); return m;
@@ -632,11 +646,11 @@ footer{padding:40px 0 0;font-size:13px;line-height:1.6;color:#7f666d}
   }
   function compose(opts) {
     var row = el("div", "compose"), inp = el("input"), btn = el("button");
-    inp.placeholder = opts.placeholder; inp.maxLength = opts.max; if (opts.numeric) { inp.inputMode = "numeric"; inp.pattern = "\\d*"; } if (opts.autocomplete) inp.autocomplete = opts.autocomplete;
+    inp.placeholder = opts.placeholder; inp.maxLength = opts.max; if (opts.label) inp.setAttribute("aria-label", opts.label); if (opts.numeric) { inp.inputMode = "numeric"; inp.pattern = "\\d*"; } if (opts.autocomplete) inp.autocomplete = opts.autocomplete;
     if (opts.value != null) inp.value = opts.value;
     btn.type = "button"; btn.setAttribute("aria-label", "Send");
     btn.innerHTML = '<svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 19V5M5 12l7-7 7 7"/></svg>';
-    function submit() { opts.onSubmit(inp.value.trim(), inp); }
+    function submit() { fromInput = true; try { opts.onSubmit(inp.value.trim(), inp); } finally { fromInput = false; } }
     btn.addEventListener("click", submit);
     inp.addEventListener("keydown", function (e) { if (e.key === "Enter") { e.preventDefault(); submit(); } });
     if (opts.auto) inp.addEventListener("input", function () { if (opts.auto.test(inp.value.trim())) submit(); });
@@ -656,7 +670,8 @@ footer{padding:40px 0 0;font-size:13px;line-height:1.6;color:#7f666d}
     b.addEventListener("click", function () { rewind(idx); });
     return b;
   }
-  function note(text) { var m = bubble(text, null, true); return m; }
+  function note(text) { var m = bubble(text, null, true); announce(text); return m; }
+  function announce(text) { var l = $("talk-live"); if (!l) return; l.textContent = ""; setTimeout(function () { l.textContent = text; }, 50); }
 
   function answer(key, value, extra) {
     var a = S.answers;
@@ -720,24 +735,25 @@ footer{padding:40px 0 0;font-size:13px;line-height:1.6;color:#7f666d}
     if (key === "situation") {
       thread.appendChild(bubble("Let's start with what's going on. Which of these sounds like you?", null, isNew));
       if (S.otherOpen) {
-        var row = compose({ placeholder: "Tell me in a few words", max: 80, value: a.other, onSubmit: function (v, inp) { if (!v) { inp.focus(); return; } S.otherOpen = false; answer("situation", "other", v); } });
+        var row = compose({ placeholder: "Tell me in a few words", label: "What's going on, in a few words", max: 80, value: a.other, onSubmit: function (v, inp) { if (!v) { inp.focus(); return; } S.otherOpen = false; answer("situation", "other", v); } });
         thread.appendChild(row); setTimeout(function () { row._input.focus(); }, 50);
       } else thread.appendChild(chips("situation", OPTS.situation, function (v) { if (v === "other") { S.otherOpen = true; render(); } else answer("situation", v); }, false, a.situation));
     } else if (key === "headcount") {
-      thread.appendChild(bubble("How many people would be on it?", null, isNew));
+      thread.appendChild(bubble("How many people would be on the plan?", null, isNew));
       thread.appendChild(chips("headcount", OPTS.headcount, function (v) { answer("headcount", v); }, false, a.headcount));
     } else if (key === "zip") {
-      var q = S.path === "business" ? "And your ZIP? Group rates are set by county." : S.path === "medicare" ? "First, where do you live? Your ZIP tells me which Medicare plans are sold in your county." : "Where do you live? Your ZIP is all I need.";
+      var q = S.path === "business" ? "And your ZIP? Group rates are set by county." : S.path === "medicare" ? "Where do you live? Your ZIP tells me which Medicare plans are sold in your county." : "Where do you live? Your ZIP is all I need.";
       thread.appendChild(bubble(q, ack, isNew));
-      thread.appendChild(compose({ placeholder: "60601", max: 5, numeric: true, autocomplete: "postal-code", value: a.zip, auto: /^\d{5}$/, onSubmit: function (v, inp) {
-        if (!/^\d{5}$/.test(v)) { if (!$("zip-bad")) { var n = note("That's not a ZIP I know. Five digits?"); n.id = "zip-bad"; inp.parentNode.parentNode.insertBefore(n, inp.parentNode); } inp.focus(); return; }
+      thread.appendChild(compose({ placeholder: "60601", label: "ZIP code", max: 5, numeric: true, autocomplete: "postal-code", value: a.zip, auto: /^\d{5}$/, onSubmit: function (v, inp) {
+        if (!/^\d{5}$/.test(v)) { if (!$("zip-bad")) { var n = note("A ZIP is five digits, like 60601."); n.id = "zip-bad"; inp.parentNode.parentNode.insertBefore(n, inp.parentNode); inp.setAttribute("aria-invalid", "true"); inp.setAttribute("aria-describedby", "zip-bad"); } inp.focus(); return; }
         answer("zip", v);
       } }));
     } else if (key === "age") {
       thread.appendChild(bubble("How old are you?", ack, isNew));
-      thread.appendChild(compose({ placeholder: "40", max: 2, numeric: true, value: a.age, auto: /^\d{2}$/, onSubmit: function (v, inp) {
+      thread.appendChild(compose({ placeholder: "40", label: "Your age", max: 2, numeric: true, value: a.age, auto: /^\d{2}$/, onSubmit: function (v, inp) {
+        if (!v) { inp.focus(); return; }
         var n = parseInt(v, 10);
-        if (!(n >= 18)) { if (!$("age-bad")) { var m = note("If you're under 18, a parent or guardian should be the one on the plan. Enter their age instead."); m.id = "age-bad"; inp.parentNode.parentNode.insertBefore(m, inp.parentNode); } inp.select(); return; }
+        if (!(n >= 18)) { if (!$("age-bad")) { var m = note("If you're under 18, a parent or guardian should be the one on the plan. Enter their age instead."); m.id = "age-bad"; inp.parentNode.parentNode.insertBefore(m, inp.parentNode); inp.setAttribute("aria-invalid", "true"); inp.setAttribute("aria-describedby", "age-bad"); } inp.select(); return; }
         answer("age", n);
       } }));
     } else if (key === "household") {
@@ -749,9 +765,9 @@ footer{padding:40px 0 0;font-size:13px;line-height:1.6;color:#7f666d}
         thread.appendChild(chips("kids", OPTS.kids, function (v) { answer("kids", v); }, false, a.kids));
       } else {
         thread.appendChild(bubble("And your partner's age?", null, true));
-        var pr = compose({ placeholder: String(a.age), max: 2, numeric: true, auto: /^\d{2}$/, onSubmit: function (v, inp) {
+        var pr = compose({ placeholder: String(a.age), label: "Your partner's age", max: 2, numeric: true, auto: /^\d{2}$/, onSubmit: function (v, inp) {
           var n = parseInt(v, 10);
-          if (!(n >= 18 && n <= 99)) { if (!$("age2-bad")) { var m = note("Enter an age between 18 and 99."); m.id = "age2-bad"; inp.parentNode.parentNode.insertBefore(m, inp.parentNode); } inp.select(); return; }
+          if (!(n >= 18 && n <= 99)) { if (!$("age2-bad")) { var m = note("Enter an age between 18 and 99."); m.id = "age2-bad"; inp.parentNode.parentNode.insertBefore(m, inp.parentNode); inp.setAttribute("aria-invalid", "true"); inp.setAttribute("aria-describedby", "age2-bad"); } inp.select(); return; }
           answer("age2", n);
         } });
         thread.appendChild(pr);
@@ -768,18 +784,18 @@ footer{padding:40px 0 0;font-size:13px;line-height:1.6;color:#7f666d}
   function bookCard() {
     var c = el("div", "book-card");
     c.innerHTML = '<svg class="cal" viewBox="0 0 24 24" aria-hidden="true"><rect x="3" y="5" width="18" height="16" rx="2"/><path d="M3 10h18M8 3v4M16 3v4"/></svg>';
-    c.appendChild(el("h3", null, "Book a call with Niko"));
-    c.appendChild(el("p", "small", "15 minutes. Pick any time. I'll pull the plans in your county, check your doctors and any tax credit you qualify for."));
-    var a = el("a", "btn btn-primary btn-block", "Book a call with Niko"); a.id = "book-main"; a.href = bookHref(); a.target = "_blank"; a.rel = "noopener";
+    c.appendChild(el("h3", null, "Let's finish this on a call"));
+    c.appendChild(el("p", "small", "A short call. I'll pull the plans in your county, check your doctors and any tax credit you qualify for."));
+    var a = el("a", "btn btn-primary btn-block", "Book a call"); a.id = "book-main"; a.href = bookHref(); a.target = "_blank"; a.rel = "noopener";
     a.addEventListener("click", onBook);
-    var t = el("button", "btn btn-ghost btn-block", "Text this to Niko"); t.type = "button"; t.id = "text-main"; t.addEventListener("click", openText);
+    var t = el("button", "btn btn-ghost btn-block", "Text me this instead"); t.type = "button"; t.id = "text-main"; t.addEventListener("click", openText);
     c.appendChild(a); c.appendChild(t);
     return c;
   }
   function onBook() {
     deck("wrap");
     var summary = smsBody().split("\n").slice(1).filter(function (l) { return l.indexOf("Name:") !== 0; }).join("\n");
-    if (navigator.clipboard && navigator.clipboard.writeText) navigator.clipboard.writeText(summary).then(function () { toast("Your answers are copied, in case the booking form asks for notes."); }, function () { });
+    if (navigator.clipboard && navigator.clipboard.writeText) { toast("Your answers are copied, in case the booking form asks for notes."); navigator.clipboard.writeText(summary).then(function () { }, function () { }); }
     if (!S.booked) { S.booked = true; persist(); pendingScroll = true; render(); }
   }
   function openText() { S.textOpen = true; persist(); pendingScroll = true; render(); }
@@ -789,16 +805,16 @@ footer{padding:40px 0 0;font-size:13px;line-height:1.6;color:#7f666d}
   function renderClosing() {
     var a = S.answers, isNew = pendingScroll;
     if (S.path === "medicare") {
-      var text = S.via === "age" ? "There are late-enrollment penalties that never go away, so the timing matters more than the price. Let's get it right on a call." : "That's all I need. Pick a time and I'll have the plans in your county ready.";
+      var text = S.via === "age" ? "Enroll late without other coverage and some Medicare penalties stick for as long as you have it, so timing matters more than price. Let's get it right on a call." : "That's all I need. Pick a time and I'll have the plans in your county ready.";
       var ack = S.via === "age" ? "At " + a.age + " you're in Medicare territory, and Medicare is its own world." : null;
       thread.appendChild(bubble(text, ack, isNew));
       thread.appendChild(bookCard());
     } else if (S.path === "business") {
-      thread.appendChild(bubble("For a team I price it by headcount, and there's a newer option, an ICHRA, where you give each person a set amount and they pick their own plan. Let's do this on a call.", null, isNew));
+      thread.appendChild(bubble("For a team I price it by who's on it and where they live. There's also a newer option, an ICHRA, where you reimburse each person a set amount, tax-free, and they pick their own plan. Let's do this on a call.", null, isNew));
       thread.appendChild(bookCard());
     } else {
       var b = ballpark();
-      thread.appendChild(bubble("Here's your ballpark for " + b.basis + " near " + a.zip + ". " + b.rates + ", per month, before any tax credit. Not a quote.", null, isNew));
+      thread.appendChild(bubble("Here's your ballpark. It's a range, not a quote, and it doesn't count tax credits yet.", null, isNew));
       var panel = el("div", "ballpark");
       panel.appendChild(el("h3", null, b.headline));
       panel.appendChild(el("p", "small basis", "Per month for " + b.basis + " near " + a.zip + ". " + b.rates + " before tax credits. Not a quote."));
@@ -808,36 +824,32 @@ footer{padding:40px 0 0;font-size:13px;line-height:1.6;color:#7f666d}
         row.type = "button"; row.setAttribute("aria-pressed", a.care === mt.care ? "true" : "false");
         bar.style.left = (r.lo / b.max * 100) + "%"; bar.style.width = ((r.hi - r.lo) / b.max * 100) + "%"; bar.style.background = mt.color;
         track.appendChild(bar);
-        if (r.key === "gold") { var pin = el("i", "pin"); pin.style.left = "calc(" + (r.hi / b.max * 100) + "% - 1px)"; pin.style.background = "var(--rose)"; track.appendChild(pin); track.appendChild(el("span", "pin-label", "at or under")); }
+        if (r.key === "gold") { var pin = el("i", "pin"); pin.style.left = "calc(" + (r.hi / b.max * 100) + "% - 1px)"; pin.style.background = "var(--rose)"; track.appendChild(pin); var lab = el("span", "pin-label", "my target"); lab.style.right = (100 - r.hi / b.max * 100) + "%"; track.appendChild(lab); }
         row.appendChild(el("span", "name", mt.name)); row.appendChild(track); row.appendChild(el("b", null, range(r.lo, r.hi)));
         row.addEventListener("click", function () { setCare(mt.care); });
         tiers.appendChild(row);
       });
       panel.appendChild(tiers);
       var caps = el("div", "captions");
-      caps.appendChild(el("p", "small", "I'll find you Gold at or under this, or tell you why not."));
+      caps.appendChild(el("p", "small", "My target on the call: Gold at or under this line. If it isn't there for 2027, I'll show you why and what is."));
       caps.appendChild(el("p", "small", b.showSilver ? "Silver: cost-sharing help if your income qualifies." : "Silver stays in the deck: its cost-sharing help needs a lower income, and without it Gold usually wins."));
       if (b.income) caps.appendChild(el("p", "small", b.income));
       if (b.goldUnder) caps.appendChild(el("p", "small", b.goldUnder));
       caps.appendChild(el("p", "small", a.area === "us" ? "I'll check who's strongest in your county." : CARRIER_LINE[a.carrier]));
-      if (a.situation === "self") caps.appendChild(el("p", "small", "Self-employed? Your premiums may be tax deductible. I'll factor that in."));
+      if (a.situation === "self") caps.appendChild(el("p", "small", "Self-employed? Your premiums are often deductible on your taxes. Check with your tax preparer; it changes the real cost."));
       panel.appendChild(caps);
       thread.appendChild(panel);
       thread.appendChild(bookCard());
-      if (S.booked) thread.appendChild(bubble("See you on the call. If you want, text me this summary so I have it ready.", null, true));
+      if (S.booked) thread.appendChild(bubble("See you on the call. Your answers were copied in case the booking form asks for notes. If you want, text me this summary too.", null, true));
       if (S.textOpen) renderTextPreview();
-      if (!a.care) {
-        thread.appendChild(bubble("Want me to lead with something on the call?", null, false));
-        thread.appendChild(chips("care", OPTS.care, function (v) { setCare(v); }));
-      } else {
-        var m = el("div", "msg me"); m.appendChild(el("div", "bub", a.care === "silver" ? "Silver" : optLabel("care", a.care))); thread.appendChild(m);
-        thread.appendChild(bubble(CARE_REPLY[a.care], null, true));
-      }
-      thread.appendChild(el("p", "small", "Pre-subsidy estimates. Rough " + (CALIBRATION.USE_2027 ? "preliminary 2027" : String(CALIBRATION.RATE_YEAR)) + " marketplace ranges before tax credits, which lower the cost for many households. Prices vary by county and carrier, so this is not a quote. Nothing on this page gets submitted anywhere. You only send what you choose to."));
+      thread.appendChild(bubble("Want me to lead with something on the call?", null, false));
+      thread.appendChild(chips("care", OPTS.care, function (v) { setCare(v); }, false, a.care));
+      if (a.care) thread.appendChild(bubble(CARE_REPLY[a.care], null, true));
+      thread.appendChild(el("p", "small", "Rough " + ratesShort() + " marketplace ranges before tax credits, which lower the cost for many households." + (CALIBRATION.USE_2027 ? "" : " 2027 rates aren't final yet.") + " Prices vary by county and carrier, so this is not a quote. Nothing on this page gets submitted anywhere. You only send what you choose to."));
       var over = linkBtn("Start over"); over.addEventListener("click", reset); thread.appendChild(over);
       return;
     }
-    if (S.booked) thread.appendChild(bubble("See you on the call. If you want, text me this summary so I have it ready.", null, true));
+    if (S.booked) thread.appendChild(bubble("See you on the call. Your answers were copied in case the booking form asks for notes. If you want, text me this summary too.", null, true));
     if (S.textOpen) renderTextPreview();
     thread.appendChild(el("p", "small", "Nothing on this page gets submitted anywhere. You only send what you choose to."));
     var over2 = linkBtn("Start over"); over2.addEventListener("click", reset); thread.appendChild(over2);
@@ -850,14 +862,14 @@ footer{padding:40px 0 0;font-size:13px;line-height:1.6;color:#7f666d}
     var a = S.answers;
     thread.appendChild(bubble("Here's your text. Add your name if you like, pick a time, then send it from your phone.", null, true));
     var wrap = el("div", "preview"), bub = el("div", "bub"), headEl = el("span"), midEl = el("span"), tailEl = el("span");
-    var nameIn = el("input"); nameIn.placeholder = "your name"; nameIn.maxLength = 40; nameIn.autocomplete = "name"; nameIn.value = a.name || "";
+    var nameIn = el("input"); nameIn.placeholder = "your name"; nameIn.setAttribute("aria-label", "Your name"); nameIn.maxLength = 40; nameIn.autocomplete = "name"; nameIn.value = a.name || "";
     nameIn.addEventListener("input", function () { a.name = nameIn.value.trim(); persist(); paintBody(); });
     nameIn.addEventListener("focus", function () { talk.classList.add("typing"); textbar.classList.add("hide"); });
     nameIn.addEventListener("blur", function () { talk.classList.remove("typing"); textbar.classList.remove("hide"); });
     var times = el("span", "times");
     ["Anytime", "Mornings", "Afternoons", "Evenings"].forEach(function (t) {
-      var c = el("button", "chip" + ((a.time || "Anytime") === t ? " picked" : ""), t); c.type = "button";
-      c.addEventListener("click", function () { a.time = t; persist(); [].forEach.call(times.children, function (x) { x.classList.toggle("picked", x === c); }); paintBody(); });
+      var c = el("button", "chip" + ((a.time || "Anytime") === t ? " picked" : ""), t); c.type = "button"; c.setAttribute("aria-pressed", (a.time || "Anytime") === t ? "true" : "false");
+      c.addEventListener("click", function () { a.time = t; persist(); [].forEach.call(times.children, function (x) { var on = x === c; x.classList.toggle("picked", on); x.setAttribute("aria-pressed", on ? "true" : "false"); }); paintBody(); });
       times.appendChild(c);
     });
     function paintBody() {
@@ -875,7 +887,7 @@ footer{padding:40px 0 0;font-size:13px;line-height:1.6;color:#7f666d}
     paintBody();
     wrap.appendChild(bub);
     var go = el("button", "btn btn-primary btn-block", "Open in Messages"); go.type = "button";
-    go.addEventListener("click", function () { openSms(smsBody()); if (!wrap.querySelector(".ready")) { var m = bubble("Your text is ready on your phone.", null, true); m.classList.add("ready"); wrap.appendChild(m); } });
+    go.addEventListener("click", function () { openSms(smsBody()); if (!wrap.querySelector(".ready")) { var m = bubble("Your text should be open in Messages. If nothing opened, text (224) 306-4565 and paste this in.", null, true); m.classList.add("ready"); wrap.appendChild(m); } });
     wrap.appendChild(go);
     wrap.appendChild(el("p", "small", "Nothing is sent until you press send."));
     thread.appendChild(wrap);
@@ -886,10 +898,11 @@ footer{padding:40px 0 0;font-size:13px;line-height:1.6;color:#7f666d}
       textbar.classList.add("split");
       textbar.removeAttribute("href");
       textbar.innerHTML = '<a class="book" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" aria-hidden="true"><rect x="3" y="5" width="18" height="16" rx="2"/><path d="M3 10h18M8 3v4M16 3v4"/></svg>Book a call</a><a class="sms" aria-label="Text Niko"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M21 12a8 8 0 01-11.6 7.1L4 21l1.9-5.4A8 8 0 1121 12z"/></svg></a>';
-      textbar.querySelector(".book").addEventListener("click", function () { if (closed() || S.path !== "main") onBook(); });
+      textbar.querySelector(".book").addEventListener("click", function () { if (closed()) onBook(); });
     }
     textbar.querySelector(".book").href = bookHref();
     textbar.querySelector(".sms").href = smsHref(currentBody());
+    var bm = $("book-main"); if (bm) bm.href = bookHref();
   }
   function paintFallback() {
     var cards = [].slice.call(document.querySelectorAll("#deck-fallback .fcard")), slots = slotsForDeck();
@@ -898,9 +911,9 @@ footer{padding:40px 0 0;font-size:13px;line-height:1.6;color:#7f666d}
       cards.forEach(function (c) {
         var s = bySlot[c.dataset.slot], dim = !s && c.dataset.slot === "M";
         c.classList.toggle("up", !!s || dim); c.classList.toggle("dim", dim); c.textContent = s ? s.name : dim ? "Silver" : ""; c.style.setProperty("--tc", s ? s.metal : "#5a5c62");
-        var tf = c.dataset.slot === "L" ? "translateX(-34%) rotate(-8deg)" : c.dataset.slot === "R" ? "translateX(34%) rotate(8deg)" : "translateY(-4%) scale(1.04)";
+        var tf = c.dataset.slot === "L" ? "translateX(-34%) rotate(-8deg)" : c.dataset.slot === "R" ? "translateX(34%) rotate(8deg)" : dim ? "translateY(-14%) scale(.92)" : "translateY(-4%) scale(1.04)";
         var lifted = s && S.answers.care && TIER_META[s.key].care === S.answers.care;
-        c.style.transform = tf + (lifted ? " translateY(-10px)" : ""); c.style.zIndex = c.dataset.slot === "M" ? 3 : 1;
+        c.style.transform = tf + (lifted ? " translateY(-10px)" : ""); c.style.zIndex = dim ? 0 : c.dataset.slot === "M" ? 3 : 1;
       });
       $("fband").style.opacity = 0;
     } else {
@@ -915,22 +928,36 @@ footer{padding:40px 0 0;font-size:13px;line-height:1.6;color:#7f666d}
     if (target > scrollY) scrollTo({ top: target, behavior: motion() });
   }
   function render() {
+    talk.classList.remove("typing"); textbar.classList.remove("hide");
     thread.textContent = "";
     var st = steps();
     for (var i = 0; i < Math.min(S.step, st.length); i++) thread.appendChild(receipt(st[i], i));
     if (!closed()) renderQuestion(st[S.step]); else renderClosing();
     $("talk-step").textContent = closed() ? "Done" : (S.step + 1) + " of " + st.length;
-    $("talk-back").hidden = S.step === 0;
+    $("talk-back").hidden = S.step === 0 && !S.otherOpen;
     if (S.revealed) talk.classList.add("revealed"); else talk.classList.remove("revealed");
     updateSticky(); paintFallback();
+    if (render.ran) {
+      var bubs = thread.querySelectorAll(".msg:not(.me) .bub"), nb = bubs[bubs.length - 1], h = thread.querySelector(".ballpark h3");
+      announce((h ? h.textContent + ". " : "") + (nb ? nb.textContent : ""));
+      var nextIn = fromInput ? thread.querySelector(".compose input") : null;
+      if (nextIn && !nextIn.value) nextIn.focus();
+      else if (nb && !(document.activeElement && thread.contains(document.activeElement))) { nb.tabIndex = -1; try { nb.focus({ preventScroll: true }); } catch (e) { } }
+    }
+    render.ran = true;
     if (pendingScroll) { pendingScroll = false; requestAnimationFrame(scrollToLatest); }
   }
-  $("talk-back").addEventListener("click", function () { rewind(S.step - 1); });
+  $("talk-back").addEventListener("click", function () {
+    if (S.step === 0 && S.otherOpen) { S.otherOpen = false; render(); return; }
+    var k = steps()[S.step];
+    rewind(k === "household" && S.answers.household != null ? S.step : S.step - 1);
+  });
   S = restore() || fresh();
+  S.step = Math.min(S.step, steps().length);
+  (function () { var st = steps(); for (var i = 0; i < Math.min(S.step, st.length); i++) if (S.answers[st[i]] == null) { S.step = i; S.revealed = false; S.booked = false; break; } })();
   if (S.revealed && !closed()) S.revealed = false;
   render();
-  window.__talk = { state: function () { return S; }, slots: slotsForDeck, tierMeta: TIER_META, tapSlot: function (key) { setCare(TIER_META[key].care); } };
-
+  window.__talk = { state: function () { return S; }, slots: slotsForDeck, total: function () { return steps().length; }, tierMeta: TIER_META, tapSlot: function (key) { setCare(TIER_META[key].care); } };
   window.__cardSave = saveContact;
 })();
 </script>
@@ -950,7 +977,7 @@ window.addEventListener("DOMContentLoaded", function () {
   if (reduce || !window.THREE || !THREE.GLTFLoader) return;
   try { var t = document.createElement("canvas"); if (!(t.getContext("webgl2") || t.getContext("webgl"))) return; } catch (e) { return; }
 
-  var CUTOUT_URL = "data:image/webp;base64,__CUTOUT__";
+  var CUTOUT_URL = (function () { try { var m = /url\(["']?(.*?)["']?\)/.exec(getComputedStyle(document.querySelector(".photo")).backgroundImage); return m ? m[1] : ""; } catch (e) { return ""; } })();
   // Soft studio reflections; each WebGL context needs its own copy.
   function envMap(renderer) {
     if (!THREE.RoomEnvironment) return null;
@@ -1132,18 +1159,21 @@ window.addEventListener("DOMContentLoaded", function () {
           clearTimers();
           if (revealed) { deal.paused = false; deal.timeScale = -1.6; deal.play(); later(function () { offTarget = 0; }, 500); later(function () { looseTarget = 0; }, 1100); later(function () { oneShot(bow); }, 1500); setRevealed(false); unliftAll(); }
           else { looseTarget = 0; later(function () { oneShot(bow); }, 600); }
+          slotOf = {};
         },
         rewind: function (n, N, wasRevealed) {
           clearTimers(); if (bow) { bow.stop(); if (bowMesh) bowMesh.scale.set(0, 0, 0); }
           if (revealed || wasRevealed) { if (deal.isRunning() || deal.time > 0) { deal.paused = false; deal.timeScale = -2; deal.play(); } }
           offTarget = 0; looseTarget = Math.min(1, n / N); unliftAll(); setRevealed(false);
         },
-        lift: function (tier) { unliftAll(); if (tier && slotOf[tier]) lifts[slotOf[tier]].target = 1; }
+        lift: function (tier) { unliftAll(); if (!revealed) return; if (tier && slotOf[tier]) lifts[slotOf[tier]].target = 1; }
       };
       function unliftAll() { ["L", "M", "R"].forEach(function (s) { lifts[s].target = 0; }); }
       // restore a revealed state without animation
       var st = T.state();
-      if (st && st.revealed) { var slots = T.slots(); if (slots) { assign(slots); deal.setLoop(THREE.LoopOnce, 1); deal.clampWhenFinished = true; deal.play(); deal.time = deal.getClip().duration; mixer.update(0); if (band) { band.morphTargetInfluences[band.morphTargetDictionary.Off] = 1; band.morphTargetInfluences[band.morphTargetDictionary.Loose] = 1; } looseTarget = offTarget = 1; revealed = true; current = deal; if (st.answers.care) { var mt = T.tierMeta; Object.keys(mt).forEach(function (k) { if (mt[k].care === st.answers.care && slotOf[k]) lifts[slotOf[k]].target = 1; }); } } }
+      if (st && st.booked) { looseTarget = offTarget = 0; }
+      else if (st && st.step && !st.revealed) { looseTarget = Math.min(1, st.step / T.total()); if (band) band.morphTargetInfluences[band.morphTargetDictionary.Loose] = looseTarget; }
+      else if (st && st.revealed) { var slots = T.slots(); if (slots) { assign(slots); deal.setLoop(THREE.LoopOnce, 1); deal.clampWhenFinished = true; deal.play(); deal.time = deal.getClip().duration; mixer.update(0); if (band) { band.morphTargetInfluences[band.morphTargetDictionary.Off] = 1; band.morphTargetInfluences[band.morphTargetDictionary.Loose] = 1; } looseTarget = offTarget = 1; revealed = true; current = deal; if (st.answers.care) { var mt = T.tierMeta; Object.keys(mt).forEach(function (k) { if (mt[k].care === st.answers.care && slotOf[k]) lifts[slotOf[k]].target = 1; }); } } }
       // tap a card: pick that tier
       var down = null;
       deckCanvas.addEventListener("pointerdown", function (e) { down = { x: e.clientX, y: e.clientY }; });
@@ -1182,7 +1212,6 @@ window.addEventListener("DOMContentLoaded", function () {
       });
     }, function () { /* keep the DOM fallback */ });
   }
-
   var deckStarted = false;
   function startDeck() { if (deckStarted) return; deckStarted = true; (window.requestIdleCallback || function (f) { setTimeout(f, 300); })(initDeck, { timeout: 1500 }); }
   setTimeout(startDeck, 5000);
@@ -1201,10 +1230,10 @@ window.addEventListener("DOMContentLoaded", function () {
     g.font = "500 36px 'Public Sans', sans-serif"; g.fillText("(224) 306-4565", 525, 440);
     var tx = new THREE.CanvasTexture(c); tx.flipY = false; tx.encoding = THREE.sRGBEncoding; tx.anisotropy = 4; return tx;
   }
-  new THREE.TextureLoader().load("card.png", function (front) {
+  new THREE.TextureLoader().load("card.webp", function (front) {
     front.flipY = false; front.encoding = THREE.sRGBEncoding; front.anisotropy = 8;
     loader.parse(glb(CARD_GLB), "", function (gltf) {
-      cardCanvas.hidden = false; fallback.hidden = true; startDeck();
+      cardCanvas.hidden = false; fallback.hidden = true; document.getElementById("card-cap").textContent = "Tap the card to save my contact. Drag to turn it over."; startDeck();
       var renderer = makeRenderer(cardCanvas), scene = new THREE.Scene();
       scene.environment = envMap(renderer);
       var camera = new THREE.PerspectiveCamera(32, 1, 0.1, 50);
