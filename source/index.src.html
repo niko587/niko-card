@@ -126,7 +126,7 @@ hr.rule{border:0;height:1px;background:var(--line);margin:64px 0 0}
   background:radial-gradient(55% 50% at 50% 50%,rgba(200,16,63,.38),rgba(200,16,63,0) 72%)}
 .card-stage::after{content:"";position:absolute;left:24%;right:24%;bottom:14px;height:20px;border-radius:50%;background:radial-gradient(closest-side,rgba(0,0,0,.8),rgba(0,0,0,0));pointer-events:none}
 #card3d{width:100%;height:100%;display:block;touch-action:pan-y;cursor:grab}
-.card-fallback{display:block;width:calc(100% - 2 * var(--gutter));margin:0 auto;position:relative;top:36px;border-radius:12px;box-shadow:0 24px 50px -10px rgba(0,0,0,.7)}
+.card-fallback{display:block;width:calc(100% - 2 * var(--gutter));height:auto;margin:36px auto 0;border-radius:12px;box-shadow:0 24px 50px -10px rgba(0,0,0,.7)}
 .card-cap{margin-top:8px;text-align:center}
 
 /* ---------- cards on the table: the conversation ---------- */
@@ -233,7 +233,7 @@ footer{padding:40px 0 0;font-size:13px;line-height:1.6;color:var(--muted)}
 @media (min-width:640px){body{padding-top:28px}.hero{max-width:600px;margin:0 auto;border-radius:30px;min-height:700px}}
 @media (max-width:360px){.hero-ctas{grid-template-columns:1fr}.hero-ctas .btn{width:100%}.row{grid-template-columns:1fr}.fields{grid-template-columns:1fr 1fr}}
 @media (prefers-reduced-motion: reduce){html{scroll-behavior:auto}*{transition:none!important;animation:none!important}}
-@media (max-height:720px){.hero{min-height:0}.hero-ctas{padding-top:100px}}
+@media (max-height:720px){.hero{min-height:0}.hero-ctas{padding-top:100px}.photo{max-height:calc(100% - 200px)}}
 </style>
 </head>
 <body>
@@ -565,7 +565,7 @@ footer{padding:40px 0 0;font-size:13px;line-height:1.6;color:var(--muted)}
     var cap = cqLowest(area, ages, kids), fromCq = cap != null;
     if (cap == null) cap = base.gold * y * m; else if (C.USE_2027 && C.CQ_YEAR < 2027) cap *= C.PRELIM_2027;
     if (C.ANCHOR && cap < t.bronze.lo) { var k = cap / (base.gold * y * m * C.SPREAD.gold); ["bronze", "silver", "gold"].forEach(function (n) { t[n].lo *= k; t[n].hi *= k; }); }
-    t.gold.hi = Math.floor(Math.min(t.gold.hi, cap) / 10) * 10; t.gold.lo = Math.min(t.gold.lo, 0.9 * t.gold.hi);
+    var gHi = Math.min(t.gold.hi, cap); t.gold.hi = fromCq ? Math.floor(gHi / 10) * 10 : gHi; t.gold.lo = Math.min(t.gold.lo, t.gold.hi);
     var hh = 1 + (hasPartner() ? 1 : 0) + kids, fpl = C.FPL_BASE + C.FPL_STEP * (hh - 1), band = INCOME_BOUNDS[a.income];
     var showSilver = !(band && band[0] >= 2.5 * fpl);
     var rows = [t.bronze, t.gold]; if (showSilver) rows.push(t.silver);
@@ -655,7 +655,7 @@ footer{padding:40px 0 0;font-size:13px;line-height:1.6;color:var(--muted)}
     inp.addEventListener("keydown", function (e) { if (e.key === "Enter") { e.preventDefault(); submit(); } });
     if (opts.auto) inp.addEventListener("input", function () { if (opts.auto.test(inp.value.trim())) submit(); });
     inp.addEventListener("focus", function () { talk.classList.add("typing"); textbar.classList.add("hide"); setTimeout(function () { inp.scrollIntoView({ block: "center", behavior: motion() }); }, 300); });
-    inp.addEventListener("blur", function () { talk.classList.remove("typing"); textbar.classList.remove("hide"); });
+    inp.addEventListener("blur", function () { talk.classList.remove("typing"); setTimeout(function () { if (!talk.classList.contains("typing")) textbar.classList.remove("hide"); }, 250); });
     row.appendChild(inp); row.appendChild(btn);
     row._input = inp;
     return row;
@@ -865,7 +865,7 @@ footer{padding:40px 0 0;font-size:13px;line-height:1.6;color:var(--muted)}
     var nameIn = el("input"); nameIn.placeholder = "your name"; nameIn.setAttribute("aria-label", "Your name"); nameIn.maxLength = 40; nameIn.autocomplete = "name"; nameIn.value = a.name || "";
     nameIn.addEventListener("input", function () { a.name = nameIn.value.trim(); persist(); paintBody(); });
     nameIn.addEventListener("focus", function () { talk.classList.add("typing"); textbar.classList.add("hide"); });
-    nameIn.addEventListener("blur", function () { talk.classList.remove("typing"); textbar.classList.remove("hide"); });
+    nameIn.addEventListener("blur", function () { talk.classList.remove("typing"); setTimeout(function () { if (!talk.classList.contains("typing")) textbar.classList.remove("hide"); }, 250); });
     var times = el("span", "times");
     ["Anytime", "Mornings", "Afternoons", "Evenings"].forEach(function (t) {
       var c = el("button", "chip" + ((a.time || "Anytime") === t ? " picked" : ""), t); c.type = "button"; c.setAttribute("aria-pressed", (a.time || "Anytime") === t ? "true" : "false");
@@ -924,7 +924,7 @@ footer{padding:40px 0 0;font-size:13px;line-height:1.6;color:var(--muted)}
   }
   function scrollToLatest() {
     var last = thread.lastElementChild; if (!last) return;
-    var bottom = last.getBoundingClientRect().bottom + scrollY, target = bottom - (innerHeight - 76 - 14 - 24);
+    var barTop = textbar.getBoundingClientRect().top, bottom = last.getBoundingClientRect().bottom + scrollY, target = bottom - (barTop - 24);
     if (target > scrollY) scrollTo({ top: target, behavior: motion() });
   }
   function render() {
