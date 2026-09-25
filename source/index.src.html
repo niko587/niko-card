@@ -128,52 +128,84 @@ hr.rule{border:0;height:1px;background:var(--line);margin:64px 0 0}
 .card-fallback{display:block;width:calc(100% - 2 * var(--gutter));margin:0 auto;position:relative;top:36px;border-radius:12px;box-shadow:0 24px 50px -10px rgba(0,0,0,.7)}
 .card-cap{margin-top:8px;text-align:center}
 
-/* ---------- quiz ---------- */
-.q-head{display:flex;justify-content:space-between;align-items:baseline;gap:16px}
+/* ---------- cards on the table: the conversation ---------- */
 .q-step{font-size:14px;color:var(--muted);font-variant-numeric:tabular-nums}
-.q-bar{height:2px;background:var(--line);margin:16px 0 28px;position:relative;overflow:hidden}
-.q-bar i{position:absolute;left:0;top:0;bottom:0;background:var(--crimson);transition:width .3s ease}
-.q{font-family:var(--serif);font-size:27px;line-height:1.2;font-weight:500;margin-bottom:6px}
-.q-note{color:var(--muted);font-size:14px;margin-bottom:6px}
-.opts{display:flex;flex-direction:column;margin-top:18px;border-top:1px solid var(--line)}
-.opt{display:flex;align-items:center;justify-content:space-between;gap:16px;width:100%;text-align:left;min-height:60px;padding:14px 0;
-  background:none;border:0;border-bottom:1px solid var(--line);font:500 17px/1.35 var(--sans);color:var(--text);cursor:pointer;transition:color .15s ease}
-.opt::after{content:"";flex:none;width:22px;height:22px;border-radius:50%;border:1.5px solid var(--line-strong);transition:all .15s ease}
-.opt:hover{color:#fff}.opt:hover::after{border-color:var(--rose)}
-.opt.picked::after{border-color:var(--crimson);background:var(--crimson);box-shadow:inset 0 0 0 4px var(--ink)}
-.other-box{display:flex;flex-direction:column;gap:14px;padding:18px 0 22px;border-bottom:1px solid var(--line)}
-.other-box label{display:flex;flex-direction:column;gap:8px;font-size:13px;letter-spacing:.06em;text-transform:uppercase;color:var(--muted);font-weight:600}
 .field{width:100%;height:50px;border:0;border-bottom:1.5px solid var(--line-strong);border-radius:0;background:transparent;padding:0;font:500 20px var(--sans);color:var(--text);transition:border-color .15s ease}
 .field:focus{outline:0;border-bottom-color:var(--rose)}
 .field::placeholder{color:#6b555b;font-weight:400}
-select.field{appearance:none;-webkit-appearance:none;background:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='16' height='16' fill='none' stroke='%23a88a92' stroke-width='2' stroke-linecap='round'%3E%3Cpath d='M4 6l4 4 4-4'/%3E%3C/svg%3E") right center/16px no-repeat;padding-right:24px;cursor:pointer}
-select.field option{background:var(--ink-3);color:var(--text)}
-.q-foot{display:flex;justify-content:space-between;align-items:center;margin-top:8px}
-.result{display:flex;flex-direction:column;gap:16px}
-.result h3{font-size:34px;line-height:1.1}
-.result .blurb{color:var(--text-2);font-size:17px}
-.tips{display:flex;flex-direction:column;gap:12px;padding:6px 0 4px}
-.tips p{display:flex;gap:12px;color:var(--text-2);font-size:15px;line-height:1.55}
-.tips p::before{content:"";flex:none;width:14px;height:1.5px;background:var(--rose);margin-top:11px}
+.err{color:var(--rose);font-size:15px;margin-top:12px}
 .row{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin-top:8px}
 .row .btn{padding:0 14px;font-size:15px}
-
-/* ---------- estimator ---------- */
-.fields{display:grid;grid-template-columns:1.3fr 1fr 1fr;gap:20px}
-.f{display:flex;flex-direction:column;gap:8px;font-size:12px;letter-spacing:.14em;text-transform:uppercase;color:var(--muted);font-weight:600;min-width:0}
-.err{color:var(--rose);font-size:15px;margin-top:12px}
-.tiers{scroll-margin-top:28px;margin-top:8px;border-top:1px solid var(--line);font-variant-numeric:tabular-nums}
-.tier{display:grid;grid-template-columns:64px 1fr auto;align-items:center;gap:16px;padding:16px 0;border-bottom:1px solid var(--line)}
+.talk .sec-head{gap:14px}
+.talk .sec-head .btn{min-height:46px;align-self:flex-start;padding:0 20px;font-size:15px}
+.stage{position:relative;height:220px;margin:8px calc(-1 * var(--gutter)) 0;overflow:hidden;transition:height .3s ease;
+  background:radial-gradient(55% 50% at 50% 50%,rgba(200,16,63,.38),rgba(200,16,63,0) 72%)}
+.talk.revealed .stage{height:300px}
+#deck3d{width:100%;height:100%;display:block;touch-action:pan-y}
+.thread-head{display:flex;justify-content:space-between;align-items:center;min-height:44px;margin-top:8px}
+.thread{display:flex;flex-direction:column;gap:12px;margin-top:8px}
+.msg{display:flex;gap:10px;align-items:flex-end;max-width:88%}
+.msg.new{animation:slidein .12s ease-out}
+@keyframes slidein{from{opacity:0;transform:translateY(8px)}to{opacity:1;transform:none}}
+.msg .av{flex:none;width:28px;height:28px;border-radius:50%;background:var(--ink-3);border:1px solid var(--line-strong);display:grid;place-items:center;font:600 15px var(--serif);color:var(--rose)}
+.msg .bub{background:var(--ink-2);border:1px solid var(--line);border-radius:20px 20px 20px 6px;padding:14px 16px;font:500 19px/1.3 var(--serif);color:var(--text);min-width:0}
+.msg .bub .ack{display:block;font:400 15px/1.5 var(--sans);color:var(--text-2);margin-bottom:8px}
+.msg.me{align-self:flex-end}
+.msg.me .bub{background:var(--crimson);color:#fff;border-color:transparent;border-radius:20px 20px 6px 20px;font:500 17px/1.35 var(--sans)}
+.chips{display:flex;flex-wrap:wrap;gap:8px;padding-left:38px}
+.chips.grid{display:grid;grid-template-columns:1fr 1fr}
+.chip{min-height:44px;padding:10px 16px;border-radius:999px;border:1px solid var(--line-strong);background:transparent;color:var(--text);font:500 15px/1.2 var(--sans);text-align:left;cursor:pointer;transition:border-color .15s ease,background-color .15s ease}
+.chip:hover{border-color:var(--rose)}
+.chips.grid .chip{min-height:48px;text-align:center}
+.chip.picked{border-color:var(--crimson);background:rgba(200,16,63,.16)}
+.compose{display:flex;gap:10px;align-items:center;padding-left:38px}
+.compose input{flex:1;min-width:0;height:48px;border-radius:999px;border:1px solid var(--line-strong);background:var(--ink-3);padding:0 18px;font:500 20px var(--sans);color:var(--text)}
+.compose input::placeholder{color:#6b555b;font-weight:400}
+.compose input:focus{outline:0;border-color:var(--rose)}
+.compose button{flex:none;width:48px;height:48px;border-radius:50%;border:0;background:var(--crimson);color:#fff;display:grid;place-items:center;cursor:pointer}
+.compose button svg{width:20px;height:20px;fill:none;stroke:currentColor;stroke-width:2.2;stroke-linecap:round;stroke-linejoin:round}
+.receipt{display:flex;justify-content:space-between;align-items:center;gap:12px;min-height:44px;width:100%;padding:4px 4px;background:none;border:0;border-bottom:1px solid var(--line);text-align:left;cursor:pointer;color:inherit}
+.receipt small{font:600 12px var(--sans);color:var(--muted);letter-spacing:.06em;text-transform:uppercase;flex:none}
+.receipt span{font:500 15px/1.3 var(--sans);color:var(--text);text-align:right;margin-left:auto;overflow-wrap:anywhere}
+.receipt svg{flex:none;width:14px;height:14px;fill:none;stroke:var(--muted);stroke-width:1.8;stroke-linecap:round;stroke-linejoin:round}
+.ballpark{display:flex;flex-direction:column;gap:14px;padding:4px 0 0}
+.ballpark h3{font-size:36px;line-height:1.05}
+.basis{margin-top:0}
+.tiers{border-top:1px solid var(--line);font-variant-numeric:tabular-nums;margin-top:6px}
+.tier{display:grid;grid-template-columns:64px 1fr auto;align-items:center;gap:16px;padding:16px 0;border-bottom:1px solid var(--line);width:100%;background:none;border-left:0;border-right:0;border-top:0;text-align:left;cursor:pointer;color:inherit;transition:background-color .15s ease}
 .tier .name{font-family:var(--serif);font-size:19px}
+.tier.on{background:rgba(200,16,63,.08)}.tier.on .name{color:var(--rose)}
 .track{position:relative;height:6px;border-radius:3px;background:rgba(255,255,255,.07)}
 .track i{position:absolute;top:0;height:6px;border-radius:3px}
+.track .pin{position:absolute;top:-4px;width:2px;height:14px;background:var(--rose)}
+.track .pin-label{position:absolute;top:-22px;right:0;font:600 10px var(--sans);letter-spacing:.1em;text-transform:uppercase;color:var(--rose);white-space:nowrap}
 .tier b{font-weight:500;font-size:17px;white-space:nowrap}
-.basis{margin-top:14px}
-.next{margin-top:36px;padding:28px 24px 24px;border:1px solid var(--line-strong);border-radius:20px;position:relative;overflow:hidden;
-  background:radial-gradient(120% 90% at 100% 0%,rgba(200,16,63,.22),rgba(200,16,63,0) 60%),var(--ink-2);display:flex;flex-direction:column;gap:18px}
-.next h3{font-size:28px;line-height:1.12}
-.next .fields{grid-template-columns:1fr}
-.next .btns{display:flex;flex-direction:column;gap:10px;margin-top:4px}
+.tier.gold{padding-top:24px}
+.captions{display:flex;flex-direction:column;gap:8px}
+.book-card{margin-top:6px;padding:22px 20px 20px;border:1px solid var(--line-strong);border-radius:20px;position:relative;overflow:hidden;
+  background:radial-gradient(120% 90% at 100% 0%,rgba(200,16,63,.22),rgba(200,16,63,0) 60%),var(--ink-2);display:flex;flex-direction:column;gap:12px}
+.book-card h3{font-size:24px;line-height:1.15}
+.book-card .cal{width:22px;height:22px;fill:none;stroke:var(--rose);stroke-width:1.75;stroke-linecap:round;stroke-linejoin:round}
+.preview{padding-left:38px;display:flex;flex-direction:column;gap:12px}
+.preview .bub{background:var(--ink-2);border:1px solid var(--crimson);border-radius:20px 20px 20px 6px;padding:14px 16px;font:400 15px/1.6 var(--sans);white-space:pre-wrap;color:var(--text-2);overflow-wrap:anywhere}
+.preview .bub input{display:inline-block;width:12ch;max-width:60%;height:30px;border:0;border-bottom:1.5px solid var(--rose);background:transparent;font:inherit;color:var(--text);padding:0 2px}
+.preview .bub input:focus{outline:0}
+.preview .times{display:inline-flex;flex-wrap:wrap;gap:6px;vertical-align:middle}
+.preview .times .chip{min-height:30px;padding:4px 12px;font-size:13px}
+.toast{position:fixed;left:50%;transform:translateX(-50%);bottom:calc(var(--bar) + 30px + env(safe-area-inset-bottom,0px));z-index:21;background:#fff;color:var(--wine);padding:12px 18px;border-radius:999px;font:500 15px var(--sans);box-shadow:0 12px 30px -10px rgba(0,0,0,.7);max-width:calc(100% - 48px);text-align:center}
+.textbar.split{padding:0;overflow:hidden;gap:0}
+.textbar.split a{display:flex;align-items:center;justify-content:center;gap:10px;height:100%;color:#fff;text-decoration:none}
+.textbar.split .book{flex:1;font:600 17px var(--sans)}
+.textbar.split .sms{flex:none;width:68px;border-left:1px solid rgba(255,255,255,.28)}
+.textbar.hide{transform:translateX(-50%) translateY(140%)}
+.textbar{transition:transform .25s ease}
+.deck-fallback{position:absolute;inset:0;display:none}
+.talk.no3d .deck-fallback{display:block}
+.fcard{position:absolute;left:50%;top:50%;width:54%;aspect-ratio:3.5/2;margin-left:-27%;margin-top:-15.5%;border-radius:10px;background:linear-gradient(160deg,#160709,#0b0304);box-shadow:0 20px 40px -14px rgba(0,0,0,.8);border-top:3px solid var(--tc);display:flex;align-items:flex-end;padding:12px 14px;font:600 20px var(--serif);color:var(--text);transition:transform .4s ease,opacity .4s ease;opacity:0}
+.fcard.up{opacity:1}
+.fcard.up.dim{opacity:.45}
+.fband{position:absolute;left:50%;top:50%;width:14px;height:40%;margin-left:26px;margin-top:-20%;background:linear-gradient(90deg,#7a0a1e,#e0335e,#7a0a1e);border-radius:3px;transition:opacity .4s ease}
+@media (max-width:360px){.chips.grid{grid-template-columns:1fr}.tier{grid-template-columns:56px 1fr auto;gap:10px}}
 
 /* ---------- contact ---------- */
 .contacts{display:flex;flex-direction:column;border-top:1px solid var(--line)}
@@ -261,55 +293,25 @@ footer{padding:40px 0 0;font-size:13px;line-height:1.6;color:#7f666d}
 
   <hr class="rule">
 
-  <section class="sec" id="quiz-sec" aria-labelledby="quiz-title">
-    <div class="sec-head" style="margin-bottom:0">
-      <div class="eyebrow">Three minutes</div>
-      <h2 id="quiz-title">Which plan fits me?</h2>
-    </div>
-    <div id="quiz" aria-live="polite" style="margin-top:24px"></div>
-  </section>
-
-  <hr class="rule">
-
-  <section class="sec" id="estimate" aria-labelledby="est-title">
+  <section class="sec talk no3d" id="talk" aria-labelledby="talk-title">
     <div class="sec-head">
-      <div class="eyebrow">Ballpark</div>
-      <h2 id="est-title">What would my coverage cost?</h2>
-      <p class="lead">A rough monthly range in seconds. Then send it to Niko for your real quote.</p>
+      <div class="eyebrow">Six questions</div>
+      <h2 id="talk-title">Let's put your cards on the table</h2>
+      <p class="lead">Answer like you're texting me. You'll get a monthly range, then pick a time to talk.</p>
+      <p class="small">It's my card asking, not me live. Nothing you type leaves your phone until you send it.</p>
+      <a class="btn btn-ghost" id="talk-book-top" href="https://calendly.com/nikostathis?utm_source=card&amp;utm_medium=web&amp;utm_content=header" target="_blank" rel="noopener">Book a call instead</a>
     </div>
-    <form id="est-form" novalidate>
-      <div class="fields">
-        <label class="f">ZIP<input class="field" id="est-zip" inputmode="numeric" autocomplete="postal-code" maxlength="5" placeholder="60601"></label>
-        <label class="f">Your age<input class="field" id="est-age" inputmode="numeric" maxlength="2" placeholder="40"></label>
-        <label class="f">People
-          <select class="field" id="est-hh"><option>1</option><option>2</option><option>3</option><option>4</option><option>5</option><option>6</option></select>
-        </label>
+    <div class="stage" id="deck-stage">
+      <canvas id="deck3d" aria-hidden="true" hidden></canvas>
+      <div class="deck-fallback" id="deck-fallback" aria-hidden="true">
+        <div class="fcard up" data-slot="L" style="--tc:#9a5a2b;transform:rotate(-2deg) translateY(-6px)"></div>
+        <div class="fcard up" data-slot="M" style="--tc:#b9bcc4;transform:rotate(1.5deg)"></div>
+        <div class="fcard up" data-slot="R" style="--tc:#d4a24a;transform:rotate(-1deg) translateY(6px)"></div>
+        <div class="fband" id="fband"></div>
       </div>
-      <p class="err" id="est-err" hidden></p>
-      <div class="enroll-cta" style="margin-top:28px"><button class="btn btn-primary btn-block" type="submit">Show my range</button></div>
-    </form>
-    <div id="est-out" hidden>
-      <div class="tiers" id="tiers" style="margin-top:32px"></div>
-      <p class="small basis" id="est-basis"></p>
-      <form class="next" id="est-next" novalidate aria-labelledby="quote-title">
-        <div class="eyebrow">Next step</div>
-        <h3 id="quote-title">Get my real quote</h3>
-        <p class="small" style="color:var(--text-2)">Your real price depends on your county, the carriers there and any tax credits you qualify for. Send Niko your ballpark and you'll get actual plans back.</p>
-        <div class="fields">
-          <label class="f">Your name<input class="field" id="q-name" autocomplete="name" placeholder="First and last name"></label>
-          <label class="f">Best time to reach you
-            <select class="field" id="q-time"><option>Anytime</option><option>Mornings</option><option>Afternoons</option><option>Evenings</option></select>
-          </label>
-        </div>
-        <p class="err" id="q-err" hidden style="margin-top:0"></p>
-        <div class="btns">
-          <button class="btn btn-primary btn-block" type="submit">Text Niko for my real quote</button>
-          <a class="btn btn-ghost btn-block" href="https://calendly.com/nikostathis" target="_blank" rel="noopener">Or book on my calendar</a>
-        </div>
-        <p class="small">The text opens on your phone with everything filled in. Nothing is sent until you press send.</p>
-      </form>
     </div>
-    <p class="small" style="margin-top:24px"><b style="color:var(--text-2)">Pre-subsidy estimates.</b> Rough 2026 marketplace ranges before tax credits, which lower the cost for many households. Prices vary by county and carrier, so this is not a quote.</p>
+    <div class="thread-head"><span class="q-step" id="talk-step">1 of 6</span><button class="link" id="talk-back" type="button" hidden>Back</button></div>
+    <div class="thread" id="thread" aria-live="polite"></div>
   </section>
 
   <hr class="rule">
@@ -420,180 +422,514 @@ footer{padding:40px 0 0;font-size:13px;line-height:1.6;color:#7f666d}
   }
   var timer = setInterval(tick, 1000); tick();
 
-  /* ---------- "Which plan fits me?" quiz ----------
-     Every question but income has an "Other" answer that asks for a few words; those words go into the text to Niko. */
-  var QUESTIONS = [
-    { q: "Who needs coverage?", key: "who", opts: [
-      ["me", "Just me"], ["couple", "Me and my spouse or partner"], ["family", "My family, including kids"], ["team", "My employees"]] },
-    { q: "What's your coverage situation right now?", key: "now", opts: [
-      ["losing", "Losing job coverage, or on COBRA"], ["own", "I buy my own plan and want a better one"], ["none", "I don't have coverage"], ["medicare", "Turning 65 soon, or already on Medicare"]] },
-    { q: "How do you earn your income?", key: "work", opts: [
-      ["w2", "A job that doesn't offer good benefits"], ["self", "Self-employed, freelance or 1099"], ["owner", "I own a business with employees"], ["retired", "Retired or between jobs"]] },
-    { q: "What matters most in a plan?", key: "care", opts: [
-      ["cost", "The lowest monthly payment"], ["doctors", "Keeping my doctors and hospitals"], ["oop", "Low costs when I actually use care"], ["rx", "Covering my prescriptions"], ["event", "A planned surgery, pregnancy or big treatment"]] },
-    { q: "Roughly what will your household earn in 2027?", key: "income", note: "This is how I check whether tax credits can lower your cost.", opts: [
-      ["low", "Under $40,000"], ["mid", "$40,000 to $80,000"], ["high", "$80,000 to $150,000"], ["top", "Over $150,000"], ["skip", "I'd rather not say"]] }
-  ];
-  var RESULTS = {
-    individual: { name: "Individual & Family plans", blurb: "Marketplace and private plans you buy for yourself or your household. I'll compare the networks, deductibles and drug lists side by side so you know exactly what you're paying for." },
-    self: { name: "Self-Employed plans", blurb: "You buy your own coverage, and your premiums may be tax deductible. I'll compare marketplace and private options against how your income moves through the year." },
-    business: { name: "Small Business plans", blurb: "Group coverage, or an ICHRA that gives each employee a set amount toward their own plan. I'll show you what fits your headcount and budget." },
-    medicare: { name: "Medicare options", blurb: "Medicare Advantage, Medigap and Part D drug plans. I'll help you pick the right mix and time your enrollment so you avoid late penalties." },
-    other: { name: "A custom fit", blurb: "Your situation doesn't fit a standard box, and that's fine. Tell me a little more and I'll point you to the right coverage, whether that's health, dental, vision or something else." }
+  /* ---------- calibration: every number Niko may want to change lives in this one object ----------
+     BASE40 = lowest-cost plan per metal, monthly, unsubsidized, 40-year-old, plan year 2026 (KFF; Cook County from
+     the IDOI age-21 filings x 1.278). CQ_LOWEST holds readings from Niko's Closequote form ({age: lowest monthly
+     value shown for a single non-smoker}); while it is empty the Gold ceiling is the lowest-cost Gold plan sold
+     in the visitor's area. */
+  var CALIBRATION = {
+    RATE_YEAR: 2026, USE_2027: false, PRELIM_2027: 1.14, AGE40: 1.278, KID: 0.765,
+    BASE40: { cook: { bronze: 373, silver: 497, gold: 444 }, il: { bronze: 436, silver: 635, gold: 539 }, us: { bronze: 456, silver: 611, gold: 615 } },
+    SPREAD: { bronze: 1.20, silver: 1.15, gold: 1.12 },
+    CQ_LOWEST: { cook: {}, il: {}, us: {} },
+    ANCHOR: false, FPL_BASE: 15650, FPL_STEP: 5500,
+    CALENDLY: "https://calendly.com/nikostathis", CALENDLY_EVENT: "", SHOW_CQ_LINK: false
   };
-  var EXTRA = {
-    losing: "Losing job coverage usually opens a 60-day special enrollment window, so you may not have to wait for open enrollment.",
-    event: "With care already planned, the out-of-pocket maximum matters more than the premium. I'll run the numbers both ways.",
-    rx: "I'll check your prescriptions against each plan's drug list before you choose.",
-    low: "At this income you may qualify for tax credits or lower-cost options, depending on your state.",
-    top: "At this income tax credits may be limited, so the plan design matters more. I'll look at private plans too."
-  };
-  var answers = {}, others = {}, stepIdx = 0, otherOpen = false, quiz = $("quiz");
-
-  function el(tag, cls, text) { var e = document.createElement(tag); if (cls) e.className = cls; if (text != null) e.textContent = text; return e; }
-  function linkBtn(text) { var b = el("button", "link", text); b.type = "button"; return b; }
-  function route() {
-    var a = answers;
-    if (a.who === "team" || a.work === "owner") return "business";
-    if (a.now === "medicare") return "medicare";
-    if (a.work === "self") return "self";
-    if (a.who === "other" || (a.now === "other" && a.work === "other")) return "other";
-    return "individual";
-  }
-  function label(key) {
-    var Q = QUESTIONS.filter(function (q) { return q.key === key; })[0], v = answers[key];
-    if (v === "other") return others[key] || "Other";
-    var o = Q.opts.filter(function (o) { return o[0] === v; })[0];
-    return o ? o[1] : "";
-  }
-  function next() { stepIdx++; otherOpen = false; renderQuiz(); }
-  function renderQuiz() {
-    quiz.textContent = "";
-    if (stepIdx < QUESTIONS.length) {
-      var Q = QUESTIONS[stepIdx];
-      var head = el("div", "q-head");
-      head.appendChild(el("span", "q-step", "Question " + (stepIdx + 1) + " of " + QUESTIONS.length));
-      quiz.appendChild(head);
-      var bar = el("div", "q-bar"), fill = el("i"); fill.style.width = (stepIdx / QUESTIONS.length * 100) + "%"; bar.appendChild(fill); quiz.appendChild(bar);
-      requestAnimationFrame(function () { fill.style.width = ((stepIdx + 1) / QUESTIONS.length * 100) + "%"; });
-      quiz.appendChild(el("p", "q", Q.q));
-      if (Q.note) quiz.appendChild(el("p", "q-note", Q.note));
-      var opts = el("div", "opts");
-      Q.opts.forEach(function (o) {
-        var b = el("button", "opt" + (answers[Q.key] === o[0] ? " picked" : ""), o[1]); b.type = "button";
-        b.addEventListener("click", function () { answers[Q.key] = o[0]; next(); });
-        opts.appendChild(b);
-      });
-      if (Q.key !== "income") {
-        if (!otherOpen) {
-          var ob = el("button", "opt" + (answers[Q.key] === "other" ? " picked" : ""), "Something else"); ob.type = "button";
-          ob.addEventListener("click", function () { otherOpen = true; renderQuiz(); var i = $("quiz-other"); if (i) i.focus(); });
-          opts.appendChild(ob);
-        } else {
-          var box = el("div", "other-box");
-          var lab = el("label", null, "Something else");
-          var inp = el("input", "field"); inp.id = "quiz-other"; inp.maxLength = 80; inp.placeholder = "Tell me in a few words"; inp.value = others[Q.key] || "";
-          lab.appendChild(inp); box.appendChild(lab);
-          var go = el("button", "btn btn-primary btn-block", "Continue"); go.type = "button";
-          function save() { var v = inp.value.trim(); if (!v) { inp.focus(); return; } answers[Q.key] = "other"; others[Q.key] = v; next(); }
-          go.addEventListener("click", save);
-          inp.addEventListener("keydown", function (e) { if (e.key === "Enter") { e.preventDefault(); save(); } });
-          box.appendChild(go); opts.appendChild(box);
-        }
-      }
-      quiz.appendChild(opts);
-      if (stepIdx > 0) {
-        var foot = el("div", "q-foot"), back = linkBtn("Back");
-        back.addEventListener("click", function () { stepIdx--; otherOpen = false; renderQuiz(); });
-        foot.appendChild(back); quiz.appendChild(foot);
-      }
-      return;
-    }
-    var r = RESULTS[route()];
-    var res = el("div", "result");
-    res.appendChild(el("div", "eyebrow", "Your match"));
-    res.appendChild(el("h3", null, r.name));
-    res.appendChild(el("p", "blurb", r.blurb));
-    var tips = el("div", "tips");
-    [answers.now, answers.care, answers.income].forEach(function (k) { if (EXTRA[k]) tips.appendChild(el("p", null, EXTRA[k])); });
-    if (tips.childNodes.length) res.appendChild(tips);
-    var row = el("div", "row");
-    var book = el("a", "btn btn-primary", "Book a call"); book.href = "https://calendly.com/nikostathis"; book.target = "_blank"; book.rel = "noopener";
-    var txt = el("a", "btn btn-ghost", "Text Niko about it");
-    var body = ["Hi Niko, your quiz matched me with " + r.name + ".", "Coverage for: " + label("who"), "Right now: " + label("now"),
-      "Income from: " + label("work"), "Most important: " + label("care")];
-    if (answers.income !== "skip") body.push("2027 household income: " + label("income"));
-    if (ref) body.push("Referred by " + ref);
-    txt.href = smsHref(body.join("\n"));
-    row.appendChild(book); row.appendChild(txt);
-    res.appendChild(row);
-    var again = linkBtn("Start over");
-    again.addEventListener("click", function () { answers = {}; others = {}; stepIdx = 0; otherOpen = false; renderQuiz(); });
-    res.appendChild(again);
-    quiz.appendChild(res);
-  }
-  renderQuiz();
-
-  /* ---------- ballpark estimator ----------
-     Rough model: 2026 national average benchmark (second-lowest silver) premium for a 40-year-old is about $625/mo,
-     scaled by the federal default ACA age curve. Household = you, a partner the same age, then children
-     (at most 3 children under 21 are charged). Tier bands are wide multiples of the benchmark to cover
-     the spread between carriers and counties. Pre-subsidy. */
-  var BENCH_40 = 625, AGE_40 = 1.278;
+  window.CALIBRATION = CALIBRATION;
   var CURVE = [[0, .765], [15, .833], [16, .859], [17, .885], [18, .913], [19, .941], [20, .970], [21, 1], [24, 1], [25, 1.004],
     [26, 1.024], [27, 1.048], [28, 1.087], [29, 1.119], [30, 1.135], [31, 1.159], [32, 1.183], [33, 1.198], [34, 1.214], [35, 1.222],
     [36, 1.230], [37, 1.238], [38, 1.246], [39, 1.262], [40, 1.278], [41, 1.302], [42, 1.325], [43, 1.357], [44, 1.397], [45, 1.444],
     [46, 1.500], [47, 1.563], [48, 1.635], [49, 1.706], [50, 1.786], [51, 1.865], [52, 1.952], [53, 2.040], [54, 2.135], [55, 2.230],
     [56, 2.333], [57, 2.437], [58, 2.548], [59, 2.603], [60, 2.714], [61, 2.810], [62, 2.873], [63, 2.952], [64, 3.000]];
   function ageFactor(a) { var f = CURVE[0][1]; for (var i = 0; i < CURVE.length; i++) if (a >= CURVE[i][0]) f = CURVE[i][1]; return f; }
-  var TIERS = [["Bronze", .55, .8, "#7a0a1e"], ["Silver", .8, 1.05, "#b10d36"], ["Gold", .95, 1.25, "#e0335e"]];
   function money(n) { return "$" + (Math.round(n / 10) * 10).toLocaleString("en-US"); }
+  function range(lo, hi) { return (hi - lo) / hi < 0.04 ? "about " + money(hi) : money(lo) + " – " + money(hi); }
+  var ZIP3 = [[5, 5, "New York"], [6, 9, "Puerto Rico"], [10, 27, "Massachusetts"], [28, 29, "Rhode Island"], [30, 38, "New Hampshire"], [39, 49, "Maine"], [50, 59, "Vermont"], [60, 69, "Connecticut"], [70, 89, "New Jersey"], [100, 149, "New York"], [150, 196, "Pennsylvania"], [197, 199, "Delaware"], [200, 205, "Washington, DC"], [206, 219, "Maryland"], [220, 246, "Virginia"], [247, 268, "West Virginia"], [270, 289, "North Carolina"], [290, 299, "South Carolina"], [300, 319, "Georgia"], [320, 339, "Florida"], [341, 349, "Florida"], [350, 369, "Alabama"], [370, 385, "Tennessee"], [386, 397, "Mississippi"], [398, 399, "Georgia"], [400, 427, "Kentucky"], [430, 459, "Ohio"], [460, 479, "Indiana"], [480, 499, "Michigan"], [500, 528, "Iowa"], [530, 549, "Wisconsin"], [550, 567, "Minnesota"], [570, 577, "South Dakota"], [580, 588, "North Dakota"], [590, 599, "Montana"], [600, 629, "Illinois"], [630, 658, "Missouri"], [660, 679, "Kansas"], [680, 693, "Nebraska"], [700, 714, "Louisiana"], [716, 729, "Arkansas"], [730, 732, "Oklahoma"], [733, 733, "Texas"], [734, 749, "Oklahoma"], [750, 799, "Texas"], [800, 816, "Colorado"], [820, 831, "Wyoming"], [832, 838, "Idaho"], [840, 847, "Utah"], [850, 865, "Arizona"], [870, 884, "New Mexico"], [885, 885, "Texas"], [889, 898, "Nevada"], [900, 961, "California"], [967, 968, "Hawaii"], [970, 979, "Oregon"], [980, 994, "Washington"], [995, 999, "Alaska"]];
+  function stateOf(zip) { var p = parseInt(zip.slice(0, 3), 10); for (var i = 0; i < ZIP3.length; i++) if (p >= ZIP3[i][0] && p <= ZIP3[i][1]) return ZIP3[i][2]; return null; }
+  function areaOf(zip) { return /^60[0-8]\d\d$/.test(zip) ? "cook" : /^6[0-2]\d{3}$/.test(zip) ? "il" : "us"; }
 
-  function estimate(zip, age, hh) {
-    var perAdult = BENCH_40 / AGE_40 * ageFactor(age);
-    var kids = Math.max(0, hh - 2), charged = Math.min(kids, 3);
-    var total = perAdult * (hh >= 2 ? 2 : 1) + BENCH_40 / AGE_40 * .765 * charged;
-    return TIERS.map(function (t) { return { name: t[0], lo: total * t[1], hi: total * t[2], color: t[3] }; });
+  /* ---------- the conversation: questions, copy, routing ---------- */
+  var OPTS = {
+    situation: [["losing", "Losing job coverage, or on COBRA"], ["own", "I buy my own plan and want a better one"], ["self", "Self-employed, freelance or 1099"], ["none", "I don't have coverage right now"], ["medicare", "Turning 65, or already on Medicare"], ["team", "I'm covering my employees"], ["other", "Something else"]],
+    headcount: [["2-5", "2 to 5"], ["6-15", "6 to 15"], ["16-50", "16 to 50"], ["50+", "More than 50"]],
+    household: [["me", "Just me"], ["couple", "Me and my partner"], ["kids", "Me and my kids"], ["family", "Me, my partner and our kids"]],
+    kids: [["1", "1"], ["2", "2"], ["3", "3"], ["4", "4+"]],
+    income: [["low", "Under $40,000"], ["mid", "$40,000 to $80,000"], ["high", "$80,000 to $150,000"], ["top", "Over $150,000"], ["skip", "I'd rather not say"]],
+    carrier: [["bcbs", "Blue Cross Blue Shield"], ["uhc", "UnitedHealthcare"], ["oscar", "Oscar Health"], ["ambetter", "Ambetter"], ["big3", "Aetna, Cigna or Humana"], ["ppo", "Private PPO, any carrier"], ["doctors", "Whoever keeps my doctors"], ["none", "No preference, best value"]],
+    care: [["cost", "The lowest monthly bill"], ["doctors", "Keeping my doctors"], ["oop", "Low costs when I actually use care"], ["rx", "My prescriptions"], ["event", "A planned surgery, pregnancy or big treatment"], ["unsure", "Not sure yet"]]
+  };
+  var INCOME_BOUNDS = { low: [0, 40000], mid: [40000, 80000], high: [80000, 150000], top: [150000, Infinity] };
+  var ACK1 = {
+    losing: "Losing coverage usually opens a 60-day window, so we may not need to wait for November.",
+    own: "Good. Knowing what you don't like about your plan is half the work.",
+    self: "Self-employed premiums are often tax deductible. I'll keep that in mind.",
+    none: "Let's fix that. Depending on timing, we may be able to start sooner than November.",
+    other: "Got it. I'll read that before we talk.",
+    medicare: "Medicare is its own world, and the timing matters more than the price. There are late-enrollment penalties that never go away, so let's get it right on a call."
+  };
+  var CARRIER_LINE = {
+    bcbs: "Blue Cross is in every Illinois county and the only PPO on the exchange around Chicago.",
+    uhc: "UnitedHealthcare is the second biggest option here and strong off-exchange.",
+    oscar: "Oscar is in the Chicago area and priced sharp for 2026.",
+    ambetter: "Ambetter is HMO-only in Illinois, fine if your doctors are in it.",
+    big3: "Those aren't sold as individual plans in Illinois for 2027, so I'll find the closest network to what you're used to.",
+    ppo: "Private PPOs can be cheaper if you're healthy. They're underwritten, so I'll be straight with you about the trade-offs.",
+    doctors: "Bring their names to the call. I check every network before we pick.",
+    none: "Then I'll go by value."
+  };
+  var CARE_REPLY = {
+    cost: "Then I'll start from the cheapest premium and show you what it costs when you use it.",
+    doctors: "Send me their names and I check every network before we pick.",
+    oop: "Then Gold or a strong Silver is where I'll start.",
+    rx: "I'll run your prescriptions against each plan's drug list before you choose.",
+    event: "With care already planned, the out-of-pocket maximum matters more than the premium. I'll run it both ways.",
+    unsure: "No problem. We'll figure it out on the call.",
+    silver: "Silver is where cost-sharing help lands if your income qualifies."
+  };
+  var TIER_META = { bronze: { name: "Bronze", color: "#7a0a1e", metal: "#9a5a2b", line: "Lowest monthly", care: "cost" }, silver: { name: "Silver", color: "#b10d36", metal: "#b9bcc4", line: "Middle of the road", care: "silver" }, gold: { name: "Gold", color: "#e0335e", metal: "#d4a24a", line: "Lowest when you use care", care: "oop" } };
+  function optLabel(key, v) { var o = (OPTS[key] || []).filter(function (o) { return o[0] === v; })[0]; return o ? o[1] : ""; }
+
+  function el(tag, cls, text) { var e = document.createElement(tag); if (cls) e.className = cls; if (text != null) e.textContent = text; return e; }
+  function linkBtn(text) { var b = el("button", "link", text); b.type = "button"; return b; }
+  var S, STORE = "niko.talk.v1";
+  function fresh() { return { step: 0, path: "main", via: "", answers: {}, revealed: false, split: false, booked: false, textOpen: false }; }
+  function persist() { try { sessionStorage.setItem(STORE, JSON.stringify(S)); } catch (e) { } }
+  function restore() { try { var s = JSON.parse(sessionStorage.getItem(STORE)); if (s && s.answers) return s; } catch (e) { } return null; }
+  function steps() {
+    if (S.path === "business") return ["situation", "headcount", "zip"];
+    if (S.path === "medicare") return S.via === "age" ? ["situation", "zip", "age"] : ["situation", "zip"];
+    return ["situation", "zip", "age", "household", "income", "carrier"];
   }
-  function showErr(id, msg) { var e = $(id); e.textContent = msg; e.hidden = !msg; }
-  var lastEstimate = null;
-  $("est-form").addEventListener("submit", function (ev) {
-    ev.preventDefault();
-    var zip = $("est-zip").value.trim(), age = parseInt($("est-age").value, 10), hh = parseInt($("est-hh").value, 10);
-    if (!/^\d{5}$/.test(zip)) return showErr("est-err", "Enter a 5-digit ZIP code.");
-    if (!(age >= 18 && age <= 64)) {
-      return showErr("est-err", age >= 65 ? "At 65 and up you're likely looking at Medicare. Book a call and I'll walk you through it." : "Enter an age between 18 and 64.");
-    }
-    showErr("est-err", "");
-    var rows = estimate(zip, age, hh), max = rows[rows.length - 1].hi, out = $("tiers");
-    out.textContent = "";
-    rows.forEach(function (r) {
-      var row = el("div", "tier"), track = el("div", "track"), bar = document.createElement("i");
-      bar.style.left = (r.lo / max * 100) + "%"; bar.style.width = ((r.hi - r.lo) / max * 100) + "%"; bar.style.background = r.color;
-      track.appendChild(bar);
-      row.appendChild(el("span", "name", r.name)); row.appendChild(track); row.appendChild(el("b", null, money(r.lo) + " – " + money(r.hi)));
-      out.appendChild(row);
-    });
-    $("est-basis").textContent = "Per month for " + (hh === 1 ? "you at " + age : hh === 2 ? "two adults aged " + age : "two adults aged " + age + " and " + (hh - 2) + (hh === 3 ? " child" : " children")) + ", ZIP " + zip + ".";
-    $("est-out").hidden = false;
-    lastEstimate = { zip: zip, age: age, hh: hh, lo: rows[0].lo, hi: rows[rows.length - 1].hi };
-    $("tiers").scrollIntoView({ behavior: matchMedia("(prefers-reduced-motion: reduce)").matches ? "auto" : "smooth", block: "start" });
-  });
+  function closed() { return S.step >= steps().length; }
+  function routeKey() {
+    var a = S.answers;
+    return S.path === "business" ? "business" : S.path === "medicare" ? "medicare" : a.situation === "self" ? "self" : a.situation === "other" ? "other" : "individual";
+  }
+  function hasPartner() { var h = S.answers.household; return (h === "couple" || h === "family"); }
+  function hasKids() { var h = S.answers.household; return (h === "kids" || h === "family"); }
+  function householdText(withAges) {
+    var a = S.answers, h = a.household, k = a.kids === "4" ? "4+ kids" : a.kids + (a.kids === "1" ? " kid" : " kids");
+    var p = withAges ? "my partner (" + a.age2 + (a.partner65 ? ", on Medicare" : "") + ")" : "my partner";
+    if (h === "me") return "Just me";
+    if (h === "couple") return "Me and " + p;
+    if (h === "kids") return "Me and " + k;
+    return "Me, " + p + " and " + k;
+  }
+  function zipText() { var a = S.answers; return a.zip + (a.area === "cook" ? ", Chicago area" : a.area === "il" ? ", Illinois" : a.stateName ? ", " + a.stateName : ""); }
+  function receiptValue(key) {
+    var a = S.answers;
+    if (key === "situation") return a.situation === "other" ? a.other : optLabel("situation", a.situation);
+    if (key === "zip") return zipText();
+    if (key === "age") return String(a.age);
+    if (key === "household") return householdText(true);
+    return optLabel(key, a[key]);
+  }
+  var RECEIPT_LABEL = { situation: "Situation", zip: "ZIP", age: "Age", household: "On the plan", income: "Income", carrier: "Carrier", headcount: "Team size" };
 
-  /* ---------- real quote: the ballpark details go to Niko by prefilled text ---------- */
-  $("est-next").addEventListener("submit", function (ev) {
-    ev.preventDefault();
-    var name = $("q-name").value.trim(), e = lastEstimate;
-    if (!name) return showErr("q-err", "Add your name so Niko knows who's texting.");
-    showErr("q-err", "");
-    var lines = ["Hi Niko, I'd like my real quote.", "Name: " + name,
-      "ZIP: " + e.zip + ", age " + e.age + ", " + e.hh + (e.hh === 1 ? " person" : " people"),
-      "Ballpark I saw: " + money(e.lo) + " to " + money(e.hi) + " a month",
-      "Best time to reach me: " + $("q-time").value];
-    if (stepIdx >= QUESTIONS.length) lines.push("Quiz match: " + RESULTS[route()].name);
+  /* ---------- the ballpark ---------- */
+  function cqLowest(area, ages, kids) {
+    var T = Object.keys(CALIBRATION.CQ_LOWEST[area] || {}).map(function (k) { return [parseInt(k, 10), CALIBRATION.CQ_LOWEST[area][k]]; }).sort(function (p, q) { return p[0] - q[0]; });
+    if (!T.length) return null;
+    function single(a) {
+      if (T.length === 1 || a <= T[0][0]) return T[0][1] * ageFactor(a) / ageFactor(T[0][0]);
+      var last = T[T.length - 1];
+      if (a >= last[0]) return last[1] * ageFactor(a) / ageFactor(last[0]);
+      for (var i = 0; i < T.length - 1; i++) if (a >= T[i][0] && a <= T[i + 1][0]) {
+        var t = (a - T[i][0]) / (T[i + 1][0] - T[i][0]); return T[i][1] + (T[i + 1][1] - T[i][1]) * t;
+      }
+      return last[1];
+    }
+    return ages.reduce(function (s, a) { return s + single(a); }, 0) + Math.min(kids, 3) * single(21) * CALIBRATION.KID;
+  }
+  function ballpark() {
+    var a = S.answers, C = CALIBRATION, area = a.area || "us";
+    var ages = [a.age]; if (hasPartner() && !a.partner65) ages.push(a.age2);
+    var kids = hasKids() ? parseInt(a.kids, 10) : 0;
+    var m = (ages.reduce(function (s, x) { return s + ageFactor(x); }, 0) + C.KID * Math.min(kids, 3)) / C.AGE40;
+    var y = C.USE_2027 ? C.PRELIM_2027 : 1, base = C.BASE40[area], t = {};
+    ["bronze", "silver", "gold"].forEach(function (k) { t[k] = { key: k, lo: base[k] * y * m, hi: base[k] * y * m * C.SPREAD[k] }; });
+    var cap = cqLowest(area, ages, kids), fromCq = cap != null;
+    if (cap == null) cap = base.gold * y * m;
+    if (C.ANCHOR && cap < t.bronze.lo) { var k = cap / (base.gold * y * m * C.SPREAD.gold); ["bronze", "silver", "gold"].forEach(function (n) { t[n].lo *= k; t[n].hi *= k; }); }
+    t.gold.hi = Math.min(t.gold.hi, cap); t.gold.lo = Math.min(t.gold.lo, 0.9 * t.gold.hi);
+    var hh = ages.length + kids, fpl = C.FPL_BASE + C.FPL_STEP * (hh - 1), band = INCOME_BOUNDS[a.income];
+    var showSilver = !(band && band[0] >= 2.5 * fpl);
+    var rows = [t.bronze, t.gold]; if (showSilver) rows.push(t.silver);
+    rows.sort(function (p, q) { return p.lo - q.lo; });
+    var income = !band ? "" : band[1] <= 4 * fpl ? "A tax credit would likely take a real bite out of these numbers." : band[0] >= 4 * fpl ? "Credits are unlikely at that income, so plan design matters more. I'll price private plans too." : "You may sit right at the tax-credit line, which is worth a careful look.";
+    var goldUnder = showSilver && t.gold.hi < t.silver.lo ? (area === "us" ? "Yes, Gold under Silver happens in a lot of states this year. It's why the fine print matters." : "Yes, Gold under Silver is real in Illinois this year. It's why the fine print matters.") : "";
+    var basis = (ages.length === 2 ? "two adults, " + ages[0] + " and " + ages[1] : "you at " + ages[0]) + (kids ? (ages.length === 2 ? ", and " : " and ") + kids + (kids === 1 ? " kid" : " kids") : "");
+    var rates = C.USE_2027 ? "Preliminary 2027 rates, about 14% over 2026" : C.RATE_YEAR + " marketplace rates";
+    return { rows: rows, cap: cap, fromCq: fromCq, showSilver: showSilver, income: income, goldUnder: goldUnder, basis: basis, rates: rates,
+      headline: money(rows[0].lo) + " to " + money(Math.max.apply(null, rows.map(function (r) { return r.hi; }))) + " a month",
+      max: Math.max.apply(null, rows.map(function (r) { return r.hi; })), ages: ages, kids: kids };
+  }
+  function slotsForDeck() {
+    if (!S.revealed || !closed() || S.path !== "main") return null;
+    var b = ballpark(), slots = b.rows.length === 2 ? ["L", "R"] : ["L", "M", "R"];
+    return b.rows.map(function (r, i) { var mt = TIER_META[r.key]; return { slot: slots[i], key: r.key, name: mt.name, metal: mt.metal, line: mt.line }; });
+  }
+
+  /* ---------- text and booking payloads ---------- */
+  function ratesShort() { return CALIBRATION.USE_2027 ? "preliminary 2027" : String(CALIBRATION.RATE_YEAR); }
+  function bookKey() {
+    var a = S.answers;
+    if (S.path === "business") return "BIZ-" + (a.zip || "") + "-" + (a.headcount || "");
+    if (S.path === "medicare") return "MED-" + (a.zip || "") + (a.age ? "-" + a.age : "");
+    if (!closed()) return "card";
+    return "CQ-" + a.zip + "-" + a.age + (hasPartner() ? "-" + a.age2 : "") + "-" + ((hasPartner() && !a.partner65) ? 2 : 1) + "a" + (hasKids() ? a.kids.replace("+", "") : 0) + "k";
+  }
+  function smsBody() {
+    var a = S.answers, lines = ["Hi Niko, I went through your card page."];
+    if (a.name) lines.push("Name: " + a.name);
+    if (S.path === "business") {
+      lines.push("Situation: I'm covering my employees", "Team size: " + optLabel("headcount", a.headcount), "ZIP " + a.zip);
+    } else if (S.path === "medicare") {
+      lines.push("Situation: " + (S.via === "age" ? "age " + a.age : "Turning 65, or already on Medicare"), "ZIP " + a.zip);
+    } else if (closed()) {
+      var b = ballpark();
+      lines.push("Situation: " + receiptValue("situation"));
+      lines.push("ZIP " + a.zip + ", age " + a.age + (hasPartner() ? " and partner " + a.age2 : "") + ", " + householdText(false).replace(/^Me/, "me").replace(/^Just me/, "just me") + (a.partner65 ? " (partner on Medicare)" : ""));
+      if (a.income && a.income !== "skip") lines.push("2027 income: " + optLabel("income", a.income));
+      lines.push("Carrier: " + optLabel("carrier", a.carrier));
+      lines.push("Ballpark I saw (" + ratesShort() + " rates, before tax credits): " + b.rows.map(function (r) { return TIER_META[r.key].name + " " + range(r.lo, r.hi).replace(" – ", "-"); }).join(", ") + " a month");
+      if (a.care && a.care !== "unsure" && a.care !== "silver") lines.push("Lead with: " + optLabel("care", a.care));
+    } else {
+      return "COVERAGE" + refLine;
+    }
+    lines.push("Best time: " + (a.time || "Anytime"), "Key: " + bookKey());
     if (ref) lines.push("Referred by " + ref);
-    openSms(lines.join("\n"));
-  });
+    return lines.join("\n");
+  }
+  function currentBody() { return closed() ? smsBody() : "COVERAGE" + refLine; }
+  function bookHref() {
+    var C = CALIBRATION, a = S.answers, key = closed() || S.path !== "main" ? bookKey() : "card", enc = encodeURIComponent;
+    var url = C.CALENDLY + (C.CALENDLY_EVENT ? "/" + C.CALENDLY_EVENT : "") + "?utm_source=card&utm_medium=web&utm_content=" + enc(key);
+    if (ref) url += "&utm_term=" + enc(ref);
+    if (a.name) url += "&name=" + enc(a.name);
+    if (C.CALENDLY_EVENT && closed()) url += "&a1=" + enc(smsBody().split("\n").slice(1).filter(function (l) { return l.indexOf("Name:") !== 0; }).join("\n"));
+    return url;
+  }
+
+  /* ---------- rendering ---------- */
+  var thread = $("thread"), talk = $("talk"), textbar = $("textbar"), pendingScroll = false;
+  function deck(fn) { var d = window.__deck; if (d && d[fn]) try { d[fn].apply(null, [].slice.call(arguments, 1)); } catch (e) { } }
+  function bubble(text, ack, isNew) {
+    var m = el("div", "msg" + (isNew ? " new" : "")), b = el("div", "bub");
+    m.appendChild(el("div", "av", "N"));
+    if (ack) b.appendChild(el("span", "ack", ack));
+    b.appendChild(document.createTextNode(text));
+    m.appendChild(b); return m;
+  }
+  function chips(key, opts, onPick, grid, picked) {
+    var c = el("div", "chips" + (grid ? " grid" : ""));
+    opts.forEach(function (o) {
+      var b = el("button", "chip" + (picked === o[0] ? " picked" : ""), o[1]); b.type = "button";
+      b.addEventListener("click", function () { onPick(o[0]); });
+      c.appendChild(b);
+    });
+    return c;
+  }
+  function compose(opts) {
+    var row = el("div", "compose"), inp = el("input"), btn = el("button");
+    inp.placeholder = opts.placeholder; inp.maxLength = opts.max; if (opts.numeric) { inp.inputMode = "numeric"; inp.pattern = "\\d*"; } if (opts.autocomplete) inp.autocomplete = opts.autocomplete;
+    if (opts.value != null) inp.value = opts.value;
+    btn.type = "button"; btn.setAttribute("aria-label", "Send");
+    btn.innerHTML = '<svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 19V5M5 12l7-7 7 7"/></svg>';
+    function submit() { opts.onSubmit(inp.value.trim(), inp); }
+    btn.addEventListener("click", submit);
+    inp.addEventListener("keydown", function (e) { if (e.key === "Enter") { e.preventDefault(); submit(); } });
+    if (opts.auto) inp.addEventListener("input", function () { if (opts.auto.test(inp.value.trim())) submit(); });
+    inp.addEventListener("focus", function () { talk.classList.add("typing"); textbar.classList.add("hide"); setTimeout(function () { inp.scrollIntoView({ block: "center", behavior: motion() }); }, 300); });
+    inp.addEventListener("blur", function () { talk.classList.remove("typing"); textbar.classList.remove("hide"); });
+    row.appendChild(inp); row.appendChild(btn);
+    row._input = inp;
+    return row;
+  }
+  function motion() { return matchMedia("(prefers-reduced-motion: reduce)").matches ? "auto" : "smooth"; }
+  function receipt(key, idx) {
+    var b = el("button", "receipt"); b.type = "button";
+    b.setAttribute("aria-label", "Change answer: " + RECEIPT_LABEL[key] + ": " + receiptValue(key));
+    b.appendChild(el("small", null, RECEIPT_LABEL[key]));
+    b.appendChild(el("span", null, receiptValue(key)));
+    b.innerHTML += '<svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 20h4l10-10-4-4L4 16z"/><path d="M12.5 7.5l4 4"/></svg>';
+    b.addEventListener("click", function () { rewind(idx); });
+    return b;
+  }
+  function note(text) { var m = bubble(text, null, true); return m; }
+
+  function answer(key, value, extra) {
+    var a = S.answers;
+    a[key] = value;
+    if (key === "situation") { if (value === "other") a.other = extra; if (value === "medicare") { S.path = "medicare"; S.via = "q1"; } else if (value === "team") S.path = "business"; else S.path = "main"; }
+    if (key === "zip") { a.area = areaOf(value); a.stateName = stateOf(value); }
+    if (key === "age" && value >= 65) { S.path = "medicare"; S.via = "age"; }
+    if (key === "household") { delete a.kids; delete a.age2; delete a.partner65; }
+    if (key === "age2" && value >= 65) a.partner65 = true;
+    if (!householdPending(key)) S.step++;
+    if (!S.split) S.split = true;
+    var revealing = closed() && S.path === "main";
+    if (revealing) { S.revealed = true; talk.classList.add("revealed"); }
+    persist(); pendingScroll = !revealing; render();
+    if (navigator.vibrate) try { navigator.vibrate(8); } catch (e) { }
+    if (revealing) reveal();
+    else if (closed()) deck("react", S.step, steps().length, "square");
+    else deck("react", S.step, steps().length, S.step % 2 ? "square" : "cut");
+  }
+  function householdPending(key) {
+    if (key !== "household" && key !== "kids" && key !== "age2") return false;
+    var a = S.answers;
+    if (hasKids() && a.kids == null) return true;
+    if (hasPartner() && a.age2 == null) return true;
+    return false;
+  }
+  function reveal() {
+    S.revealed = true; persist();
+    talk.classList.add("revealed");
+    try { history.replaceState(null, "", "#talk"); } catch (e) { }
+    $("deck-stage").scrollIntoView({ block: "start", behavior: motion() });
+    pendingScroll = false;
+    deck("reveal", slotsForDeck());
+  }
+  function rewind(idx) {
+    var st = steps(), a = S.answers;
+    for (var i = idx; i < st.length; i++) { var k = st[i]; delete a[k]; if (k === "situation") { delete a.other; S.path = "main"; S.via = ""; } if (k === "zip") { delete a.area; delete a.stateName; } if (k === "age" && S.via === "age") { S.path = "main"; S.via = ""; } if (k === "household") { delete a.kids; delete a.age2; delete a.partner65; } }
+    delete a.care; S.booked = false; S.textOpen = false;
+    S.step = idx; var wasRevealed = S.revealed; S.revealed = false; talk.classList.remove("revealed");
+    persist(); pendingScroll = false; render();
+    deck("rewind", S.step, steps().length, wasRevealed);
+  }
+  function reset() {
+    var split = S.split; S = fresh(); S.split = split;
+    try { sessionStorage.removeItem(STORE); } catch (e) { }
+    talk.classList.remove("revealed"); pendingScroll = false; render(); deck("rewind", 0, 6, true);
+    $("talk").scrollIntoView({ block: "start", behavior: motion() });
+  }
+
+  function ackFor(key) {
+    var a = S.answers, prev = steps()[S.step - 1];
+    if (S.step === 0) return null;
+    if (prev === "situation") return ACK1[a.situation] || null;
+    if (prev === "zip") return a.area === "cook" ? "Chicago area, got it." : a.area === "il" ? "Illinois, got it." : a.stateName ? a.zip + " is " + a.stateName + ". No problem, I'm licensed nationally." : "Outside Illinois, no problem, I'm licensed nationally.";
+    if (prev === "household") return a.partner65 ? "At 65 and up your partner is likely on Medicare, so I'll price this for you alone and we'll map their Medicare on the call." : null;
+    if (prev === "income") return "Thanks. That only goes to me if you choose to send it.";
+    return null;
+  }
+  function renderQuestion(key) {
+    var a = S.answers, ack = ackFor(key), isNew = pendingScroll;
+    if (key === "situation") {
+      thread.appendChild(bubble("Let's start with what's going on. Which of these sounds like you?", null, isNew));
+      if (S.otherOpen) {
+        var row = compose({ placeholder: "Tell me in a few words", max: 80, value: a.other, onSubmit: function (v, inp) { if (!v) { inp.focus(); return; } S.otherOpen = false; answer("situation", "other", v); } });
+        thread.appendChild(row); setTimeout(function () { row._input.focus(); }, 50);
+      } else thread.appendChild(chips("situation", OPTS.situation, function (v) { if (v === "other") { S.otherOpen = true; render(); } else answer("situation", v); }, false, a.situation));
+    } else if (key === "headcount") {
+      thread.appendChild(bubble("How many people would be on it?", null, isNew));
+      thread.appendChild(chips("headcount", OPTS.headcount, function (v) { answer("headcount", v); }, false, a.headcount));
+    } else if (key === "zip") {
+      var q = S.path === "business" ? "And your ZIP? Group rates are set by county." : S.path === "medicare" ? "First, where do you live? Your ZIP tells me which Medicare plans are sold in your county." : "Where do you live? Your ZIP is all I need.";
+      thread.appendChild(bubble(q, ack, isNew));
+      thread.appendChild(compose({ placeholder: "60601", max: 5, numeric: true, autocomplete: "postal-code", value: a.zip, auto: /^\d{5}$/, onSubmit: function (v, inp) {
+        if (!/^\d{5}$/.test(v)) { if (!$("zip-bad")) { var n = note("That's not a ZIP I know. Five digits?"); n.id = "zip-bad"; inp.parentNode.parentNode.insertBefore(n, inp.parentNode); } inp.focus(); return; }
+        answer("zip", v);
+      } }));
+    } else if (key === "age") {
+      thread.appendChild(bubble("How old are you?", ack, isNew));
+      thread.appendChild(compose({ placeholder: "40", max: 2, numeric: true, value: a.age, auto: /^\d{2}$/, onSubmit: function (v, inp) {
+        var n = parseInt(v, 10);
+        if (!(n >= 18)) { if (!$("age-bad")) { var m = note("If you're under 18, a parent or guardian should be the one on the plan. Enter their age instead."); m.id = "age-bad"; inp.parentNode.parentNode.insertBefore(m, inp.parentNode); } inp.select(); return; }
+        answer("age", n);
+      } }));
+    } else if (key === "household") {
+      if (!a.household) {
+        thread.appendChild(bubble("Who's going on the plan?", ack, isNew));
+        thread.appendChild(chips("household", OPTS.household, function (v) { answer("household", v); }, false, a.household));
+      } else if (hasKids() && a.kids == null) {
+        thread.appendChild(bubble("How many kids?", null, true));
+        thread.appendChild(chips("kids", OPTS.kids, function (v) { answer("kids", v); }, false, a.kids));
+      } else {
+        thread.appendChild(bubble("And your partner's age?", null, true));
+        var pr = compose({ placeholder: String(a.age), max: 2, numeric: true, auto: /^\d{2}$/, onSubmit: function (v, inp) {
+          var n = parseInt(v, 10);
+          if (!(n >= 18 && n <= 99)) { if (!$("age2-bad")) { var m = note("Enter an age between 18 and 99."); m.id = "age2-bad"; inp.parentNode.parentNode.insertBefore(m, inp.parentNode); } inp.select(); return; }
+          answer("age2", n);
+        } });
+        thread.appendChild(pr);
+        thread.appendChild(chips("age2", [["same", "Same as me"]], function () { answer("age2", a.age); }));
+      }
+    } else if (key === "income") {
+      thread.appendChild(bubble("Roughly what will your household earn in 2027? Only so I can check tax credits.", ack, isNew));
+      thread.appendChild(chips("income", OPTS.income, function (v) { answer("income", v); }, false, a.income));
+    } else if (key === "carrier") {
+      thread.appendChild(bubble("Got a carrier you'd like to stick with?", ack, isNew));
+      thread.appendChild(chips("carrier", OPTS.carrier, function (v) { answer("carrier", v); }, true, a.carrier));
+    }
+  }
+  function bookCard() {
+    var c = el("div", "book-card");
+    c.innerHTML = '<svg class="cal" viewBox="0 0 24 24" aria-hidden="true"><rect x="3" y="5" width="18" height="16" rx="2"/><path d="M3 10h18M8 3v4M16 3v4"/></svg>';
+    c.appendChild(el("h3", null, "Book a call with Niko"));
+    c.appendChild(el("p", "small", "15 minutes. Pick any time. I'll pull the plans in your county, check your doctors and any tax credit you qualify for."));
+    var a = el("a", "btn btn-primary btn-block", "Book a call with Niko"); a.id = "book-main"; a.href = bookHref(); a.target = "_blank"; a.rel = "noopener";
+    a.addEventListener("click", onBook);
+    var t = el("button", "btn btn-ghost btn-block", "Text this to Niko"); t.type = "button"; t.id = "text-main"; t.addEventListener("click", openText);
+    c.appendChild(a); c.appendChild(t);
+    return c;
+  }
+  function onBook() {
+    deck("wrap");
+    var summary = smsBody().split("\n").slice(1).filter(function (l) { return l.indexOf("Name:") !== 0; }).join("\n");
+    if (navigator.clipboard && navigator.clipboard.writeText) navigator.clipboard.writeText(summary).then(function () { toast("Your answers are copied, in case the booking form asks for notes."); }, function () { });
+    if (!S.booked) { S.booked = true; persist(); pendingScroll = true; render(); }
+  }
+  function openText() { S.textOpen = true; persist(); pendingScroll = true; render(); }
+  var toastEl = null;
+  function toast(text) { if (toastEl) toastEl.remove(); toastEl = el("div", "toast", text); toastEl.setAttribute("role", "status"); document.body.appendChild(toastEl); setTimeout(function () { if (toastEl) { toastEl.remove(); toastEl = null; } }, 3000); }
+
+  function renderClosing() {
+    var a = S.answers, isNew = pendingScroll;
+    if (S.path === "medicare") {
+      var text = S.via === "age" ? "There are late-enrollment penalties that never go away, so the timing matters more than the price. Let's get it right on a call." : "That's all I need. Pick a time and I'll have the plans in your county ready.";
+      var ack = S.via === "age" ? "At " + a.age + " you're in Medicare territory, and Medicare is its own world." : null;
+      thread.appendChild(bubble(text, ack, isNew));
+      thread.appendChild(bookCard());
+    } else if (S.path === "business") {
+      thread.appendChild(bubble("For a team I price it by headcount, and there's a newer option, an ICHRA, where you give each person a set amount and they pick their own plan. Let's do this on a call.", null, isNew));
+      thread.appendChild(bookCard());
+    } else {
+      var b = ballpark();
+      thread.appendChild(bubble("Here's your ballpark for " + b.basis + " near " + a.zip + ". " + b.rates + ", per month, before any tax credit. Not a quote.", null, isNew));
+      var panel = el("div", "ballpark");
+      panel.appendChild(el("h3", null, b.headline));
+      panel.appendChild(el("p", "small basis", "Per month for " + b.basis + " near " + a.zip + ". " + b.rates + " before tax credits. Not a quote."));
+      var tiers = el("div", "tiers");
+      b.rows.forEach(function (r) {
+        var mt = TIER_META[r.key], row = el("button", "tier " + r.key + (a.care === mt.care ? " on" : "")), track = el("div", "track"), bar = document.createElement("i");
+        row.type = "button"; row.setAttribute("aria-pressed", a.care === mt.care ? "true" : "false");
+        bar.style.left = (r.lo / b.max * 100) + "%"; bar.style.width = ((r.hi - r.lo) / b.max * 100) + "%"; bar.style.background = mt.color;
+        track.appendChild(bar);
+        if (r.key === "gold") { var pin = el("i", "pin"); pin.style.left = "calc(" + (r.hi / b.max * 100) + "% - 1px)"; pin.style.background = "var(--rose)"; track.appendChild(pin); track.appendChild(el("span", "pin-label", "at or under")); }
+        row.appendChild(el("span", "name", mt.name)); row.appendChild(track); row.appendChild(el("b", null, range(r.lo, r.hi)));
+        row.addEventListener("click", function () { setCare(mt.care); });
+        tiers.appendChild(row);
+      });
+      panel.appendChild(tiers);
+      var caps = el("div", "captions");
+      caps.appendChild(el("p", "small", "I'll find you Gold at or under this, or tell you why not."));
+      caps.appendChild(el("p", "small", b.showSilver ? "Silver: cost-sharing help if your income qualifies." : "Silver stays in the deck: its cost-sharing help needs a lower income, and without it Gold usually wins."));
+      if (b.income) caps.appendChild(el("p", "small", b.income));
+      if (b.goldUnder) caps.appendChild(el("p", "small", b.goldUnder));
+      caps.appendChild(el("p", "small", a.area === "us" ? "I'll check who's strongest in your county." : CARRIER_LINE[a.carrier]));
+      if (a.situation === "self") caps.appendChild(el("p", "small", "Self-employed? Your premiums may be tax deductible. I'll factor that in."));
+      panel.appendChild(caps);
+      thread.appendChild(panel);
+      thread.appendChild(bookCard());
+      if (S.booked) thread.appendChild(bubble("See you on the call. If you want, text me this summary so I have it ready.", null, true));
+      if (S.textOpen) renderTextPreview();
+      if (!a.care) {
+        thread.appendChild(bubble("Want me to lead with something on the call?", null, false));
+        thread.appendChild(chips("care", OPTS.care, function (v) { setCare(v); }));
+      } else {
+        var m = el("div", "msg me"); m.appendChild(el("div", "bub", a.care === "silver" ? "Silver" : optLabel("care", a.care))); thread.appendChild(m);
+        thread.appendChild(bubble(CARE_REPLY[a.care], null, true));
+      }
+      thread.appendChild(el("p", "small", "Pre-subsidy estimates. Rough " + (CALIBRATION.USE_2027 ? "preliminary 2027" : String(CALIBRATION.RATE_YEAR)) + " marketplace ranges before tax credits, which lower the cost for many households. Prices vary by county and carrier, so this is not a quote. Nothing on this page gets submitted anywhere. You only send what you choose to."));
+      var over = linkBtn("Start over"); over.addEventListener("click", reset); thread.appendChild(over);
+      return;
+    }
+    if (S.booked) thread.appendChild(bubble("See you on the call. If you want, text me this summary so I have it ready.", null, true));
+    if (S.textOpen) renderTextPreview();
+    thread.appendChild(el("p", "small", "Nothing on this page gets submitted anywhere. You only send what you choose to."));
+    var over2 = linkBtn("Start over"); over2.addEventListener("click", reset); thread.appendChild(over2);
+  }
+  function setCare(v) {
+    S.answers.care = v; persist(); pendingScroll = true; render();
+    deck("lift", v === "cost" ? "bronze" : v === "silver" ? "silver" : (v === "oop" || v === "rx" || v === "event") ? "gold" : null);
+  }
+  function renderTextPreview() {
+    var a = S.answers;
+    thread.appendChild(bubble("Here's your text. Add your name if you like, pick a time, then send it from your phone.", null, true));
+    var wrap = el("div", "preview"), bub = el("div", "bub"), headEl = el("span"), midEl = el("span"), tailEl = el("span");
+    var nameIn = el("input"); nameIn.placeholder = "your name"; nameIn.maxLength = 40; nameIn.autocomplete = "name"; nameIn.value = a.name || "";
+    nameIn.addEventListener("input", function () { a.name = nameIn.value.trim(); persist(); paintBody(); });
+    nameIn.addEventListener("focus", function () { talk.classList.add("typing"); textbar.classList.add("hide"); });
+    nameIn.addEventListener("blur", function () { talk.classList.remove("typing"); textbar.classList.remove("hide"); });
+    var times = el("span", "times");
+    ["Anytime", "Mornings", "Afternoons", "Evenings"].forEach(function (t) {
+      var c = el("button", "chip" + ((a.time || "Anytime") === t ? " picked" : ""), t); c.type = "button";
+      c.addEventListener("click", function () { a.time = t; persist(); [].forEach.call(times.children, function (x) { x.classList.toggle("picked", x === c); }); paintBody(); });
+      times.appendChild(c);
+    });
+    function paintBody() {
+      var lines = smsBody().split("\n");
+      var mid = lines.slice(1).filter(function (l) { return !/^(Name:|Best time:|Key:|Referred by)/.test(l); });
+      var tail = lines.filter(function (l) { return /^(Key:|Referred by)/.test(l); });
+      headEl.textContent = lines[0] + "\n"; midEl.textContent = mid.join("\n") + "\n"; tailEl.textContent = "\n" + tail.join("\n");
+      updateSticky();
+    }
+    bub.appendChild(headEl);
+    bub.appendChild(document.createTextNode("Name: ")); bub.appendChild(nameIn); bub.appendChild(document.createTextNode("\n"));
+    bub.appendChild(midEl);
+    bub.appendChild(document.createTextNode("Best time: ")); bub.appendChild(times);
+    bub.appendChild(tailEl);
+    paintBody();
+    wrap.appendChild(bub);
+    var go = el("button", "btn btn-primary btn-block", "Open in Messages"); go.type = "button";
+    go.addEventListener("click", function () { openSms(smsBody()); if (!wrap.querySelector(".ready")) { var m = bubble("Your text is ready on your phone.", null, true); m.classList.add("ready"); wrap.appendChild(m); } });
+    wrap.appendChild(go);
+    wrap.appendChild(el("p", "small", "Nothing is sent until you press send."));
+    thread.appendChild(wrap);
+  }
+  function updateSticky() {
+    if (!S.split) return;
+    if (!textbar.classList.contains("split")) {
+      textbar.classList.add("split");
+      textbar.removeAttribute("href");
+      textbar.innerHTML = '<a class="book" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" aria-hidden="true"><rect x="3" y="5" width="18" height="16" rx="2"/><path d="M3 10h18M8 3v4M16 3v4"/></svg>Book a call</a><a class="sms" aria-label="Text Niko"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M21 12a8 8 0 01-11.6 7.1L4 21l1.9-5.4A8 8 0 1121 12z"/></svg></a>';
+      textbar.querySelector(".book").addEventListener("click", function () { if (closed() || S.path !== "main") onBook(); });
+    }
+    textbar.querySelector(".book").href = bookHref();
+    textbar.querySelector(".sms").href = smsHref(currentBody());
+  }
+  function paintFallback() {
+    var cards = [].slice.call(document.querySelectorAll("#deck-fallback .fcard")), slots = slotsForDeck();
+    if (S.revealed && slots) {
+      var bySlot = {}; slots.forEach(function (s) { bySlot[s.slot] = s; });
+      cards.forEach(function (c) {
+        var s = bySlot[c.dataset.slot], dim = !s && c.dataset.slot === "M";
+        c.classList.toggle("up", !!s || dim); c.classList.toggle("dim", dim); c.textContent = s ? s.name : dim ? "Silver" : ""; c.style.setProperty("--tc", s ? s.metal : "#5a5c62");
+        var tf = c.dataset.slot === "L" ? "translateX(-34%) rotate(-8deg)" : c.dataset.slot === "R" ? "translateX(34%) rotate(8deg)" : "translateY(-4%) scale(1.04)";
+        var lifted = s && S.answers.care && TIER_META[s.key].care === S.answers.care;
+        c.style.transform = tf + (lifted ? " translateY(-10px)" : ""); c.style.zIndex = c.dataset.slot === "M" ? 3 : 1;
+      });
+      $("fband").style.opacity = 0;
+    } else {
+      var tfs = { L: "rotate(-2deg) translateY(-6px)", M: "rotate(1.5deg)", R: "rotate(-1deg) translateY(6px)" }, metals = { L: "#9a5a2b", M: "#b9bcc4", R: "#d4a24a" };
+      cards.forEach(function (c) { c.classList.add("up"); c.classList.remove("dim"); c.textContent = ""; c.style.transform = tfs[c.dataset.slot]; c.style.setProperty("--tc", metals[c.dataset.slot]); c.style.zIndex = ""; });
+      $("fband").style.opacity = 1;
+    }
+  }
+  function scrollToLatest() {
+    var last = thread.lastElementChild; if (!last) return;
+    var bottom = last.getBoundingClientRect().bottom + scrollY, target = bottom - (innerHeight - 76 - 14 - 24);
+    if (target > scrollY) scrollTo({ top: target, behavior: motion() });
+  }
+  function render() {
+    thread.textContent = "";
+    var st = steps();
+    for (var i = 0; i < Math.min(S.step, st.length); i++) thread.appendChild(receipt(st[i], i));
+    if (!closed()) renderQuestion(st[S.step]); else renderClosing();
+    $("talk-step").textContent = closed() ? "Done" : (S.step + 1) + " of " + st.length;
+    $("talk-back").hidden = S.step === 0;
+    if (S.revealed) talk.classList.add("revealed"); else talk.classList.remove("revealed");
+    updateSticky(); paintFallback();
+    if (pendingScroll) { pendingScroll = false; requestAnimationFrame(scrollToLatest); }
+  }
+  $("talk-back").addEventListener("click", function () { rewind(S.step - 1); });
+  S = restore() || fresh();
+  if (S.revealed && !closed()) S.revealed = false;
+  render();
+  window.__talk = { state: function () { return S; }, slots: slotsForDeck, tierMeta: TIER_META, tapSlot: function (key) { setCare(TIER_META[key].care); } };
 
   window.__cardSave = saveContact;
 })();
@@ -625,9 +961,9 @@ window.addEventListener("DOMContentLoaded", function () {
   var loader = new THREE.GLTFLoader();
   var DPR = Math.min(window.devicePixelRatio || 1, 2);
 
-  function makeRenderer(canvas) {
+  function makeRenderer(canvas, dpr) {
     var r = new THREE.WebGLRenderer({ canvas: canvas, antialias: true, alpha: true, powerPreference: "low-power" });
-    r.setPixelRatio(DPR);
+    r.setPixelRatio(dpr || DPR);
     r.outputEncoding = THREE.sRGBEncoding;
     r.toneMapping = THREE.ACESFilmicToneMapping;
     r.toneMappingExposure = 0.9;
@@ -637,8 +973,8 @@ window.addEventListener("DOMContentLoaded", function () {
   function loop(canvas, frame) {
     var onScreen = true, raf = 0, clock = new THREE.Clock();
     function go() { if (!raf && onScreen && !document.hidden) { clock.getDelta(); raf = requestAnimationFrame(step); } }
-    function step() { raf = 0; frame(Math.min(clock.getDelta(), 0.05)); go(); }
-    if ("IntersectionObserver" in window) new IntersectionObserver(function (e) { onScreen = e[0].isIntersecting; go(); }).observe(canvas);
+    function step() { raf = 0; try { frame(Math.min(clock.getDelta(), 0.05)); } catch (err) { if (window.console) console.error("frame", err); } go(); }
+    if ("IntersectionObserver" in window) new IntersectionObserver(function (e) { onScreen = e[e.length - 1].isIntersecting; go(); }).observe(canvas);
     document.addEventListener("visibilitychange", go);
     go();
   }
@@ -713,6 +1049,144 @@ window.addEventListener("DOMContentLoaded", function () {
     });
   }, function () { /* keep CSS silk */ });
 
+  /* ----- the deck: three cards, a silk band and a bow, modeled and animated in Blender (build_deck) -----
+     Clips: Idle (the pile breathes), Square and Cut (a tidy tap and a cut after each answer), Deal (the cards
+     rise, flip and fan out face-up at the reveal; played backwards to gather them), Bow (pops when a call is booked).
+     The band's Loose and Off morph targets are driven from JS: it loosens a notch per answer and slips off at the reveal. */
+  var DECK_GLB = "__DECK_GLB__";
+  var deckCanvas = document.getElementById("deck3d"), talkEl = document.getElementById("talk");
+  function initDeck() {
+    var T = window.__talk; if (!T || !deckCanvas) return;
+    loader.parse(glb(DECK_GLB), "", function (gltf) {
+      var DECK_DPR = Math.min(window.devicePixelRatio || 1, 1.5), alive = true;
+      var renderer = makeRenderer(deckCanvas, DECK_DPR), scene = new THREE.Scene();
+      scene.environment = envMap(renderer);
+      var camera = new THREE.PerspectiveCamera(30, 1, 0.1, 50);
+      var root = gltf.scene; scene.add(root);
+      var silk = new THREE.MeshPhysicalMaterial({ color: 0x8a0614, roughness: 0.34, metalness: 0.25, sheen: 1, sheenColor: new THREE.Color(0xc40a22), sheenRoughness: 0.4, clearcoat: 0.35, clearcoatRoughness: 0.3, envMapIntensity: 0.22, side: THREE.DoubleSide });
+      var EDGE = { EdgeBronze: 0x9a5a2b, EdgeSilver: 0xb9bcc4, EdgeGold: 0xd4a24a }, METAL = { bronze: 0x9a5a2b, silver: 0xb9bcc4, gold: 0xd4a24a };
+      var nodes = {}, faces = {}, bodies = [], band = null, bowMesh = null;
+      root.traverse(function (o) {
+        nodes[o.name] = o;
+        if (!o.isMesh) return;
+        var n = o.material.name;
+        if (n === "SilkCrimson") { o.material = silk; if (o.name === "Band") band = o; if (o.name === "Bow") bowMesh = o; }
+        else if (EDGE[n]) { o.material = new THREE.MeshStandardMaterial({ color: EDGE[n], metalness: 1, roughness: 0.3, envMapIntensity: 0.9 }); bodies.push(o); }
+        else if (/^Face/.test(n)) { o.material = new THREE.MeshStandardMaterial({ map: lacquer(null), roughness: 0.4, metalness: 0.05 }); faces[o.name.charAt(4)] = o; }
+        else if (/^Back/.test(n)) { o.material = new THREE.MeshStandardMaterial({ map: backTex(), roughness: 0.4, metalness: 0.05 }); }
+      });
+      function canvasTex(c) { var t = new THREE.CanvasTexture(c); t.flipY = false; t.encoding = THREE.sRGBEncoding; t.anisotropy = 4; return t; }
+      function lacquerCanvas(a, b) { var c = document.createElement("canvas"); c.width = 1050; c.height = 600; var g = c.getContext("2d"), grd = g.createLinearGradient(0, 0, 1050, 600); grd.addColorStop(0, a); grd.addColorStop(1, b); g.fillStyle = grd; g.fillRect(0, 0, 1050, 600); return c; }
+      function backTex() {
+        var c = lacquerCanvas("#0b0304", "#1a0407"), g = c.getContext("2d");
+        g.save();
+        for (var r = 900; r > 100; r -= 38) { g.strokeStyle = "rgba(255,255,255,.05)"; g.lineWidth = 14; g.beginPath(); g.arc(1250, 780, r, 0, Math.PI * 2); g.stroke(); }
+        g.fillStyle = "#ff8aa3"; g.textAlign = "center"; g.textBaseline = "middle"; g.font = "600 160px 'Source Serif 4', Georgia, serif"; g.fillText("N", 330, 300);
+        g.restore(); return canvasTex(c);
+      }
+      function lacquer(tier, slot, dim) {
+        var c = lacquerCanvas("#0d0508", "#1b0a0e"), g = c.getContext("2d");
+        if (tier) {
+          var x = slot === "L" ? 90 : slot === "R" ? 960 : 525;
+          g.textAlign = slot === "L" ? "left" : slot === "R" ? "right" : "center";
+          g.fillStyle = "#" + METAL[tier.key].toString(16).padStart(6, "0"); g.fillRect(slot === "R" ? 960 - 220 : slot === "L" ? 90 : 525 - 110, 150, 220, 10);
+          g.fillStyle = dim ? "#6e585d" : "#f6eef0"; g.font = "600 170px 'Source Serif 4', Georgia, serif"; g.textBaseline = "alphabetic"; g.fillText(tier.name, x, 370);
+          g.fillStyle = dim ? "#5a474b" : "#d9c3c8"; g.font = "500 40px 'Public Sans', system-ui, sans-serif"; g.fillText(tier.line, x, 445);
+        }
+        return canvasTex(c);
+      }
+      scene.add(new THREE.HemisphereLight(0xffd6de, 0x120205, 0.5));
+      var key = new THREE.DirectionalLight(0xffffff, 1.4); key.position.set(2, 4, 3); scene.add(key);
+      var rim = new THREE.PointLight(0xff2a55, 2.0, 12); rim.position.set(-3, 1, 2); scene.add(rim);
+      // contact shadows: one under the pile, one under each fanned slot
+      var shadowTex = (function () { var c = document.createElement("canvas"); c.width = 256; c.height = 160; var g = c.getContext("2d"), r = g.createRadialGradient(128, 80, 10, 128, 80, 120); r.addColorStop(0, "rgba(0,0,0,.75)"); r.addColorStop(1, "rgba(0,0,0,0)"); g.fillStyle = r; g.fillRect(0, 0, 256, 160); var t = new THREE.CanvasTexture(c); return t; })();
+      function shadow(x, z, yaw) { var m = new THREE.Mesh(new THREE.PlaneGeometry(4.2, 2.6), new THREE.MeshBasicMaterial({ map: shadowTex, transparent: true, depthWrite: false })); m.rotation.x = -Math.PI / 2; m.rotation.z = yaw; m.position.set(x, -0.03, z); scene.add(m); return m; }
+      var pileShadow = shadow(0, 0, 0), slotShadows = { L: shadow(-2.05, -0.10, 0.26), M: shadow(0, 0.30, 0), R: shadow(2.05, -0.10, -0.26) };
+      // lift groups wrap each card so a lift never fights the clamped Deal action
+      var lifts = {};
+      ["L", "M", "R"].forEach(function (s) { var card = nodes["Card" + s], g = new THREE.Group(); g.name = "Lift" + s; card.parent.add(g); g.add(card); lifts[s] = { g: g, t: 0, target: 0 }; });
+      var mixer = new THREE.AnimationMixer(root), clips = {};
+      gltf.animations.forEach(function (c) { clips[c.name] = mixer.clipAction(c); });
+      var idle = clips.Idle, square = clips.Square, cut = clips.Cut, deal = clips.Deal, bow = clips.Bow, current = null;
+      if (idle) { idle.setLoop(THREE.LoopRepeat, Infinity); idle.play(); }
+      function oneShot(a) { if (!a) return; if (current && current !== a && current !== deal) current.stop(); a.reset(); a.setLoop(THREE.LoopOnce, 1); a.clampWhenFinished = (a === deal || a === bow); a.timeScale = 1; a.paused = false; a.play(); current = a; }
+      mixer.addEventListener("finished", function (e) { if (e.action === square || e.action === cut) e.action.stop(); if (e.action === deal && deal.timeScale < 0) deal.stop(); });
+      if (band) { band.morphTargetInfluences[band.morphTargetDictionary.Loose] = 0; band.morphTargetInfluences[band.morphTargetDictionary.Off] = 0; }
+      var looseTarget = 0, offTarget = 0, rimPulse = 0, revealed = false, slotOf = {}, dist = 6, distTarget = 6, timers = [];
+      function later(fn, ms) { timers.push(setTimeout(fn, ms)); }
+      function clearTimers() { timers.forEach(clearTimeout); timers = []; }
+      function assign(slots) {
+        slotOf = {};
+        ["L", "M", "R"].forEach(function (s) { faces[s].material.map = lacquer(null); });
+        (slots || []).forEach(function (t) { slotOf[t.key] = t.slot; faces[t.slot].material.map = lacquer(t, t.slot); var body = nodes["Card" + t.slot + "Body"]; body.material.color.setHex(METAL[t.key]); });
+        if (slots && slots.length === 2) { nodes.CardMBody.material.color.setHex(0x5a5c62); faces.M.material.map = lacquer({ key: "silver", name: "Silver", line: "Stays in the deck at your income" }, "M", true); }
+      }
+      function setRevealed(v) { revealed = v; }
+      window.__deck = {
+        react: function (n, N, kind) { looseTarget = Math.min(1, n / N); oneShot(kind === "cut" ? cut : square); rimPulse = 1; },
+        reveal: function (slots) {
+          clearTimers(); offTarget = 1; looseTarget = 1; setRevealed(true);
+          later(function () { assign(slots); if (current && current !== deal) current.stop(); deal.stop(); deal.reset(); deal.setLoop(THREE.LoopOnce, 1); deal.clampWhenFinished = true; deal.timeScale = 1; deal.paused = false; deal.play(); current = deal; }, 400);
+        },
+        wrap: function () {
+          clearTimers();
+          if (revealed) { deal.paused = false; deal.timeScale = -1.6; deal.play(); later(function () { offTarget = 0; }, 500); later(function () { looseTarget = 0; }, 1100); later(function () { oneShot(bow); }, 1500); setRevealed(false); unliftAll(); }
+          else { looseTarget = 0; later(function () { oneShot(bow); }, 600); }
+        },
+        rewind: function (n, N, wasRevealed) {
+          clearTimers(); if (bow) { bow.stop(); if (bowMesh) bowMesh.scale.set(0, 0, 0); }
+          if (revealed || wasRevealed) { if (deal.isRunning() || deal.time > 0) { deal.paused = false; deal.timeScale = -2; deal.play(); } }
+          offTarget = 0; looseTarget = Math.min(1, n / N); unliftAll(); setRevealed(false);
+        },
+        lift: function (tier) { unliftAll(); if (tier && slotOf[tier]) lifts[slotOf[tier]].target = 1; }
+      };
+      function unliftAll() { ["L", "M", "R"].forEach(function (s) { lifts[s].target = 0; }); }
+      // restore a revealed state without animation
+      var st = T.state();
+      if (st && st.revealed) { var slots = T.slots(); if (slots) { assign(slots); deal.setLoop(THREE.LoopOnce, 1); deal.clampWhenFinished = true; deal.play(); deal.time = deal.getClip().duration; mixer.update(0); if (band) { band.morphTargetInfluences[band.morphTargetDictionary.Off] = 1; band.morphTargetInfluences[band.morphTargetDictionary.Loose] = 1; } looseTarget = offTarget = 1; revealed = true; current = deal; if (st.answers.care) { var mt = T.tierMeta; Object.keys(mt).forEach(function (k) { if (mt[k].care === st.answers.care && slotOf[k]) lifts[slotOf[k]].target = 1; }); } } }
+      // tap a card: pick that tier
+      var down = null;
+      deckCanvas.addEventListener("pointerdown", function (e) { down = { x: e.clientX, y: e.clientY }; });
+      deckCanvas.addEventListener("pointerup", function (e) {
+        if (!down || Math.abs(e.clientX - down.x) > 6 || Math.abs(e.clientY - down.y) > 6 || !revealed) { down = null; return; }
+        down = null;
+        var r = deckCanvas.getBoundingClientRect(), v = new THREE.Vector2(((e.clientX - r.left) / r.width) * 2 - 1, -((e.clientY - r.top) / r.height) * 2 + 1), rc = new THREE.Raycaster();
+        rc.setFromCamera(v, camera);
+        var hit = rc.intersectObjects(bodies, false)[0];
+        if (!hit) return;
+        var slot = hit.object.name.charAt(4), tier = Object.keys(slotOf).filter(function (k) { return slotOf[k] === slot; })[0];
+        if (tier) T.tapSlot(tier);
+      });
+      var look = new THREE.Vector3(0, 0.15, 0), dir = new THREE.Vector3(0, 2.85, 4.8).normalize(), th = Math.tan(THREE.MathUtils.degToRad(15));
+      function fitDeck() {
+        var w = deckCanvas.clientWidth, h = deckCanvas.clientHeight; if (!w || !h) return;
+        if (deckCanvas.width !== Math.round(w * DECK_DPR) || deckCanvas.height !== Math.round(h * DECK_DPR)) { renderer.setSize(w, h, false); camera.aspect = w / h; camera.updateProjectionMatrix(); }
+        var needW = revealed ? 8.6 : 4.4, needH = revealed ? 3.0 : 2.4;
+        distTarget = Math.max(needW / (2 * th * camera.aspect), needH / (2 * th));
+      }
+      dist = 0;
+      talkEl.classList.remove("no3d"); deckCanvas.hidden = false;
+      deckCanvas.addEventListener("webglcontextlost", function (e) { e.preventDefault(); alive = false; talkEl.classList.add("no3d"); deckCanvas.hidden = true; try { renderer.dispose(); } catch (x) { } });
+      loop(deckCanvas, function (dt) {
+        if (!alive) return;
+        fitDeck();
+        if (!dist) dist = distTarget; else dist += (distTarget - dist) * Math.min(1, dt * 5);
+        camera.position.copy(look).addScaledVector(dir, dist); camera.lookAt(look);
+        mixer.update(dt);
+        if (band) { var di = band.morphTargetDictionary, inf = band.morphTargetInfluences; inf[di.Loose] += (looseTarget - inf[di.Loose]) * 0.12; inf[di.Off] += (offTarget - inf[di.Off]) * 0.10; band.visible = inf[di.Off] < 0.97; }
+        ["L", "M", "R"].forEach(function (s) { var l = lifts[s]; l.t += (l.target - l.t) * Math.min(1, dt * 10); l.g.position.set(0, 0.12 * l.t, 0.25 * l.t); l.g.rotation.x = -0.15 * l.t; });
+        rimPulse = Math.max(0, rimPulse - dt / 0.6); rim.intensity = 2.0 + 0.4 * rimPulse;
+        var f = (deal.isRunning() || deal.paused) && deal.time > 0 ? Math.min(1, deal.time / deal.getClip().duration) : (revealed ? 1 : 0);
+        pileShadow.material.opacity = 1 - f; ["L", "M", "R"].forEach(function (s) { slotShadows[s].material.opacity = f; });
+        renderer.render(scene, camera);
+      });
+    }, function () { /* keep the DOM fallback */ });
+  }
+
+  var deckStarted = false;
+  function startDeck() { if (deckStarted) return; deckStarted = true; (window.requestIdleCallback || function (f) { setTimeout(f, 300); })(initDeck, { timeout: 1500 }); }
+  setTimeout(startDeck, 5000);
+
   /* ----- floating 3D business card ----- */
   var cardCanvas = document.getElementById("card3d"), fallback = document.getElementById("card-fallback");
   function backTexture() {
@@ -730,7 +1204,7 @@ window.addEventListener("DOMContentLoaded", function () {
   new THREE.TextureLoader().load("card.png", function (front) {
     front.flipY = false; front.encoding = THREE.sRGBEncoding; front.anisotropy = 8;
     loader.parse(glb(CARD_GLB), "", function (gltf) {
-      cardCanvas.hidden = false; fallback.hidden = true;
+      cardCanvas.hidden = false; fallback.hidden = true; startDeck();
       var renderer = makeRenderer(cardCanvas), scene = new THREE.Scene();
       scene.environment = envMap(renderer);
       var camera = new THREE.PerspectiveCamera(32, 1, 0.1, 50);

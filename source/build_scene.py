@@ -187,7 +187,250 @@ def build_card():
                               export_apply=True, export_materials="EXPORT", export_yup=True)
 
 
+
+# ---------------------------------------------------------------- the deck: three cards, a silk band, a bow
+CARD_W, CARD_H, CARD_T = 3.5, 2.0, 0.045
+REST = {"CardL": ((0, 0, -0.05), (math.pi, 0, -0.035)), "CardM": ((0, 0, 0.0), (math.pi, 0, 0.026)), "CardR": ((0, 0, 0.05), (math.pi, 0, -0.017))}
+FAN = {"CardL": ((-2.05, 0.10, 0.0), (0.21, 0, -0.26)), "CardM": ((0, -0.30, 0.03), (0.21, 0, 0)), "CardR": ((2.05, 0.10, 0.0), (0.21, 0, 0.26))}
+
+
+def ribbon_mesh(name, pts, nu, nv, mat, closed_u=False):
+    """Build a ribbon mesh from a (nv+1) x (nu+1) grid of points (row-major, v outer)."""
+    row = nu + 1
+    faces = []
+    for j in range(nv):
+        for i in range(nu):
+            a = j * row + i
+            b = j * row + ((i + 1) % row if not closed_u else (i + 1) % nu)
+            if closed_u:
+                a = j * nu + i; b = j * nu + (i + 1) % nu
+                faces.append((a, b, b + nu, a + nu))
+            else:
+                faces.append((a, a + 1, a + 1 + row, a + row))
+    me = bpy.data.meshes.new(name)
+    me.from_pydata(pts, [], faces)
+    me.update()
+    for p in me.polygons:
+        p.use_smooth = True
+    ob = bpy.data.objects.new(name, me)
+    bpy.context.collection.objects.link(ob)
+    ob.data.materials.append(mat)
+    uv = me.uv_layers.new(name="UVMap")
+    per_row = nu if closed_u else row
+    for loop in me.loops:
+        vi = loop.vertex_index
+        uv.data[loop.index].uv = ((vi % per_row) / per_row, (vi // per_row) / nv)
+    return ob
+
+
+def band_points(nu, nv, mode):
+    """Closed silk loop around the pile: rounded rectangle in the YZ plane, ribbon width along X."""
+    hy, hz, r = 1.03, 0.1025, 0.06
+    # sample the rounded rectangle by arc length
+    straight_y, straight_z = 2 * (hy - r), 2 * (hz - r)
+    per = 2 * straight_y + 2 * straight_z + 2 * math.pi * r
+    def point(s):
+        s = s % per
+        segs = [("y+", straight_y), ("c1", math.pi * r / 2), ("z-", straight_z), ("c2", math.pi * r / 2),
+                ("y-", straight_y), ("c3", math.pi * r / 2), ("z+", straight_z), ("c4", math.pi * r / 2)]
+        for kind, L in segs:
+            if s <= L:
+                t = s / L if L else 0
+                if kind == "y+": return (-(hy - r) + straight_y * t, hz)          # along top, +Y direction
+                if kind == "c1": a = math.pi / 2 - t * math.pi / 2; return ((hy - r) + r * math.cos(a), (hz - r) + r * math.sin(a))
+                if kind == "z-": return (hy, (hz - r) - straight_z * t)
+                if kind == "c2": a = -t * math.pi / 2; return ((hy - r) + r * math.cos(a), -(hz - r) + r * math.sin(a))
+                if kind == "y-": return ((hy - r) - straight_y * t, -hz)
+                if kind == "c3": a = -math.pi / 2 - t * math.pi / 2; return (-(hy - r) + r * math.cos(a), -(hz - r) + r * math.sin(a))
+                if kind == "z+": return (-hy, -(hz - r) + straight_z * t)
+                if kind == "c4": a = math.pi - t * math.pi / 2; return (-(hy - r) + r * math.cos(a), (hz - r) + r * math.sin(a))
+            s -= L
+        return (-(hy - r), hz)
+    pts = []
+    for j in range(nv + 1):
+        xf = j / nv - 0.5
+        x = 0.35 + 0.55 * xf
+        for i in range(nu):
+            u = i / nu
+            y, z = point(u * per)
+            if mode in ("loose", "off"):
+                d = math.hypot(y, z) or 1
+                y *= 1.08; z *= 1.08
+                z += 0.02 * math.sin(4 * math.pi * xf + 8 * math.pi * u)
+            if mode == "off":
+                y *= 1.15; z *= 1.15
+                x2 = x + 2.6
+                y += 0.05 * math.sin(6 * math.pi * u + math.pi * xf)
+                z += 0.03 * math.cos(4 * math.pi * u)
+                pts.append((x2, y, z))
+            else:
+                pts.append((x, y, z))
+    return pts
+
+
+def bow_object(mat):
+    parts = []
+    # two loops
+    for sgn in (-1, 1):
+        cx, cz, R = sgn * 0.24, 0.12, 0.20
+        nu, nv = 40, 4
+        pts = []
+        for j in range(nv + 1):
+            v = j / nv - 0.5
+            for i in range(nu + 1):
+                a = 2 * math.pi * i / nu
+                w = 0.26 * (0.35 + 0.65 * abs(math.sin(a / 2)))
+                pts.append((cx + R * math.cos(a) * sgn, v * w, cz + R * math.sin(a) * 0.75 + 0.02))
+        parts.append(ribbon_mesh("BowLoop%d" % (sgn + 1), pts, nu, nv, mat))
+    # two tails
+    for sgn in (-1, 1):
+        nu, nv = 16, 4
+        pts = []
+        for j in range(nv + 1):
+            v = j / nv - 0.5
+            for i in range(nu + 1):
+                t = i / nu
+                x = sgn * 0.35 * t; y = -sgn * 0.15 * t; z = 0.10 - 0.15 * t + 0.03 * math.sin(3 * t)
+                pts.append((x + v * 0.24 * 0.3, y + v * 0.24, z))
+        parts.append(ribbon_mesh("BowTail%d" % (sgn + 1), pts, nu, nv, mat))
+    bpy.ops.mesh.primitive_cube_add(size=1, location=(0, 0, 0.12))
+    knot = bpy.context.active_object
+    knot.scale = (0.18, 0.14, 0.10)
+    knot.data.materials.append(mat)
+    parts.append(knot)
+    bpy.ops.object.select_all(action="DESELECT")
+    for p in parts:
+        p.select_set(True)
+    bpy.context.view_layer.objects.active = parts[0]
+    bpy.ops.object.join()
+    bow = bpy.context.active_object
+    bow.name = "Bow"; bow.data.name = "Bow"
+    bow.location = (0, 0, 0.0775)
+    return bow
+
+
+def _to_nla(ob, clip):
+    """Move the object's current action into an NLA track named after the clip."""
+    ad = ob.animation_data
+    act = ad.action
+    act.name = clip + "_" + ob.name
+    ad.action = None
+    track = ad.nla_tracks.new()
+    track.name = clip
+    strip = track.strips.new(clip, 0, act)
+    if hasattr(strip, "action_slot") and len(getattr(act, "slots", [])):
+        strip.action_slot = act.slots[0]
+    for fc in _fcurves(act):
+        for kp in fc.keyframe_points:
+            kp.interpolation = "BEZIER"; kp.easing = "EASE_IN_OUT"
+
+
+def build_deck():
+    reset()
+    silk = material("SilkCrimson", (0.62, 0.02, 0.10), 0.25, 0.28)
+    edge_mats = {"CardL": material("EdgeBronze", (0.55, 0.30, 0.14), 1.0, 0.32),
+                 "CardM": material("EdgeSilver", (0.75, 0.76, 0.80), 1.0, 0.32),
+                 "CardR": material("EdgeGold", (0.78, 0.56, 0.24), 1.0, 0.32)}
+    deck = bpy.data.objects.new("Deck", None)
+    bpy.context.collection.objects.link(deck)
+    cards = {}
+    for slot in ("CardL", "CardM", "CardR"):
+        rig = bpy.data.objects.new(slot, None)
+        bpy.context.collection.objects.link(rig)
+        rig.parent = deck
+        bpy.ops.mesh.primitive_cube_add(size=1)
+        body = bpy.context.active_object
+        body.name = slot + "Body"
+        body.scale = (CARD_W, CARD_H, CARD_T)
+        bpy.ops.object.transform_apply(scale=True)
+        bev = body.modifiers.new("Bevel", "BEVEL")
+        bev.width, bev.segments, bev.limit_method = 0.08, 6, "ANGLE"
+        bpy.ops.object.modifier_apply(modifier="Bevel")
+        body.data.materials.append(edge_mats[slot])
+        for p in body.data.polygons:
+            p.use_smooth = True
+        s = slot[-1]
+        front = face(slot + "Face", CARD_W - 0.2, CARD_H - 0.2, CARD_T / 2 + 0.002, False, material("Face" + s, (1, 1, 1)))
+        back = face(slot + "Back", CARD_W - 0.2, CARD_H - 0.2, -CARD_T / 2 - 0.002, True, material("Back" + s, (0.05, 0.01, 0.02)))
+        for ob in (body, front, back):
+            ob.parent = rig
+        cards[slot] = rig
+    band = ribbon_mesh("Band", band_points(120, 6, "basis"), 120, 6, silk, closed_u=True)
+    band.data.name = "Band"
+    band.shape_key_add(name="Basis", from_mix=False)
+    for key, mode in (("Loose", "loose"), ("Off", "off")):
+        sk = band.shape_key_add(name=key, from_mix=False)
+        for idx, co in enumerate(band_points(120, 6, mode)):
+            sk.data[idx].co = co
+        sk.value = 0.0
+    band.parent = deck
+    bow = bow_object(silk)
+    bow.parent = deck
+
+    def pose(slot, p, frame):
+        rig = cards[slot]
+        rig.location, rig.rotation_euler = p[0], p[1]
+        rig.keyframe_insert("location", frame=frame); rig.keyframe_insert("rotation_euler", frame=frame)
+
+    # Idle: the whole deck breathes
+    for f in range(0, 241, 30):
+        a = 2 * math.pi * f / 240
+        deck.location = (0, 0, 0.015 * math.sin(a))
+        deck.rotation_euler = (0.009 * math.sin(a + 1.1), 0, 0.014 * math.sin(a))
+        deck.keyframe_insert("location", frame=f); deck.keyframe_insert("rotation_euler", frame=f)
+    for fc in _fcurves(deck.animation_data.action):
+        for kp in fc.keyframe_points:
+            kp.interpolation = "SINE"
+    _to_nla(deck, "Idle")
+
+    # Square: a quick tidy tap of the pile
+    for slot, s in (("CardR", 0), ("CardM", 2), ("CardL", 4)):
+        loc, rot = REST[slot]
+        pose(slot, REST[slot], 0)
+        pose(slot, ((loc[0], loc[1], loc[2] + 0.06), (rot[0], rot[1], 0)), 4 + s)
+        pose(slot, ((loc[0], loc[1], loc[2] + 0.03), (rot[0], rot[1], rot[2] * 0.5)), 12 + s)
+        pose(slot, REST[slot], 24)
+        _to_nla(cards[slot], "Square")
+    # Cut: the top card lifts, slides out and returns
+    for slot in ("CardL", "CardM", "CardR"):
+        loc, rot = REST[slot]
+        pose(slot, REST[slot], 0)
+        if slot == "CardR":
+            pose(slot, ((0, 0, 0.20), rot), 6)
+            pose(slot, ((0.8, 0, 0.20), rot), 14)
+            pose(slot, ((0.8, 0, 0.20), rot), 20)
+            pose(slot, ((0, 0, 0.20), rot), 28)
+        pose(slot, REST[slot], 36)
+        _to_nla(cards[slot], "Cut")
+    # Deal: cards rise, flip and fan out face-up
+    for slot, s in (("CardR", 0), ("CardM", 4), ("CardL", 8)):
+        loc, rot = REST[slot]; floc, frot = FAN[slot]
+        pose(slot, REST[slot], 0)
+        pose(slot, ((loc[0], loc[1], loc[2] + 0.25), rot), 8 + s)
+        pose(slot, ((loc[0], loc[1], loc[2] + 0.25), rot), 20 + s)
+        pose(slot, ((floc[0], floc[1], floc[2] + 0.12), (0, 0, frot[2])), 48 + s)
+        pose(slot, FAN[slot], 66)
+        _to_nla(cards[slot], "Deal")
+    # Bow: pops in when the client books
+    for f, sc in ((0, 0.0), (14, 1.15), (24, 1.0)):
+        bow.scale = (sc, sc, sc); bow.keyframe_insert("scale", frame=f)
+    _to_nla(bow, "Bow")
+
+    # rest pose is the exported static pose
+    for slot in cards:
+        cards[slot].location, cards[slot].rotation_euler = REST[slot]
+    deck.location, deck.rotation_euler = (0, 0, 0), (0, 0, 0)
+    bow.scale = (0, 0, 0)
+    bpy.context.scene.frame_set(0)
+    bpy.ops.export_scene.gltf(filepath=OUT + "deck.glb", export_format="GLB", export_animations=True,
+                              export_animation_mode="NLA_TRACKS", export_nla_strips=True, export_force_sampling=True,
+                              export_morph=True, export_morph_normal=False, export_apply=False,
+                              export_materials="EXPORT", export_yup=True)
+
+
 if __name__ == "__main__":
-    build_silk()
-    build_card()
-    print("exported to", OUT)
+    which = [a for a in sys.argv[1:] if a in ("silk", "card", "deck")] or ["silk", "card", "deck"]
+    if "silk" in which: build_silk()
+    if "card" in which: build_card()
+    if "deck" in which: build_deck()
+    print("exported", which, "to", OUT)
